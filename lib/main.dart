@@ -8,6 +8,7 @@ import 'core/theme/app_theme.dart';
 import 'core/services/ad_service.dart';
 import 'core/services/iap_service.dart';
 import 'core/services/preferences_service.dart';
+import 'presentation/screens/main/main_shell.dart';
 import 'presentation/screens/onboarding/onboarding_screen.dart';
 
 void main() async {
@@ -89,54 +90,9 @@ class _EasyExchangeAppState extends State<EasyExchangeApp> {
 
       // 온보딩 여부에 따라 화면 분기
       home: _isOnboardingComplete
-          ? const PlaceholderHomeScreen()
+          ? const MainShell()
           : OnboardingScreen(onComplete: _onOnboardingComplete),
     );
   }
 }
 
-/// 임시 홈 화면 (실제 구현 시 교체)
-class PlaceholderHomeScreen extends StatelessWidget {
-  const PlaceholderHomeScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    final l10n = AppLocalizations.of(context)!;
-    final prefs = PreferencesService();
-
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(l10n.appTitle),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(
-              Icons.currency_exchange,
-              size: 80,
-              color: Theme.of(context).colorScheme.primary,
-            ),
-            const SizedBox(height: 24),
-            Text(
-              l10n.appTitle,
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-            const SizedBox(height: 8),
-            Text(
-              'Base: ${prefs.baseCurrency}',
-              style: Theme.of(context).textTheme.bodyLarge,
-            ),
-            const SizedBox(height: 4),
-            Text(
-              'Watch: ${prefs.watchList.join(", ")}',
-              style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                    color: Colors.grey,
-                  ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}

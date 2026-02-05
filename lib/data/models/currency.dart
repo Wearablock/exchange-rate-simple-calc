@@ -5,6 +5,8 @@ class Currency {
   final String symbol;
   final String flag;
   final int decimalPlaces;
+  /// 환율 표시 기준 단위 (예: KRW=1000, JPY=100, USD=1)
+  final int baseUnit;
 
   const Currency({
     required this.code,
@@ -13,6 +15,7 @@ class Currency {
     required this.symbol,
     required this.flag,
     this.decimalPlaces = 2,
+    this.baseUnit = 1,
   });
 
   @override
