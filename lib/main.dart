@@ -8,6 +8,7 @@ import 'core/theme/app_theme.dart';
 import 'core/services/ad_service.dart';
 import 'core/services/iap_service.dart';
 import 'core/services/preferences_service.dart';
+import 'presentation/screens/onboarding/onboarding_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -33,17 +34,19 @@ class EasyExchangeApp extends StatefulWidget {
 
 class _EasyExchangeAppState extends State<EasyExchangeApp> {
   ThemeMode _themeMode = ThemeMode.system;
+  bool _isOnboardingComplete = false;
 
   @override
   void initState() {
     super.initState();
-    _loadThemeMode();
+    _loadSettings();
   }
 
-  void _loadThemeMode() {
-    final themeModeString = PreferencesService().themeMode;
+  void _loadSettings() {
+    final prefs = PreferencesService();
     setState(() {
-      _themeMode = _getThemeModeFromString(themeModeString);
+      _themeMode = _getThemeModeFromString(prefs.themeMode);
+      _isOnboardingComplete = prefs.isOnboardingComplete;
     });
   }
 
@@ -56,6 +59,12 @@ class _EasyExchangeAppState extends State<EasyExchangeApp> {
       default:
         return ThemeMode.system;
     }
+  }
+
+  void _onOnboardingComplete() {
+    setState(() {
+      _isOnboardingComplete = true;
+    });
   }
 
   @override
@@ -78,8 +87,10 @@ class _EasyExchangeAppState extends State<EasyExchangeApp> {
       ],
       supportedLocales: AppConfig.supportedLocales,
 
-      // 홈 화면 (임시)
-      home: const PlaceholderHomeScreen(),
+      // 온보딩 여부에 따라 화면 분기
+      home: _isOnboardingComplete
+          ? const PlaceholderHomeScreen()
+          : OnboardingScreen(onComplete: _onOnboardingComplete),
     );
   }
 }
@@ -91,6 +102,7 @@ class PlaceholderHomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
+    final prefs = PreferencesService();
 
     return Scaffold(
       appBar: AppBar(
@@ -112,8 +124,13 @@ class PlaceholderHomeScreen extends StatelessWidget {
             ),
             const SizedBox(height: 8),
             Text(
-              'Project setup complete!',
-              style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+              'Base: ${prefs.baseCurrency}',
+              style: Theme.of(context).textTheme.bodyLarge,
+            ),
+            const SizedBox(height: 4),
+            Text(
+              'Watch: ${prefs.watchList.join(", ")}',
+              style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                     color: Colors.grey,
                   ),
             ),
