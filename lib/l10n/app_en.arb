@@ -1,0 +1,73 @@
+{
+  "@@locale": "en",
+  "appTitle": "Easy Exchange",
+  "@appTitle": {
+    "description": "The title of the application"
+  },
+  "home": "Home",
+  "history": "History",
+  "settings": "Settings",
+  "baseCurrency": "Base Currency",
+  "targetCurrencies": "Target Currencies",
+  "lastUpdated": "Last updated",
+  "minutesAgo": "{minutes} min ago",
+  "@minutesAgo": {
+    "placeholders": {
+      "minutes": {"type": "int"}
+    }
+  },
+  "justNow": "Just now",
+  "hoursAgo": "{hours} hours ago",
+  "@hoursAgo": {
+    "placeholders": {
+      "hours": {"type": "int"}
+    }
+  },
+  "saveRate": "Save Rate",
+  "savedRates": "Saved Rates",
+  "noSavedRates": "No saved rates yet",
+  "watchAd": "Watch ad to save",
+  "rateSaved": "Rate saved successfully",
+  "selectBaseCurrency": "Select your base currency",
+  "selectTargetCurrencies": "Select currencies to watch",
+  "getStarted": "Get Started",
+  "next": "Next",
+  "skip": "Skip",
+  "refresh": "Refresh",
+  "addCurrency": "Add Currency",
+  "removeCurrency": "Remove",
+  "memo": "Memo (optional)",
+  "cancel": "Cancel",
+  "save": "Save",
+  "delete": "Delete",
+  "confirm": "Confirm",
+  "language": "Language",
+  "theme": "Theme",
+  "themeSystem": "System",
+  "themeLight": "Light",
+  "themeDark": "Dark",
+  "removeAds": "Remove Ads",
+  "removeAdsDescription": "Enjoy ad-free learning experience forever",
+  "restorePurchase": "Restore Purchase",
+  "premium": "Premium",
+  "version": "Version",
+  "privacyPolicy": "Privacy Policy",
+  "termsOfService": "Terms of Service",
+  "support": "Support",
+  "error": "Error",
+  "retry": "Retry",
+  "noInternet": "No internet connection",
+  "loadingFailed": "Failed to load data",
+  "currencySettings": "Currency Settings",
+  "appSettings": "App Settings",
+  "about": "About",
+  "manageCurrencies": "Manage Currencies",
+  "searchCurrency": "Search currency",
+  "popular": "Popular",
+  "all": "All",
+  "deleteConfirm": "Are you sure you want to delete?",
+  "adRequired": "Ad viewing required",
+  "adNotReady": "Ad is not ready yet",
+  "saveWithoutAd": "Save without watching ad?",
+  "networkError": "Please check your network connection"
+}

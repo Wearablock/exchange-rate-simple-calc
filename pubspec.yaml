@@ -1,0 +1,90 @@
+name: exchange_rate_simple_calc
+description: "Simple exchange rate tracking app"
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.10.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+
+  # 상태관리
+  flutter_riverpod: ^2.6.1
+  riverpod_annotation: ^2.6.1
+
+  # 데이터베이스
+  drift: ^2.22.1
+  sqlite3_flutter_libs: ^0.5.28
+  path_provider: ^2.1.5
+  path: ^1.9.1
+
+  # 다국어
+  intl: ^0.20.2
+
+  # 광고
+  google_mobile_ads: ^5.3.0
+  app_tracking_transparency: ^2.0.6
+
+  # 인앱결제
+  in_app_purchase: ^3.2.0
+
+  # 앱 업데이트
+  upgrader: ^12.0.0
+
+  # UI/UX
+  cupertino_icons: ^1.0.8
+  google_fonts: ^6.2.1
+  phosphor_flutter: ^2.1.0
+  fl_chart: ^0.69.2
+
+  # 유틸
+  shared_preferences: ^2.3.5
+  package_info_plus: ^8.1.3
+  http: ^1.2.2
+  url_launcher: ^6.3.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+
+  # 코드 생성
+  riverpod_generator: ^2.6.4
+  build_runner: ^2.4.14
+  drift_dev: ^2.22.1
+
+  # 스플래시 & 아이콘
+  flutter_native_splash: ^2.4.4
+  flutter_launcher_icons: ^0.14.3
+
+# 스플래시 화면 설정
+flutter_native_splash:
+  color: "#4CAF50"
+  color_dark: "#121212"
+  image: assets/splash/splash_logo.png
+  android_12:
+    color: "#4CAF50"
+    color_dark: "#121212"
+    image: assets/splash/splash_logo.png
+
+# 앱 아이콘 설정
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/icon/app_icon.png"
+  adaptive_icon_background: "#4CAF50"
+  adaptive_icon_foreground: "assets/icon/app_icon.png"
+  min_sdk_android: 21
+
+flutter:
+  uses-material-design: true
+  generate: true
+
+  assets:
+    - assets/icon/
+    - assets/splash/
+    - assets/sounds/
