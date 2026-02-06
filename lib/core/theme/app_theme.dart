@@ -25,6 +25,7 @@ class AppTheme {
       appBarTheme: AppBarTheme(
         backgroundColor: Colors.transparent,
         elevation: 0,
+        scrolledUnderElevation: 0,
         centerTitle: true,
         iconTheme: IconThemeData(color: AppConfig.primaryColor),
         titleTextStyle: GoogleFonts.notoSans(
@@ -139,6 +140,7 @@ class AppTheme {
       appBarTheme: AppBarTheme(
         backgroundColor: Colors.transparent,
         elevation: 0,
+        scrolledUnderElevation: 0,
         centerTitle: true,
         iconTheme: IconThemeData(color: AppConfig.primaryLightColor),
         titleTextStyle: GoogleFonts.notoSans(
