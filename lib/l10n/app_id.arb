@@ -28,6 +28,7 @@
   "save": "Simpan",
   "delete": "Hapus",
   "confirm": "Konfirmasi",
+  "refreshConfirm": "Apakah Anda ingin memperbarui kurs?",
   "language": "Bahasa",
   "theme": "Tema",
   "themeSystem": "Sistem",

@@ -97,6 +97,9 @@ class AppLocalizationsAr extends AppLocalizations {
   String get confirm => 'تأكيد';
 
   @override
+  String get refreshConfirm => 'هل تريد تحديث أسعار الصرف؟';
+
+  @override
   String get language => 'اللغة';
 
   @override

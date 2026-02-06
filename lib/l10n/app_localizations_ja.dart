@@ -97,6 +97,9 @@ class AppLocalizationsJa extends AppLocalizations {
   String get confirm => '確認';
 
   @override
+  String get refreshConfirm => '為替レートを更新しますか？';
+
+  @override
   String get language => '言語';
 
   @override

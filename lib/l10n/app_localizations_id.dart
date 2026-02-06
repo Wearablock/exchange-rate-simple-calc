@@ -97,6 +97,9 @@ class AppLocalizationsId extends AppLocalizations {
   String get confirm => 'Konfirmasi';
 
   @override
+  String get refreshConfirm => 'Apakah Anda ingin memperbarui kurs?';
+
+  @override
   String get language => 'Bahasa';
 
   @override

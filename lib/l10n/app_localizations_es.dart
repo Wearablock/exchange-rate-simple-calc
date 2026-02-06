@@ -97,6 +97,9 @@ class AppLocalizationsEs extends AppLocalizations {
   String get confirm => 'Confirmar';
 
   @override
+  String get refreshConfirm => '¿Desea actualizar los tipos de cambio?';
+
+  @override
   String get language => 'Idioma';
 
   @override

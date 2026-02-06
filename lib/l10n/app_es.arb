@@ -28,6 +28,7 @@
   "save": "Guardar",
   "delete": "Eliminar",
   "confirm": "Confirmar",
+  "refreshConfirm": "¿Desea actualizar los tipos de cambio?",
   "language": "Idioma",
   "theme": "Tema",
   "themeSystem": "Sistema",

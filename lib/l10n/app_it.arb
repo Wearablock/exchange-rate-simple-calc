@@ -28,6 +28,7 @@
   "save": "Salva",
   "delete": "Elimina",
   "confirm": "Conferma",
+  "refreshConfirm": "Vuoi aggiornare i tassi di cambio?",
   "language": "Lingua",
   "theme": "Tema",
   "themeSystem": "Sistema",

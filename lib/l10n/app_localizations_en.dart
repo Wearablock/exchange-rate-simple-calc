@@ -97,6 +97,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get confirm => 'Confirm';
 
   @override
+  String get refreshConfirm => 'Do you want to refresh exchange rates?';
+
+  @override
   String get language => 'Language';
 
   @override

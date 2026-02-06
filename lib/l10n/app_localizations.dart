@@ -291,6 +291,12 @@ abstract class AppLocalizations {
   /// **'Confirm'**
   String get confirm;
 
+  /// No description provided for @refreshConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Do you want to refresh exchange rates?'**
+  String get refreshConfirm;
+
   /// No description provided for @language.
   ///
   /// In en, this message translates to:

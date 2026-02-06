@@ -28,6 +28,7 @@
   "save": "Enregistrer",
   "delete": "Supprimer",
   "confirm": "Confirmer",
+  "refreshConfirm": "Voulez-vous actualiser les taux de change ?",
   "language": "Langue",
   "theme": "Thème",
   "themeSystem": "Système",

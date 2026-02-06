@@ -97,6 +97,9 @@ class AppLocalizationsPt extends AppLocalizations {
   String get confirm => 'Confirmar';
 
   @override
+  String get refreshConfirm => 'Deseja atualizar as taxas de câmbio?';
+
+  @override
   String get language => 'Idioma';
 
   @override

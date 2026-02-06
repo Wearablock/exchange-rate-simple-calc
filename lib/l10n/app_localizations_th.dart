@@ -97,6 +97,9 @@ class AppLocalizationsTh extends AppLocalizations {
   String get confirm => 'ยืนยัน';
 
   @override
+  String get refreshConfirm => 'คุณต้องการรีเฟรชอัตราแลกเปลี่ยนหรือไม่?';
+
+  @override
   String get language => 'ภาษา';
 
   @override

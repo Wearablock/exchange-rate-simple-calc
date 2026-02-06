@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../../../core/constants/currencies.dart';
 import '../../../core/services/preferences_service.dart';
+import '../../../core/services/ad_service.dart';
 import '../../../core/services/exchange_rate_service.dart';
+import '../../../core/services/iap_service.dart';
 import '../../../data/models/exchange_rate.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../widgets/currency_select_dialog.dart';
@@ -17,6 +19,8 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   final PreferencesService _prefsService = PreferencesService();
   final ExchangeRateService _exchangeService = ExchangeRateService();
+  final AdService _adService = AdService();
+  final IAPService _iapService = IAPService();
 
   final TextEditingController _amountController = TextEditingController();
   final TextEditingController _rightAmountController = TextEditingController();
@@ -84,6 +88,70 @@ class _HomeScreenState extends State<HomeScreen> {
     }
   }
 
+  Future<void> _confirmRefresh() async {
+    final l10n = AppLocalizations.of(context)!;
+    final theme = Theme.of(context);
+    final isPremium = _iapService.isPremium;
+
+    final confirmed = await showDialog<bool>(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Row(
+          children: [
+            Text(l10n.refresh),
+            if (!isPremium) ...[
+              const SizedBox(width: 8),
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+                decoration: BoxDecoration(
+                  color: theme.colorScheme.primary,
+                  borderRadius: BorderRadius.circular(6),
+                ),
+                child: Text(
+                  'AD',
+                  style: TextStyle(
+                    color: theme.colorScheme.onPrimary,
+                    fontWeight: FontWeight.w800,
+                    fontSize: 12,
+                  ),
+                ),
+              ),
+            ],
+          ],
+        ),
+        content: Text(l10n.refreshConfirm),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context, false),
+            child: Text(l10n.cancel),
+          ),
+          TextButton(
+            onPressed: () => Navigator.pop(context, true),
+            child: Text(l10n.confirm),
+          ),
+        ],
+      ),
+    );
+
+    if (confirmed != true || !mounted) return;
+
+    if (isPremium) {
+      _refresh();
+    } else {
+      final adShown = await _adService.showRewardedAd(
+        onRewarded: (_) {
+          if (mounted) _refresh();
+        },
+      );
+
+      if (!adShown && mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(l10n.adNotReady)),
+        );
+      }
+    }
+  }
+
   Future<void> _refresh() async {
     setState(() {
       _isLoading = true;
@@ -138,16 +206,14 @@ class _HomeScreenState extends State<HomeScreen> {
         actions: [
           IconButton(
             icon: const Icon(Icons.refresh),
-            onPressed: _isLoading ? null : _refresh,
+            onPressed: _isLoading ? null : _confirmRefresh,
             tooltip: l10n.refresh,
           ),
         ],
       ),
       body: _isLoading
           ? const Center(child: CircularProgressIndicator())
-          : RefreshIndicator(
-              onRefresh: _refresh,
-              child: CustomScrollView(
+          : CustomScrollView(
                 slivers: [
                   // 환율 변환 카드
                   SliverToBoxAdapter(
@@ -240,7 +306,6 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ],
               ),
-            ),
       ),
     );
   }

@@ -41,6 +41,7 @@
   "save": "Save",
   "delete": "Delete",
   "confirm": "Confirm",
+  "refreshConfirm": "Do you want to refresh exchange rates?",
   "language": "Language",
   "theme": "Theme",
   "themeSystem": "System",

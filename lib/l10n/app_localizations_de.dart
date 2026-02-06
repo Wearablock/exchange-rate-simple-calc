@@ -97,6 +97,9 @@ class AppLocalizationsDe extends AppLocalizations {
   String get confirm => 'Bestätigen';
 
   @override
+  String get refreshConfirm => 'Möchten Sie die Wechselkurse aktualisieren?';
+
+  @override
   String get language => 'Sprache';
 
   @override

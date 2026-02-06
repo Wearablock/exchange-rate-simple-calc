@@ -28,6 +28,7 @@
   "save": "저장",
   "delete": "삭제",
   "confirm": "확인",
+  "refreshConfirm": "환율 정보를 새로고침 하시겠습니까?",
   "language": "언어",
   "theme": "테마",
   "themeSystem": "시스템",

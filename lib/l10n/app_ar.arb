@@ -28,6 +28,7 @@
   "save": "حفظ",
   "delete": "حذف",
   "confirm": "تأكيد",
+  "refreshConfirm": "هل تريد تحديث أسعار الصرف؟",
   "language": "اللغة",
   "theme": "المظهر",
   "themeSystem": "النظام",

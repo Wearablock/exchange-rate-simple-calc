@@ -28,6 +28,7 @@
   "save": "Сохранить",
   "delete": "Удалить",
   "confirm": "Подтвердить",
+  "refreshConfirm": "Обновить курсы валют?",
   "language": "Язык",
   "theme": "Тема",
   "themeSystem": "Системная",

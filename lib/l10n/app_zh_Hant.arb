@@ -28,6 +28,7 @@
   "save": "儲存",
   "delete": "刪除",
   "confirm": "確認",
+  "refreshConfirm": "是否刷新匯率資訊？",
   "language": "語言",
   "theme": "主題",
   "themeSystem": "系統",

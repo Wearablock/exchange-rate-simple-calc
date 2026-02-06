@@ -97,6 +97,9 @@ class AppLocalizationsKo extends AppLocalizations {
   String get confirm => '확인';
 
   @override
+  String get refreshConfirm => '환율 정보를 새로고침 하시겠습니까?';
+
+  @override
   String get language => '언어';
 
   @override

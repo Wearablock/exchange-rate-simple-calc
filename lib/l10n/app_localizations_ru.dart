@@ -97,6 +97,9 @@ class AppLocalizationsRu extends AppLocalizations {
   String get confirm => 'Подтвердить';
 
   @override
+  String get refreshConfirm => 'Обновить курсы валют?';
+
+  @override
   String get language => 'Язык';
 
   @override

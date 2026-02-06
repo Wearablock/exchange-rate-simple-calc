@@ -28,6 +28,7 @@
   "save": "保存",
   "delete": "削除",
   "confirm": "確認",
+  "refreshConfirm": "為替レートを更新しますか？",
   "language": "言語",
   "theme": "テーマ",
   "themeSystem": "システム",

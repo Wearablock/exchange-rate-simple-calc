@@ -97,6 +97,9 @@ class AppLocalizationsVi extends AppLocalizations {
   String get confirm => 'Xác nhận';
 
   @override
+  String get refreshConfirm => 'Bạn có muốn làm mới tỷ giá hối đoái không?';
+
+  @override
   String get language => 'Ngôn ngữ';
 
   @override

@@ -97,6 +97,9 @@ class AppLocalizationsZh extends AppLocalizations {
   String get confirm => '确认';
 
   @override
+  String get refreshConfirm => '是否刷新汇率信息？';
+
+  @override
   String get language => '语言';
 
   @override
@@ -275,6 +278,9 @@ class AppLocalizationsZhHant extends AppLocalizationsZh {
 
   @override
   String get confirm => '確認';
+
+  @override
+  String get refreshConfirm => '是否刷新匯率資訊？';
 
   @override
   String get language => '語言';

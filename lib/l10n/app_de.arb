@@ -28,6 +28,7 @@
   "save": "Speichern",
   "delete": "Löschen",
   "confirm": "Bestätigen",
+  "refreshConfirm": "Möchten Sie die Wechselkurse aktualisieren?",
   "language": "Sprache",
   "theme": "Design",
   "themeSystem": "System",

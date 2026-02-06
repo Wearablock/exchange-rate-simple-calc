@@ -28,6 +28,7 @@
   "save": "บันทึก",
   "delete": "ลบ",
   "confirm": "ยืนยัน",
+  "refreshConfirm": "คุณต้องการรีเฟรชอัตราแลกเปลี่ยนหรือไม่?",
   "language": "ภาษา",
   "theme": "ธีม",
   "themeSystem": "ระบบ",
