@@ -203,4 +203,40 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get systemDefault => 'Par défaut du système';
+
+  @override
+  String get welcomeDescription =>
+      'Consultez les taux de change en temps réel\net enregistrez les taux importants';
+
+  @override
+  String get baseCurrencyDescription =>
+      'Sélectionnez la devise pour la comparaison des taux';
+
+  @override
+  String get targetCurrencyDescription => 'Sélectionnez les devises à suivre';
+
+  @override
+  String selectedCount(int count) {
+    return '$count sélectionnée(s)';
+  }
+
+  @override
+  String get emptyStateHint =>
+      'Enregistrez des taux depuis l\'écran d\'accueil';
+
+  @override
+  String get adFreeActivated => 'Toutes les publicités ont été supprimées';
+
+  @override
+  String get adFreePurchaseDescription =>
+      'Achat unique pour supprimer toutes les pubs';
+
+  @override
+  String get noCurrencies => 'Aucune devise à afficher';
+
+  @override
+  String get purchaseSuccess => 'Achat effectué avec succès';
+
+  @override
+  String get purchaseFailed => 'Échec de l\'achat. Veuillez réessayer.';
 }

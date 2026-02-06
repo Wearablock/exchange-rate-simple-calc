@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../core/constants/currencies.dart';
 import '../../../core/services/preferences_service.dart';
-import '../../../core/services/rate_history_service.dart';
 import 'widgets/base_currency_page.dart';
 import 'widgets/target_currency_page.dart';
 import 'widgets/welcome_page.dart';
@@ -21,7 +20,6 @@ class OnboardingScreen extends StatefulWidget {
 class _OnboardingScreenState extends State<OnboardingScreen> {
   final PageController _pageController = PageController();
   final PreferencesService _prefsService = PreferencesService();
-  final RateHistoryService _historyService = RateHistoryService();
 
   int _currentPage = 0;
   String _selectedBaseCurrency = 'USD';
@@ -60,9 +58,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
         .where((c) => c != _selectedBaseCurrency)
         .toList();
 
-    // 관심 통화 저장 (SharedPreferences + DB 둘 다)
+    // 관심 통화 저장
     await _prefsService.setWatchList(targetCurrencies);
-    await _historyService.setWatchList(targetCurrencies);
 
     // 온보딩 완료 표시
     await _prefsService.setOnboardingComplete(true);

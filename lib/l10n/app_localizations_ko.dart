@@ -202,4 +202,36 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get systemDefault => '시스템 기본값';
+
+  @override
+  String get welcomeDescription => '실시간 환율을 확인하고\n중요한 환율을 기록해보세요';
+
+  @override
+  String get baseCurrencyDescription => '환율 비교의 기준이 되는 통화를 선택하세요';
+
+  @override
+  String get targetCurrencyDescription => '관심 있는 통화를 선택하세요';
+
+  @override
+  String selectedCount(int count) {
+    return '$count개 선택됨';
+  }
+
+  @override
+  String get emptyStateHint => '홈 화면에서 환율을 저장해보세요';
+
+  @override
+  String get adFreeActivated => '모든 광고가 제거되었습니다';
+
+  @override
+  String get adFreePurchaseDescription => '일회성 구매로 모든 광고 제거';
+
+  @override
+  String get noCurrencies => '표시할 통화가 없습니다';
+
+  @override
+  String get purchaseSuccess => '구매가 완료되었습니다';
+
+  @override
+  String get purchaseFailed => '구매에 실패했습니다. 다시 시도해주세요.';
 }

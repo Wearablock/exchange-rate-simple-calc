@@ -89,7 +89,7 @@ class _TargetCurrencyPageState extends State<TargetCurrencyPage> {
             children: [
               Expanded(
                 child: Text(
-                  _getDescription(context),
+                  l10n.targetCurrencyDescription,
                   style: theme.textTheme.bodyMedium?.copyWith(
                     color: theme.colorScheme.onSurface.withValues(alpha: 0.7),
                   ),
@@ -102,7 +102,7 @@ class _TargetCurrencyPageState extends State<TargetCurrencyPage> {
                   borderRadius: BorderRadius.circular(16),
                 ),
                 child: Text(
-                  '$selectedCount selected',
+                  l10n.selectedCount(selectedCount),
                   style: TextStyle(
                     color: theme.colorScheme.primary,
                     fontWeight: FontWeight.w600,
@@ -184,20 +184,6 @@ class _TargetCurrencyPageState extends State<TargetCurrencyPage> {
     );
   }
 
-  String _getDescription(BuildContext context) {
-    final locale = Localizations.localeOf(context);
-
-    switch (locale.languageCode) {
-      case 'ko':
-        return '관심 있는 통화를 선택하세요';
-      case 'ja':
-        return '関心のある通貨を選択してください';
-      case 'zh':
-        return '选择您感兴趣的货币';
-      default:
-        return 'Select currencies you want to track';
-    }
-  }
 }
 
 class _CurrencyCheckTile extends StatelessWidget {

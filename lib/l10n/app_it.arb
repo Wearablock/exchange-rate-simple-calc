@@ -62,5 +62,15 @@
   "viewChart": "Visualizza grafico",
   "chartDescription": "Visualizza l'andamento del tasso di cambio con {count} record",
   "selectLanguage": "Seleziona lingua",
-  "systemDefault": "Predefinito di sistema"
+  "systemDefault": "Predefinito di sistema",
+  "welcomeDescription": "Controlla i tassi di cambio in tempo reale\ne salva i tassi importanti",
+  "baseCurrencyDescription": "Seleziona la valuta per il confronto dei tassi",
+  "targetCurrencyDescription": "Seleziona le valute da monitorare",
+  "selectedCount": "{count} selezionata/e",
+  "emptyStateHint": "Salva i tassi di cambio dalla schermata principale",
+  "adFreeActivated": "Tutte le pubblicità sono state rimosse",
+  "adFreePurchaseDescription": "Acquisto una tantum per rimuovere tutte le pubblicità",
+  "noCurrencies": "Nessuna valuta da visualizzare",
+  "purchaseSuccess": "Acquisto completato con successo",
+  "purchaseFailed": "Acquisto non riuscito. Riprova."
 }

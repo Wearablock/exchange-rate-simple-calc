@@ -6,8 +6,10 @@ import '../../../core/services/preferences_service.dart';
 import '../../../core/services/ad_service.dart';
 import '../../../core/services/iap_service.dart';
 import '../../../core/constants/currencies.dart';
+import '../../../core/utils/currency_formatter.dart';
 import '../../../data/database/app_database.dart';
 import '../../../l10n/app_localizations.dart';
+import '../../widgets/ad_badge.dart';
 
 class HistoryScreen extends StatefulWidget {
   const HistoryScreen({super.key});
@@ -184,7 +186,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
                       onPressed: () => _showChart(rates, baseCode, targetCode),
                       padding: EdgeInsets.zero,
                       constraints: const BoxConstraints(),
-                      tooltip: 'Chart',
+                      tooltip: l10n.viewChart,
                     ),
                   ],
                   const SizedBox(width: 8),
@@ -244,18 +246,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
   }
 
   String _getEmptyStateHint(BuildContext context) {
-    final locale = Localizations.localeOf(context);
-
-    switch (locale.languageCode) {
-      case 'ko':
-        return '홈 화면에서 환율을 저장해보세요';
-      case 'ja':
-        return 'ホーム画面で為替レートを保存してみてください';
-      case 'zh':
-        return '在主页保存汇率';
-      default:
-        return 'Save exchange rates from the home screen';
-    }
+    return AppLocalizations.of(context)!.emptyStateHint;
   }
 
   Future<void> _showChart(List<SavedRate> rates, String baseCode, String targetCode) async {
@@ -274,21 +265,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
             Text(l10n.viewChart),
             if (!isPremium) ...[
               const SizedBox(width: 8),
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
-                decoration: BoxDecoration(
-                  color: theme.colorScheme.primary,
-                  borderRadius: BorderRadius.circular(6),
-                ),
-                child: Text(
-                  'AD',
-                  style: TextStyle(
-                    color: theme.colorScheme.onPrimary,
-                    fontWeight: FontWeight.w800,
-                    fontSize: 12,
-                  ),
-                ),
-              ),
+              const AdBadge(),
             ],
           ],
         ),
@@ -468,13 +445,13 @@ class _SavedRateCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   Text(
-                    _formatRate(adjustedRate, rate.targetCode),
+                    CurrencyFormatter.formatRate(adjustedRate, rate.targetCode),
                     style: theme.textTheme.titleMedium?.copyWith(
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                   Text(
-                    '${_formatBaseUnit(baseUnit)} ${rate.baseCode}',
+                    '${baseUnit == 1 ? '1.00' : CurrencyFormatter.formatWithComma(baseUnit)} ${rate.baseCode}',
                     style: theme.textTheme.bodySmall?.copyWith(
                       color: theme.colorScheme.onSurface.withValues(alpha: 0.5),
                     ),
@@ -510,39 +487,6 @@ class _SavedRateCard extends StatelessWidget {
     return '${dateTime.hour.toString().padLeft(2, '0')}:${dateTime.minute.toString().padLeft(2, '0')}';
   }
 
-  String _formatBaseUnit(int baseUnit) {
-    if (baseUnit == 1) return '1.00';
-    return _formatWithComma(baseUnit);
-  }
-
-  String _formatRate(double rate, String targetCurrency) {
-    final decimalPlaces = Currencies.getDecimalPlaces(targetCurrency);
-
-    if (decimalPlaces == 0) {
-      return _formatWithComma(rate.round());
-    } else if (rate >= 100) {
-      return _formatWithComma(rate, decimals: 2);
-    } else if (rate >= 1) {
-      return rate.toStringAsFixed(4);
-    } else {
-      return rate.toStringAsFixed(6);
-    }
-  }
-
-  String _formatWithComma(num value, {int decimals = 0}) {
-    if (decimals == 0) {
-      return value.toString().replaceAllMapped(
-        RegExp(r'(\d)(?=(\d{3})+(?!\d))'),
-        (match) => '${match[1]},',
-      );
-    }
-    final parts = value.toStringAsFixed(decimals).split('.');
-    final intPart = parts[0].replaceAllMapped(
-      RegExp(r'(\d)(?=(\d{3})+(?!\d))'),
-      (match) => '${match[1]},',
-    );
-    return '$intPart.${parts[1]}';
-  }
 }
 
 class _RateChartSheet extends StatelessWidget {
@@ -743,7 +687,7 @@ class _RateChartSheet extends StatelessWidget {
 
             // 기준 단위 안내
             Text(
-              '/ ${baseUnit == 1 ? '1.00' : _formatWithComma(baseUnit)} $baseCode',
+              '/ ${baseUnit == 1 ? '1.00' : CurrencyFormatter.formatWithComma(baseUnit)} $baseCode',
               style: theme.textTheme.bodySmall?.copyWith(
                 color: theme.colorScheme.outline,
               ),
@@ -761,7 +705,7 @@ class _RateChartSheet extends StatelessWidget {
 
   String _formatChartValue(double value) {
     if (value >= 1000) {
-      return _formatWithComma(value, decimals: 0);
+      return CurrencyFormatter.formatWithComma(value);
     } else if (value >= 100) {
       return value.toStringAsFixed(1);
     } else if (value >= 1) {
@@ -769,20 +713,5 @@ class _RateChartSheet extends StatelessWidget {
     } else {
       return value.toStringAsFixed(4);
     }
-  }
-
-  String _formatWithComma(num value, {int decimals = 0}) {
-    if (decimals == 0) {
-      return value.round().toString().replaceAllMapped(
-        RegExp(r'(\d)(?=(\d{3})+(?!\d))'),
-        (match) => '${match[1]},',
-      );
-    }
-    final parts = value.toStringAsFixed(decimals).split('.');
-    final intPart = parts[0].replaceAllMapped(
-      RegExp(r'(\d)(?=(\d{3})+(?!\d))'),
-      (match) => '${match[1]},',
-    );
-    return '$intPart.${parts[1]}';
   }
 }

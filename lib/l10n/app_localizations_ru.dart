@@ -202,4 +202,38 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get systemDefault => 'Системный по умолчанию';
+
+  @override
+  String get welcomeDescription =>
+      'Проверяйте курсы валют в реальном времени\nи сохраняйте важные курсы';
+
+  @override
+  String get baseCurrencyDescription => 'Выберите валюту для сравнения курсов';
+
+  @override
+  String get targetCurrencyDescription => 'Выберите валюты для отслеживания';
+
+  @override
+  String selectedCount(int count) {
+    return 'Выбрано: $count';
+  }
+
+  @override
+  String get emptyStateHint => 'Сохраняйте курсы валют с главного экрана';
+
+  @override
+  String get adFreeActivated => 'Вся реклама удалена';
+
+  @override
+  String get adFreePurchaseDescription =>
+      'Разовая покупка для удаления всей рекламы';
+
+  @override
+  String get noCurrencies => 'Нет валют для отображения';
+
+  @override
+  String get purchaseSuccess => 'Покупка успешно завершена';
+
+  @override
+  String get purchaseFailed => 'Ошибка покупки. Попробуйте ещё раз.';
 }

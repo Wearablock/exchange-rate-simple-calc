@@ -62,5 +62,15 @@
   "viewChart": "查看图表",
   "chartDescription": "查看{count}条记录的汇率趋势",
   "selectLanguage": "选择语言",
-  "systemDefault": "系统默认"
+  "systemDefault": "系统默认",
+  "welcomeDescription": "查看实时汇率\n记录重要的汇率信息",
+  "baseCurrencyDescription": "选择汇率比较的基准货币",
+  "targetCurrencyDescription": "选择您感兴趣的货币",
+  "selectedCount": "已选择{count}个",
+  "emptyStateHint": "在主页保存汇率",
+  "adFreeActivated": "所有广告已移除",
+  "adFreePurchaseDescription": "一次性购买移除所有广告",
+  "noCurrencies": "没有可显示的货币",
+  "purchaseSuccess": "购买成功",
+  "purchaseFailed": "购买失败，请重试。"
 }

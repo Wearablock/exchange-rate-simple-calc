@@ -1,35 +1,3 @@
-/// 단일 환율 정보
-class ExchangeRate {
-  final String baseCode;
-  final String targetCode;
-  final double rate;
-  final DateTime timestamp;
-
-  ExchangeRate({
-    required this.baseCode,
-    required this.targetCode,
-    required this.rate,
-    required this.timestamp,
-  });
-
-  /// 1 단위 기준 통화 = rate 단위 대상 통화
-  String get formattedRate {
-    if (rate >= 100) {
-      return rate.toStringAsFixed(2);
-    } else if (rate >= 1) {
-      return rate.toStringAsFixed(4);
-    } else {
-      return rate.toStringAsFixed(6);
-    }
-  }
-
-  /// 역환율 계산
-  double get inverseRate => 1 / rate;
-
-  @override
-  String toString() => 'ExchangeRate($baseCode -> $targetCode: $rate)';
-}
-
 /// API 응답 전체 데이터
 class ExchangeRateResponse {
   final String baseCode;
@@ -83,23 +51,10 @@ class ExchangeRateResponse {
     return ExchangeRateResponse.fromFrankfurterJson(json);
   }
 
-  /// 특정 통화의 환율 조회
-  ExchangeRate getRate(String targetCode) {
-    return ExchangeRate(
-      baseCode: baseCode,
-      targetCode: targetCode,
-      rate: rates[targetCode] ?? 0,
-      timestamp: timestamp,
-    );
-  }
-
   /// 특정 통화의 환율 값만 조회
   double? getRateValue(String targetCode) {
     return rates[targetCode];
   }
-
-  /// 지원하는 통화 목록
-  List<String> get supportedCurrencies => rates.keys.toList();
 
   @override
   String toString() => 'ExchangeRateResponse($baseCode, ${rates.length} rates)';

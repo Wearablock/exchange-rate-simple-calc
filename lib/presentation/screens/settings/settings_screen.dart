@@ -176,11 +176,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
           _isPremium = true;
         });
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(l10n.rateSaved)),
+          SnackBar(content: Text(l10n.purchaseSuccess)),
         );
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(l10n.loadingFailed)),
+          SnackBar(content: Text(l10n.purchaseFailed)),
         );
       }
     }
@@ -370,33 +370,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
   }
 
   String _getAdFreeDescription(BuildContext context) {
-    final locale = Localizations.localeOf(context);
-
-    switch (locale.languageCode) {
-      case 'ko':
-        return '모든 광고가 제거되었습니다';
-      case 'ja':
-        return 'すべての広告が削除されました';
-      case 'zh':
-        return '所有广告已移除';
-      default:
-        return 'All ads have been removed';
-    }
+    return AppLocalizations.of(context)!.adFreeActivated;
   }
 
   String _getPurchaseDescription(BuildContext context) {
-    final locale = Localizations.localeOf(context);
-
-    switch (locale.languageCode) {
-      case 'ko':
-        return '일회성 구매로 모든 광고 제거';
-      case 'ja':
-        return '一度の購入ですべての広告を削除';
-      case 'zh':
-        return '一次性购买移除所有广告';
-      default:
-        return 'One-time purchase to remove all ads';
-    }
+    return AppLocalizations.of(context)!.adFreePurchaseDescription;
   }
 }
 

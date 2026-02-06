@@ -202,4 +202,38 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get systemDefault => 'ค่าเริ่มต้นของระบบ';
+
+  @override
+  String get welcomeDescription =>
+      'ตรวจสอบอัตราแลกเปลี่ยนแบบเรียลไทม์\nและบันทึกอัตราที่สำคัญ';
+
+  @override
+  String get baseCurrencyDescription =>
+      'เลือกสกุลเงินสำหรับเปรียบเทียบอัตราแลกเปลี่ยน';
+
+  @override
+  String get targetCurrencyDescription => 'เลือกสกุลเงินที่คุณต้องการติดตาม';
+
+  @override
+  String selectedCount(int count) {
+    return 'เลือกแล้ว $count รายการ';
+  }
+
+  @override
+  String get emptyStateHint => 'บันทึกอัตราแลกเปลี่ยนจากหน้าหลัก';
+
+  @override
+  String get adFreeActivated => 'ลบโฆษณาทั้งหมดแล้ว';
+
+  @override
+  String get adFreePurchaseDescription => 'ซื้อครั้งเดียวเพื่อลบโฆษณาทั้งหมด';
+
+  @override
+  String get noCurrencies => 'ไม่มีสกุลเงินที่จะแสดง';
+
+  @override
+  String get purchaseSuccess => 'ซื้อสำเร็จแล้ว';
+
+  @override
+  String get purchaseFailed => 'การซื้อล้มเหลว กรุณาลองอีกครั้ง';
 }

@@ -109,16 +109,6 @@ class Currencies {
     return getByCode(code)?.baseUnit ?? 1;
   }
 
-  /// 지역별 그룹화
-  static Map<String, List<Currency>> get grouped => {
-        '주요 통화': all.where((c) => ['USD', 'EUR', 'GBP', 'JPY', 'CNY'].contains(c.code)).toList(),
-        '아시아': all.where((c) => ['KRW', 'HKD', 'TWD', 'SGD', 'THB', 'VND', 'IDR', 'MYR', 'PHP', 'INR'].contains(c.code)).toList(),
-        '오세아니아': all.where((c) => ['AUD', 'NZD'].contains(c.code)).toList(),
-        '유럽': all.where((c) => ['CHF', 'SEK', 'NOK', 'DKK', 'PLN', 'CZK', 'HUF', 'RUB', 'TRY'].contains(c.code)).toList(),
-        '아메리카': all.where((c) => ['CAD', 'MXN', 'BRL', 'ARS'].contains(c.code)).toList(),
-        '중동/아프리카': all.where((c) => ['AED', 'SAR', 'ZAR', 'EGP'].contains(c.code)).toList(),
-      };
-
   /// 검색 (코드, 이름, 한국어 이름)
   static List<Currency> search(String query) {
     if (query.isEmpty) return all;

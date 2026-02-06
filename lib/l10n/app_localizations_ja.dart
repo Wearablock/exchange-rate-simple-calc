@@ -202,4 +202,36 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get systemDefault => 'システムデフォルト';
+
+  @override
+  String get welcomeDescription => 'リアルタイム為替レートを確認し\n重要な為替レートを記録しましょう';
+
+  @override
+  String get baseCurrencyDescription => '為替レート比較の基準となる通貨を選択してください';
+
+  @override
+  String get targetCurrencyDescription => '関心のある通貨を選択してください';
+
+  @override
+  String selectedCount(int count) {
+    return '$count件選択中';
+  }
+
+  @override
+  String get emptyStateHint => 'ホーム画面で為替レートを保存してみてください';
+
+  @override
+  String get adFreeActivated => 'すべての広告が削除されました';
+
+  @override
+  String get adFreePurchaseDescription => '一度の購入ですべての広告を削除';
+
+  @override
+  String get noCurrencies => '表示する通貨がありません';
+
+  @override
+  String get purchaseSuccess => '購入が完了しました';
+
+  @override
+  String get purchaseFailed => '購入に失敗しました。もう一度お試しください。';
 }

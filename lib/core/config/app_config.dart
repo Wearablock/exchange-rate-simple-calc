@@ -8,7 +8,6 @@ class AppConfig {
   // 앱 기본 정보
   // ============================================================
   static const String appName = 'Easy Exchange';
-  static const String appDisplayName = 'Easy Exchange';
   static const String appId = 'com.example.exchange_rate_simple_calc';
 
   // ============================================================
@@ -20,7 +19,6 @@ class AppConfig {
 
   static const Color secondaryColor = Color(0xFF2196F3);
   static const Color secondaryLightColor = Color(0xFF64B5F6);
-  static const Color accentColor = Color(0xFF03A9F4);
 
   static const Color surfaceLightColor = Color(0xFFFAFAFA);
   static const Color surfaceDarkColor = Color(0xFF121212);
@@ -51,12 +49,8 @@ class AppConfig {
   ];
 
   // ============================================================
-  // API 설정 (ExchangeRate-API)
-  // ============================================================
-  static const String exchangeRateApiKey = 'YOUR_API_KEY_HERE';
-  static const String exchangeRateBaseUrl = 'https://v6.exchangerate-api.com/v6';
-
   // 캐시 설정
+  // ============================================================
   static const Duration memoryCacheExpiry = Duration(hours: 1);
   static const Duration localCacheExpiry = Duration(hours: 24);
 
@@ -72,13 +66,13 @@ class AppConfig {
   static const String _testRewardedIdAndroid = 'ca-app-pub-3940256099942544/5224354917';
   static const String _testRewardedIdIOS = 'ca-app-pub-3940256099942544/1712485313';
 
-  // 프로덕션 광고 ID (실제 ID로 교체 필요)
-  static const String _prodBannerIdAndroid = 'ca-app-pub-xxx/xxx';
-  static const String _prodBannerIdIOS = 'ca-app-pub-xxx/xxx';
-  static const String _prodInterstitialIdAndroid = 'ca-app-pub-xxx/xxx';
-  static const String _prodInterstitialIdIOS = 'ca-app-pub-xxx/xxx';
-  static const String _prodRewardedIdAndroid = 'ca-app-pub-xxx/xxx';
-  static const String _prodRewardedIdIOS = 'ca-app-pub-xxx/xxx';
+  // 프로덕션 광고 ID
+  static const String _prodBannerIdAndroid = 'ca-app-pub-8841058711613546/8750577075';
+  static const String _prodBannerIdIOS = 'ca-app-pub-8841058711613546/6946550559';
+  static const String _prodInterstitialIdAndroid = 'ca-app-pub-8841058711613546/6124413732';
+  static const String _prodInterstitialIdIOS = 'ca-app-pub-8841058711613546/8259622487';
+  static const String _prodRewardedIdAndroid = 'ca-app-pub-8841058711613546/2185168726';
+  static const String _prodRewardedIdIOS = 'ca-app-pub-8841058711613546/4396408830';
 
   // 플랫폼별 광고 ID 반환
   static String getBannerId({required bool isTestMode}) {
@@ -105,7 +99,7 @@ class AppConfig {
   // ============================================================
   // 인앱결제 설정 (IAP)
   // ============================================================
-  static const String removeAdsProductId = 'remove_ads';
+  static const String removeAdsProductId = 'exchange_rate_simple_calc_remove_ads';
 
   // ============================================================
   // 외부 URL

@@ -67,7 +67,7 @@ class _BaseCurrencyPageState extends State<BaseCurrencyPage> {
           const SizedBox(height: 8),
 
           Text(
-            _getDescription(context),
+            l10n.baseCurrencyDescription,
             style: theme.textTheme.bodyMedium?.copyWith(
               color: theme.colorScheme.onSurface.withValues(alpha: 0.7),
             ),
@@ -149,20 +149,6 @@ class _BaseCurrencyPageState extends State<BaseCurrencyPage> {
     );
   }
 
-  String _getDescription(BuildContext context) {
-    final locale = Localizations.localeOf(context);
-
-    switch (locale.languageCode) {
-      case 'ko':
-        return '환율 비교의 기준이 되는 통화를 선택하세요';
-      case 'ja':
-        return '為替レート比較の基準となる通貨を選択してください';
-      case 'zh':
-        return '选择汇率比较的基准货币';
-      default:
-        return 'Select the currency for exchange rate comparison';
-    }
-  }
 }
 
 class _CurrencyTile extends StatelessWidget {

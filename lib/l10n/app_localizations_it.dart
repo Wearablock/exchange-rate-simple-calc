@@ -203,4 +203,40 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get systemDefault => 'Predefinito di sistema';
+
+  @override
+  String get welcomeDescription =>
+      'Controlla i tassi di cambio in tempo reale\ne salva i tassi importanti';
+
+  @override
+  String get baseCurrencyDescription =>
+      'Seleziona la valuta per il confronto dei tassi';
+
+  @override
+  String get targetCurrencyDescription => 'Seleziona le valute da monitorare';
+
+  @override
+  String selectedCount(int count) {
+    return '$count selezionata/e';
+  }
+
+  @override
+  String get emptyStateHint =>
+      'Salva i tassi di cambio dalla schermata principale';
+
+  @override
+  String get adFreeActivated => 'Tutte le pubblicità sono state rimosse';
+
+  @override
+  String get adFreePurchaseDescription =>
+      'Acquisto una tantum per rimuovere tutte le pubblicità';
+
+  @override
+  String get noCurrencies => 'Nessuna valuta da visualizzare';
+
+  @override
+  String get purchaseSuccess => 'Acquisto completato con successo';
+
+  @override
+  String get purchaseFailed => 'Acquisto non riuscito. Riprova.';
 }

@@ -203,4 +203,40 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get systemDefault => 'Default Sistem';
+
+  @override
+  String get welcomeDescription =>
+      'Periksa kurs secara real-time\ndan simpan kurs penting';
+
+  @override
+  String get baseCurrencyDescription =>
+      'Pilih mata uang untuk perbandingan kurs';
+
+  @override
+  String get targetCurrencyDescription =>
+      'Pilih mata uang yang ingin Anda pantau';
+
+  @override
+  String selectedCount(int count) {
+    return '$count dipilih';
+  }
+
+  @override
+  String get emptyStateHint => 'Simpan kurs dari layar utama';
+
+  @override
+  String get adFreeActivated => 'Semua iklan telah dihapus';
+
+  @override
+  String get adFreePurchaseDescription =>
+      'Pembelian sekali untuk menghapus semua iklan';
+
+  @override
+  String get noCurrencies => 'Tidak ada mata uang untuk ditampilkan';
+
+  @override
+  String get purchaseSuccess => 'Pembelian berhasil';
+
+  @override
+  String get purchaseFailed => 'Pembelian gagal. Silakan coba lagi.';
 }

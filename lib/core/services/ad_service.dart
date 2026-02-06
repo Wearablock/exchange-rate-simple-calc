@@ -131,7 +131,6 @@ class AdService {
 
     await _interstitialAd!.show();
     _lastInterstitialTime = DateTime.now();
-    _interstitialAd = null;
     return true;
   }
 
@@ -180,7 +179,6 @@ class AdService {
         onRewarded(reward.amount.toInt());
       },
     );
-    _rewardedAd = null;
     return true;
   }
 

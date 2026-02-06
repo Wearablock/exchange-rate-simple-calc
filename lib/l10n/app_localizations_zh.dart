@@ -202,6 +202,38 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get systemDefault => '系统默认';
+
+  @override
+  String get welcomeDescription => '查看实时汇率\n记录重要的汇率信息';
+
+  @override
+  String get baseCurrencyDescription => '选择汇率比较的基准货币';
+
+  @override
+  String get targetCurrencyDescription => '选择您感兴趣的货币';
+
+  @override
+  String selectedCount(int count) {
+    return '已选择$count个';
+  }
+
+  @override
+  String get emptyStateHint => '在主页保存汇率';
+
+  @override
+  String get adFreeActivated => '所有广告已移除';
+
+  @override
+  String get adFreePurchaseDescription => '一次性购买移除所有广告';
+
+  @override
+  String get noCurrencies => '没有可显示的货币';
+
+  @override
+  String get purchaseSuccess => '购买成功';
+
+  @override
+  String get purchaseFailed => '购买失败，请重试。';
 }
 
 /// The translations for Chinese, using the Han script (`zh_Hant`).
@@ -402,4 +434,36 @@ class AppLocalizationsZhHant extends AppLocalizationsZh {
 
   @override
   String get systemDefault => '系統預設';
+
+  @override
+  String get welcomeDescription => '查看即時匯率\n記錄重要的匯率資訊';
+
+  @override
+  String get baseCurrencyDescription => '選擇匯率比較的基準貨幣';
+
+  @override
+  String get targetCurrencyDescription => '選擇您感興趣的貨幣';
+
+  @override
+  String selectedCount(int count) {
+    return '已選擇$count個';
+  }
+
+  @override
+  String get emptyStateHint => '在主頁儲存匯率';
+
+  @override
+  String get adFreeActivated => '所有廣告已移除';
+
+  @override
+  String get adFreePurchaseDescription => '一次性購買移除所有廣告';
+
+  @override
+  String get noCurrencies => '沒有可顯示的貨幣';
+
+  @override
+  String get purchaseSuccess => '購買成功';
+
+  @override
+  String get purchaseFailed => '購買失敗，請重試。';
 }

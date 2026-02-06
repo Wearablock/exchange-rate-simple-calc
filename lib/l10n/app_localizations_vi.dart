@@ -202,4 +202,37 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get systemDefault => 'Mặc định hệ thống';
+
+  @override
+  String get welcomeDescription =>
+      'Kiểm tra tỷ giá hối đoái theo thời gian thực\nvà lưu các tỷ giá quan trọng';
+
+  @override
+  String get baseCurrencyDescription => 'Chọn tiền tệ để so sánh tỷ giá';
+
+  @override
+  String get targetCurrencyDescription => 'Chọn các tiền tệ bạn muốn theo dõi';
+
+  @override
+  String selectedCount(int count) {
+    return 'Đã chọn $count';
+  }
+
+  @override
+  String get emptyStateHint => 'Lưu tỷ giá từ màn hình chính';
+
+  @override
+  String get adFreeActivated => 'Tất cả quảng cáo đã được xóa';
+
+  @override
+  String get adFreePurchaseDescription => 'Mua một lần để xóa tất cả quảng cáo';
+
+  @override
+  String get noCurrencies => 'Không có tiền tệ để hiển thị';
+
+  @override
+  String get purchaseSuccess => 'Mua hàng thành công';
+
+  @override
+  String get purchaseFailed => 'Mua hàng thất bại. Vui lòng thử lại.';
 }

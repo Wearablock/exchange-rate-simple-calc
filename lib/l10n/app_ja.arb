@@ -62,5 +62,15 @@
   "viewChart": "グラフを見る",
   "chartDescription": "{count}件の記録で為替レートの推移を確認します",
   "selectLanguage": "言語選択",
-  "systemDefault": "システムデフォルト"
+  "systemDefault": "システムデフォルト",
+  "welcomeDescription": "リアルタイム為替レートを確認し\n重要な為替レートを記録しましょう",
+  "baseCurrencyDescription": "為替レート比較の基準となる通貨を選択してください",
+  "targetCurrencyDescription": "関心のある通貨を選択してください",
+  "selectedCount": "{count}件選択中",
+  "emptyStateHint": "ホーム画面で為替レートを保存してみてください",
+  "adFreeActivated": "すべての広告が削除されました",
+  "adFreePurchaseDescription": "一度の購入ですべての広告を削除",
+  "noCurrencies": "表示する通貨がありません",
+  "purchaseSuccess": "購入が完了しました",
+  "purchaseFailed": "購入に失敗しました。もう一度お試しください。"
 }

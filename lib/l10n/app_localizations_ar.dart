@@ -202,4 +202,38 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get systemDefault => 'الافتراضي للنظام';
+
+  @override
+  String get welcomeDescription =>
+      'تحقق من أسعار الصرف الحية\nواحفظ الأسعار المهمة';
+
+  @override
+  String get baseCurrencyDescription => 'اختر العملة لمقارنة أسعار الصرف';
+
+  @override
+  String get targetCurrencyDescription => 'اختر العملات التي تريد متابعتها';
+
+  @override
+  String selectedCount(int count) {
+    return '$count محدد';
+  }
+
+  @override
+  String get emptyStateHint => 'احفظ أسعار الصرف من الشاشة الرئيسية';
+
+  @override
+  String get adFreeActivated => 'تم إزالة جميع الإعلانات';
+
+  @override
+  String get adFreePurchaseDescription =>
+      'شراء لمرة واحدة لإزالة جميع الإعلانات';
+
+  @override
+  String get noCurrencies => 'لا توجد عملات لعرضها';
+
+  @override
+  String get purchaseSuccess => 'تمت عملية الشراء بنجاح';
+
+  @override
+  String get purchaseFailed => 'فشل الشراء. يرجى المحاولة مرة أخرى.';
 }

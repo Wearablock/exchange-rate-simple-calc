@@ -62,5 +62,15 @@
   "viewChart": "Ver gráfico",
   "chartDescription": "Ver tendência da taxa de câmbio com {count} registros",
   "selectLanguage": "Selecionar idioma",
-  "systemDefault": "Padrão do sistema"
+  "systemDefault": "Padrão do sistema",
+  "welcomeDescription": "Confira taxas de câmbio em tempo real\ne salve as taxas importantes",
+  "baseCurrencyDescription": "Selecione a moeda para comparação de taxas",
+  "targetCurrencyDescription": "Selecione as moedas que deseja acompanhar",
+  "selectedCount": "{count} selecionada(s)",
+  "emptyStateHint": "Salve taxas de câmbio na tela inicial",
+  "adFreeActivated": "Todos os anúncios foram removidos",
+  "adFreePurchaseDescription": "Compra única para remover todos os anúncios",
+  "noCurrencies": "Nenhuma moeda para exibir",
+  "purchaseSuccess": "Compra realizada com sucesso",
+  "purchaseFailed": "Falha na compra. Tente novamente."
 }

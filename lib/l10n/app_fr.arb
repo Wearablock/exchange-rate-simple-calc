@@ -62,5 +62,15 @@
   "viewChart": "Voir le graphique",
   "chartDescription": "Voir la tendance du taux de change avec {count} enregistrements",
   "selectLanguage": "Sélectionner la langue",
-  "systemDefault": "Par défaut du système"
+  "systemDefault": "Par défaut du système",
+  "welcomeDescription": "Consultez les taux de change en temps réel\net enregistrez les taux importants",
+  "baseCurrencyDescription": "Sélectionnez la devise pour la comparaison des taux",
+  "targetCurrencyDescription": "Sélectionnez les devises à suivre",
+  "selectedCount": "{count} sélectionnée(s)",
+  "emptyStateHint": "Enregistrez des taux depuis l'écran d'accueil",
+  "adFreeActivated": "Toutes les publicités ont été supprimées",
+  "adFreePurchaseDescription": "Achat unique pour supprimer toutes les pubs",
+  "noCurrencies": "Aucune devise à afficher",
+  "purchaseSuccess": "Achat effectué avec succès",
+  "purchaseFailed": "Échec de l'achat. Veuillez réessayer."
 }

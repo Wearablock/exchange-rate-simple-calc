@@ -62,5 +62,15 @@
   "viewChart": "Xem biểu đồ",
   "chartDescription": "Xem xu hướng tỷ giá với {count} bản ghi",
   "selectLanguage": "Chọn ngôn ngữ",
-  "systemDefault": "Mặc định hệ thống"
+  "systemDefault": "Mặc định hệ thống",
+  "welcomeDescription": "Kiểm tra tỷ giá hối đoái theo thời gian thực\nvà lưu các tỷ giá quan trọng",
+  "baseCurrencyDescription": "Chọn tiền tệ để so sánh tỷ giá",
+  "targetCurrencyDescription": "Chọn các tiền tệ bạn muốn theo dõi",
+  "selectedCount": "Đã chọn {count}",
+  "emptyStateHint": "Lưu tỷ giá từ màn hình chính",
+  "adFreeActivated": "Tất cả quảng cáo đã được xóa",
+  "adFreePurchaseDescription": "Mua một lần để xóa tất cả quảng cáo",
+  "noCurrencies": "Không có tiền tệ để hiển thị",
+  "purchaseSuccess": "Mua hàng thành công",
+  "purchaseFailed": "Mua hàng thất bại. Vui lòng thử lại."
 }

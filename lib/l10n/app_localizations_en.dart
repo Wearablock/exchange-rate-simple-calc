@@ -204,4 +204,38 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get systemDefault => 'System Default';
+
+  @override
+  String get welcomeDescription =>
+      'Check real-time exchange rates\nand save important rates';
+
+  @override
+  String get baseCurrencyDescription =>
+      'Select the currency for exchange rate comparison';
+
+  @override
+  String get targetCurrencyDescription => 'Select currencies you want to track';
+
+  @override
+  String selectedCount(int count) {
+    return '$count selected';
+  }
+
+  @override
+  String get emptyStateHint => 'Save exchange rates from the home screen';
+
+  @override
+  String get adFreeActivated => 'All ads have been removed';
+
+  @override
+  String get adFreePurchaseDescription => 'One-time purchase to remove all ads';
+
+  @override
+  String get noCurrencies => 'No currencies to display';
+
+  @override
+  String get purchaseSuccess => 'Purchase completed successfully';
+
+  @override
+  String get purchaseFailed => 'Purchase failed. Please try again.';
 }

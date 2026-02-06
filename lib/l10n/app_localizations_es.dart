@@ -203,4 +203,41 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get systemDefault => 'Predeterminado del sistema';
+
+  @override
+  String get welcomeDescription =>
+      'Consulta tipos de cambio en tiempo real\ny guarda los tipos importantes';
+
+  @override
+  String get baseCurrencyDescription =>
+      'Selecciona la moneda para comparar tipos de cambio';
+
+  @override
+  String get targetCurrencyDescription =>
+      'Selecciona las monedas que quieres seguir';
+
+  @override
+  String selectedCount(int count) {
+    return '$count seleccionada(s)';
+  }
+
+  @override
+  String get emptyStateHint =>
+      'Guarda tipos de cambio desde la pantalla de inicio';
+
+  @override
+  String get adFreeActivated => 'Todos los anuncios han sido eliminados';
+
+  @override
+  String get adFreePurchaseDescription =>
+      'Compra única para eliminar todos los anuncios';
+
+  @override
+  String get noCurrencies => 'No hay monedas para mostrar';
+
+  @override
+  String get purchaseSuccess => 'Compra realizada con éxito';
+
+  @override
+  String get purchaseFailed => 'Error en la compra. Inténtalo de nuevo.';
 }

@@ -203,4 +203,41 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get systemDefault => 'Systemstandard';
+
+  @override
+  String get welcomeDescription =>
+      'Überprüfen Sie Echtzeit-Wechselkurse\nund speichern Sie wichtige Kurse';
+
+  @override
+  String get baseCurrencyDescription =>
+      'Wählen Sie die Währung für den Wechselkursvergleich';
+
+  @override
+  String get targetCurrencyDescription =>
+      'Wählen Sie die Währungen, die Sie verfolgen möchten';
+
+  @override
+  String selectedCount(int count) {
+    return '$count ausgewählt';
+  }
+
+  @override
+  String get emptyStateHint => 'Speichern Sie Wechselkurse vom Startbildschirm';
+
+  @override
+  String get adFreeActivated => 'Alle Werbung wurde entfernt';
+
+  @override
+  String get adFreePurchaseDescription =>
+      'Einmaliger Kauf zur Entfernung aller Werbung';
+
+  @override
+  String get noCurrencies => 'Keine Währungen anzuzeigen';
+
+  @override
+  String get purchaseSuccess => 'Kauf erfolgreich abgeschlossen';
+
+  @override
+  String get purchaseFailed =>
+      'Kauf fehlgeschlagen. Bitte versuchen Sie es erneut.';
 }

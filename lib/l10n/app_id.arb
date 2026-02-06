@@ -62,5 +62,15 @@
   "viewChart": "Lihat grafik",
   "chartDescription": "Lihat tren kurs dengan {count} catatan",
   "selectLanguage": "Pilih Bahasa",
-  "systemDefault": "Default Sistem"
+  "systemDefault": "Default Sistem",
+  "welcomeDescription": "Periksa kurs secara real-time\ndan simpan kurs penting",
+  "baseCurrencyDescription": "Pilih mata uang untuk perbandingan kurs",
+  "targetCurrencyDescription": "Pilih mata uang yang ingin Anda pantau",
+  "selectedCount": "{count} dipilih",
+  "emptyStateHint": "Simpan kurs dari layar utama",
+  "adFreeActivated": "Semua iklan telah dihapus",
+  "adFreePurchaseDescription": "Pembelian sekali untuk menghapus semua iklan",
+  "noCurrencies": "Tidak ada mata uang untuk ditampilkan",
+  "purchaseSuccess": "Pembelian berhasil",
+  "purchaseFailed": "Pembelian gagal. Silakan coba lagi."
 }

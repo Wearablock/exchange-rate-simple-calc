@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../../../core/constants/currencies.dart';
+import '../../../core/utils/currency_formatter.dart';
 import '../../../core/services/preferences_service.dart';
 import '../../../core/services/ad_service.dart';
 import '../../../core/services/exchange_rate_service.dart';
@@ -8,6 +9,7 @@ import '../../../core/services/iap_service.dart';
 import '../../../core/services/rate_history_service.dart';
 import '../../../data/models/exchange_rate.dart';
 import '../../../l10n/app_localizations.dart';
+import '../../widgets/ad_badge.dart';
 import '../../widgets/currency_select_dialog.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -72,7 +74,7 @@ class _HomeScreenState extends State<HomeScreen> {
       _error = null;
     });
 
-    _amountController.text = _formatNumber(baseUnit.toDouble());
+    _amountController.text = CurrencyFormatter.formatNumber(baseUnit.toDouble());
 
     // API에서 환율 데이터 가져오기
     final rates = await _exchangeService.getRates(_baseCurrency);
@@ -92,7 +94,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Future<void> _confirmRefresh() async {
     final l10n = AppLocalizations.of(context)!;
-    final theme = Theme.of(context);
     final isPremium = _iapService.isPremium;
 
     final confirmed = await showDialog<bool>(
@@ -103,21 +104,7 @@ class _HomeScreenState extends State<HomeScreen> {
             Text(l10n.refresh),
             if (!isPremium) ...[
               const SizedBox(width: 8),
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
-                decoration: BoxDecoration(
-                  color: theme.colorScheme.primary,
-                  borderRadius: BorderRadius.circular(6),
-                ),
-                child: Text(
-                  'AD',
-                  style: TextStyle(
-                    color: theme.colorScheme.onPrimary,
-                    fontWeight: FontWeight.w800,
-                    fontSize: 12,
-                  ),
-                ),
-              ),
+              const AdBadge(),
             ],
           ],
         ),
@@ -262,7 +249,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                             const SizedBox(height: 16),
                             Text(
-                              'No currencies to display',
+                              l10n.noCurrencies,
                               style: theme.textTheme.bodyLarge?.copyWith(
                                 color: theme.colorScheme.outline,
                               ),
@@ -327,7 +314,7 @@ class _HomeScreenState extends State<HomeScreen> {
     setState(() {
       _inputAmount = topRate > 0 ? rightAmount / topRate : 0;
     });
-    _amountController.text = _formatNumber(_inputAmount);
+    _amountController.text = CurrencyFormatter.formatNumber(_inputAmount);
     _isEditingRight = false;
   }
 
@@ -350,22 +337,7 @@ class _HomeScreenState extends State<HomeScreen> {
     if (topTarget == null) return;
     final topRate = _getRate(topTarget);
     final converted = _inputAmount * topRate;
-    _rightAmountController.text = _formatNumber(converted);
-  }
-
-  String _formatNumber(double value) {
-    if (value == value.roundToDouble()) {
-      return value.round().toString().replaceAllMapped(
-        RegExp(r'(\d)(?=(\d{3})+(?!\d))'),
-        (match) => '${match[1]},',
-      );
-    }
-    final parts = value.toStringAsFixed(2).split('.');
-    final intPart = parts[0].replaceAllMapped(
-      RegExp(r'(\d)(?=(\d{3})+(?!\d))'),
-      (match) => '${match[1]},',
-    );
-    return '$intPart.${parts[1]}';
+    _rightAmountController.text = CurrencyFormatter.formatNumber(converted);
   }
 
   Widget _buildConverterHeader(ThemeData theme, AppLocalizations l10n) {
@@ -587,21 +559,7 @@ class _HomeScreenState extends State<HomeScreen> {
             Text(l10n.saveRate),
             if (!isPremium) ...[
               const SizedBox(width: 8),
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
-                decoration: BoxDecoration(
-                  color: theme.colorScheme.primary,
-                  borderRadius: BorderRadius.circular(6),
-                ),
-                child: Text(
-                  'AD',
-                  style: TextStyle(
-                    color: theme.colorScheme.onPrimary,
-                    fontWeight: FontWeight.w800,
-                    fontSize: 12,
-                  ),
-                ),
-              ),
+              const AdBadge(),
             ],
           ],
         ),
@@ -645,14 +603,14 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             const SizedBox(height: 8),
             Text(
-              _formatNumber(rate * (Currencies.getByCode(_baseCurrency)?.baseUnit ?? 1)),
+              CurrencyFormatter.formatNumber(rate * (Currencies.getByCode(_baseCurrency)?.baseUnit ?? 1)),
               style: theme.textTheme.headlineSmall?.copyWith(
                 fontWeight: FontWeight.bold,
                 color: theme.colorScheme.primary,
               ),
             ),
             Text(
-              '/ ${_formatNumber((Currencies.getByCode(_baseCurrency)?.baseUnit ?? 1).toDouble())} $_baseCurrency',
+              '/ ${CurrencyFormatter.formatNumber((Currencies.getByCode(_baseCurrency)?.baseUnit ?? 1).toDouble())} $_baseCurrency',
               style: theme.textTheme.bodySmall?.copyWith(
                 color: theme.colorScheme.onSurface.withValues(alpha: 0.5),
               ),
@@ -789,14 +747,14 @@ class _RateCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 Text(
-                  _formatRate(adjustedRate, targetCurrency),
+                  CurrencyFormatter.formatRate(adjustedRate, targetCurrency),
                   style: theme.textTheme.headlineSmall?.copyWith(
                     fontWeight: FontWeight.bold,
                     color: theme.colorScheme.primary,
                   ),
                 ),
                 Text(
-                  '/ ${_formatBaseUnit(inputAmount, baseCurrency)}',
+                  '/ ${CurrencyFormatter.formatBaseUnit(inputAmount, baseCurrency)}',
                   style: theme.textTheme.bodySmall?.copyWith(
                     color: theme.colorScheme.onSurface.withValues(alpha: 0.6),
                   ),
@@ -810,7 +768,7 @@ class _RateCard extends StatelessWidget {
             IconButton(
               icon: const Icon(Icons.bookmark_add_outlined),
               onPressed: onSave,
-              tooltip: 'Save',
+              tooltip: AppLocalizations.of(context)!.save,
             ),
 
             // 드래그 핸들
@@ -827,43 +785,4 @@ class _RateCard extends StatelessWidget {
     );
   }
 
-  String _formatBaseUnit(double amount, String currencyCode) {
-    final display = amount == amount.roundToDouble()
-        ? amount.round().toString().replaceAllMapped(
-              RegExp(r'(\d)(?=(\d{3})+(?!\d))'),
-              (match) => '${match[1]},',
-            )
-        : amount.toStringAsFixed(2);
-    return '$display $currencyCode';
-  }
-
-  String _formatRate(double rate, String targetCurrency) {
-    final decimalPlaces = Currencies.getDecimalPlaces(targetCurrency);
-
-    if (decimalPlaces == 0) {
-      // 소수점 없는 통화 (KRW, JPY 등)
-      return _formatWithComma(rate.round());
-    } else if (rate >= 100) {
-      return _formatWithComma(rate, decimals: 2);
-    } else if (rate >= 1) {
-      return rate.toStringAsFixed(4);
-    } else {
-      return rate.toStringAsFixed(6);
-    }
-  }
-
-  String _formatWithComma(num value, {int decimals = 0}) {
-    if (decimals == 0) {
-      return value.toString().replaceAllMapped(
-        RegExp(r'(\d)(?=(\d{3})+(?!\d))'),
-        (match) => '${match[1]},',
-      );
-    }
-    final parts = value.toStringAsFixed(decimals).split('.');
-    final intPart = parts[0].replaceAllMapped(
-      RegExp(r'(\d)(?=(\d{3})+(?!\d))'),
-      (match) => '${match[1]},',
-    );
-    return '$intPart.${parts[1]}';
-  }
 }

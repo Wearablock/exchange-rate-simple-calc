@@ -62,5 +62,15 @@
   "viewChart": "Посмотреть график",
   "chartDescription": "Просмотр тренда курса по {count} записям",
   "selectLanguage": "Выбор языка",
-  "systemDefault": "Системный по умолчанию"
+  "systemDefault": "Системный по умолчанию",
+  "welcomeDescription": "Проверяйте курсы валют в реальном времени\nи сохраняйте важные курсы",
+  "baseCurrencyDescription": "Выберите валюту для сравнения курсов",
+  "targetCurrencyDescription": "Выберите валюты для отслеживания",
+  "selectedCount": "Выбрано: {count}",
+  "emptyStateHint": "Сохраняйте курсы валют с главного экрана",
+  "adFreeActivated": "Вся реклама удалена",
+  "adFreePurchaseDescription": "Разовая покупка для удаления всей рекламы",
+  "noCurrencies": "Нет валют для отображения",
+  "purchaseSuccess": "Покупка успешно завершена",
+  "purchaseFailed": "Ошибка покупки. Попробуйте ещё раз."
 }

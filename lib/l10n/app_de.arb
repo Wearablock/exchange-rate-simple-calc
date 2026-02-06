@@ -62,5 +62,15 @@
   "viewChart": "Diagramm anzeigen",
   "chartDescription": "Wechselkurstrend mit {count} Einträgen anzeigen",
   "selectLanguage": "Sprache auswählen",
-  "systemDefault": "Systemstandard"
+  "systemDefault": "Systemstandard",
+  "welcomeDescription": "Überprüfen Sie Echtzeit-Wechselkurse\nund speichern Sie wichtige Kurse",
+  "baseCurrencyDescription": "Wählen Sie die Währung für den Wechselkursvergleich",
+  "targetCurrencyDescription": "Wählen Sie die Währungen, die Sie verfolgen möchten",
+  "selectedCount": "{count} ausgewählt",
+  "emptyStateHint": "Speichern Sie Wechselkurse vom Startbildschirm",
+  "adFreeActivated": "Alle Werbung wurde entfernt",
+  "adFreePurchaseDescription": "Einmaliger Kauf zur Entfernung aller Werbung",
+  "noCurrencies": "Keine Währungen anzuzeigen",
+  "purchaseSuccess": "Kauf erfolgreich abgeschlossen",
+  "purchaseFailed": "Kauf fehlgeschlagen. Bitte versuchen Sie es erneut."
 }

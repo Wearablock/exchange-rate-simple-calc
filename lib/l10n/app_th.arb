@@ -62,5 +62,15 @@
   "viewChart": "ดูกราฟ",
   "chartDescription": "ดูแนวโน้มอัตราแลกเปลี่ยนจาก {count} รายการ",
   "selectLanguage": "เลือกภาษา",
-  "systemDefault": "ค่าเริ่มต้นของระบบ"
+  "systemDefault": "ค่าเริ่มต้นของระบบ",
+  "welcomeDescription": "ตรวจสอบอัตราแลกเปลี่ยนแบบเรียลไทม์\nและบันทึกอัตราที่สำคัญ",
+  "baseCurrencyDescription": "เลือกสกุลเงินสำหรับเปรียบเทียบอัตราแลกเปลี่ยน",
+  "targetCurrencyDescription": "เลือกสกุลเงินที่คุณต้องการติดตาม",
+  "selectedCount": "เลือกแล้ว {count} รายการ",
+  "emptyStateHint": "บันทึกอัตราแลกเปลี่ยนจากหน้าหลัก",
+  "adFreeActivated": "ลบโฆษณาทั้งหมดแล้ว",
+  "adFreePurchaseDescription": "ซื้อครั้งเดียวเพื่อลบโฆษณาทั้งหมด",
+  "noCurrencies": "ไม่มีสกุลเงินที่จะแสดง",
+  "purchaseSuccess": "ซื้อสำเร็จแล้ว",
+  "purchaseFailed": "การซื้อล้มเหลว กรุณาลองอีกครั้ง"
 }

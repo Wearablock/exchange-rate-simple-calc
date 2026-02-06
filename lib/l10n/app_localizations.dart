@@ -500,6 +500,66 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'System Default'**
   String get systemDefault;
+
+  /// No description provided for @welcomeDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Check real-time exchange rates\nand save important rates'**
+  String get welcomeDescription;
+
+  /// No description provided for @baseCurrencyDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Select the currency for exchange rate comparison'**
+  String get baseCurrencyDescription;
+
+  /// No description provided for @targetCurrencyDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Select currencies you want to track'**
+  String get targetCurrencyDescription;
+
+  /// No description provided for @selectedCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} selected'**
+  String selectedCount(int count);
+
+  /// No description provided for @emptyStateHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Save exchange rates from the home screen'**
+  String get emptyStateHint;
+
+  /// No description provided for @adFreeActivated.
+  ///
+  /// In en, this message translates to:
+  /// **'All ads have been removed'**
+  String get adFreeActivated;
+
+  /// No description provided for @adFreePurchaseDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'One-time purchase to remove all ads'**
+  String get adFreePurchaseDescription;
+
+  /// No description provided for @noCurrencies.
+  ///
+  /// In en, this message translates to:
+  /// **'No currencies to display'**
+  String get noCurrencies;
+
+  /// No description provided for @purchaseSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Purchase completed successfully'**
+  String get purchaseSuccess;
+
+  /// No description provided for @purchaseFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Purchase failed. Please try again.'**
+  String get purchaseFailed;
 }
 
 class _AppLocalizationsDelegate

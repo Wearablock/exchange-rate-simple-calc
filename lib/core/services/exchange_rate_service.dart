@@ -139,12 +139,6 @@ class ExchangeRateService {
     _memoryCacheTime = DateTime.now();
   }
 
-  void clearMemoryCache() {
-    _memoryCache = null;
-    _memoryCacheBase = null;
-    _memoryCacheTime = null;
-  }
-
   // ============================================================
   // 로컬 캐시 (SharedPreferences)
   // ============================================================
@@ -203,28 +197,4 @@ class ExchangeRateService {
 
   /// 캐시된 환율 데이터
   ExchangeRateResponse? get cachedRates => _memoryCache;
-
-  /// 지원 통화 목록 조회
-  Future<List<String>> getSupportedCurrencies() async {
-    try {
-      final response = await http.get(Uri.parse('$_baseUrl/currencies')).timeout(
-        const Duration(seconds: 10),
-      );
-
-      if (response.statusCode == 200) {
-        final json = jsonDecode(response.body) as Map<String, dynamic>;
-        return json.keys.toList();
-      }
-    } catch (e) {
-      debugPrint('[ExchangeRateService] 통화 목록 조회 실패: $e');
-    }
-
-    // 기본 지원 통화 목록 반환
-    return [
-      'AUD', 'BGN', 'BRL', 'CAD', 'CHF', 'CNY', 'CZK', 'DKK',
-      'EUR', 'GBP', 'HKD', 'HUF', 'IDR', 'ILS', 'INR', 'ISK',
-      'JPY', 'KRW', 'MXN', 'MYR', 'NOK', 'NZD', 'PHP', 'PLN',
-      'RON', 'SEK', 'SGD', 'THB', 'TRY', 'USD', 'ZAR',
-    ];
-  }
 }

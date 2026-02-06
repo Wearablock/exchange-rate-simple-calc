@@ -51,7 +51,7 @@ class WelcomePage extends StatelessWidget {
 
           // 설명
           Text(
-            _getWelcomeDescription(context),
+            l10n.welcomeDescription,
             textAlign: TextAlign.center,
             style: theme.textTheme.bodyLarge?.copyWith(
               color: theme.colorScheme.onSurface.withValues(alpha: 0.7),
@@ -85,18 +85,4 @@ class WelcomePage extends StatelessWidget {
     );
   }
 
-  String _getWelcomeDescription(BuildContext context) {
-    final locale = Localizations.localeOf(context);
-
-    switch (locale.languageCode) {
-      case 'ko':
-        return '실시간 환율을 확인하고\n중요한 환율을 기록해보세요';
-      case 'ja':
-        return 'リアルタイム為替レートを確認し\n重要な為替レートを記録しましょう';
-      case 'zh':
-        return '查看实时汇率\n记录重要的汇率信息';
-      default:
-        return 'Check real-time exchange rates\nand save important rates';
-    }
-  }
 }

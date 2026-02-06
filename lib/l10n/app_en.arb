@@ -80,5 +80,20 @@
     }
   },
   "selectLanguage": "Select Language",
-  "systemDefault": "System Default"
+  "systemDefault": "System Default",
+  "welcomeDescription": "Check real-time exchange rates\nand save important rates",
+  "baseCurrencyDescription": "Select the currency for exchange rate comparison",
+  "targetCurrencyDescription": "Select currencies you want to track",
+  "selectedCount": "{count} selected",
+  "@selectedCount": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
+  "emptyStateHint": "Save exchange rates from the home screen",
+  "adFreeActivated": "All ads have been removed",
+  "adFreePurchaseDescription": "One-time purchase to remove all ads",
+  "noCurrencies": "No currencies to display",
+  "purchaseSuccess": "Purchase completed successfully",
+  "purchaseFailed": "Purchase failed. Please try again."
 }

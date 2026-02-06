@@ -62,5 +62,15 @@
   "viewChart": "عرض الرسم البياني",
   "chartDescription": "عرض اتجاه سعر الصرف مع {count} سجل",
   "selectLanguage": "اختيار اللغة",
-  "systemDefault": "الافتراضي للنظام"
+  "systemDefault": "الافتراضي للنظام",
+  "welcomeDescription": "تحقق من أسعار الصرف الحية\nواحفظ الأسعار المهمة",
+  "baseCurrencyDescription": "اختر العملة لمقارنة أسعار الصرف",
+  "targetCurrencyDescription": "اختر العملات التي تريد متابعتها",
+  "selectedCount": "{count} محدد",
+  "emptyStateHint": "احفظ أسعار الصرف من الشاشة الرئيسية",
+  "adFreeActivated": "تم إزالة جميع الإعلانات",
+  "adFreePurchaseDescription": "شراء لمرة واحدة لإزالة جميع الإعلانات",
+  "noCurrencies": "لا توجد عملات لعرضها",
+  "purchaseSuccess": "تمت عملية الشراء بنجاح",
+  "purchaseFailed": "فشل الشراء. يرجى المحاولة مرة أخرى."
 }

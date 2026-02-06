@@ -62,5 +62,15 @@
   "viewChart": "查看圖表",
   "chartDescription": "查看{count}筆記錄的匯率趨勢",
   "selectLanguage": "選擇語言",
-  "systemDefault": "系統預設"
+  "systemDefault": "系統預設",
+  "welcomeDescription": "查看即時匯率\n記錄重要的匯率資訊",
+  "baseCurrencyDescription": "選擇匯率比較的基準貨幣",
+  "targetCurrencyDescription": "選擇您感興趣的貨幣",
+  "selectedCount": "已選擇{count}個",
+  "emptyStateHint": "在主頁儲存匯率",
+  "adFreeActivated": "所有廣告已移除",
+  "adFreePurchaseDescription": "一次性購買移除所有廣告",
+  "noCurrencies": "沒有可顯示的貨幣",
+  "purchaseSuccess": "購買成功",
+  "purchaseFailed": "購買失敗，請重試。"
 }

@@ -203,4 +203,40 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get systemDefault => 'Padrão do sistema';
+
+  @override
+  String get welcomeDescription =>
+      'Confira taxas de câmbio em tempo real\ne salve as taxas importantes';
+
+  @override
+  String get baseCurrencyDescription =>
+      'Selecione a moeda para comparação de taxas';
+
+  @override
+  String get targetCurrencyDescription =>
+      'Selecione as moedas que deseja acompanhar';
+
+  @override
+  String selectedCount(int count) {
+    return '$count selecionada(s)';
+  }
+
+  @override
+  String get emptyStateHint => 'Salve taxas de câmbio na tela inicial';
+
+  @override
+  String get adFreeActivated => 'Todos os anúncios foram removidos';
+
+  @override
+  String get adFreePurchaseDescription =>
+      'Compra única para remover todos os anúncios';
+
+  @override
+  String get noCurrencies => 'Nenhuma moeda para exibir';
+
+  @override
+  String get purchaseSuccess => 'Compra realizada com sucesso';
+
+  @override
+  String get purchaseFailed => 'Falha na compra. Tente novamente.';
 }

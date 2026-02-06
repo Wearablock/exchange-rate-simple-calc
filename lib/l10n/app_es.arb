@@ -62,5 +62,15 @@
   "viewChart": "Ver gráfico",
   "chartDescription": "Ver tendencia del tipo de cambio con {count} registros",
   "selectLanguage": "Seleccionar idioma",
-  "systemDefault": "Predeterminado del sistema"
+  "systemDefault": "Predeterminado del sistema",
+  "welcomeDescription": "Consulta tipos de cambio en tiempo real\ny guarda los tipos importantes",
+  "baseCurrencyDescription": "Selecciona la moneda para comparar tipos de cambio",
+  "targetCurrencyDescription": "Selecciona las monedas que quieres seguir",
+  "selectedCount": "{count} seleccionada(s)",
+  "emptyStateHint": "Guarda tipos de cambio desde la pantalla de inicio",
+  "adFreeActivated": "Todos los anuncios han sido eliminados",
+  "adFreePurchaseDescription": "Compra única para eliminar todos los anuncios",
+  "noCurrencies": "No hay monedas para mostrar",
+  "purchaseSuccess": "Compra realizada con éxito",
+  "purchaseFailed": "Error en la compra. Inténtalo de nuevo."
 }
