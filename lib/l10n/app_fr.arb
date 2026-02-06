@@ -60,5 +60,7 @@
   "networkError": "Vérifiez votre connexion réseau",
   "saveRateDescription": "Enregistrer le taux de change actuel pour référence",
   "viewChart": "Voir le graphique",
-  "chartDescription": "Voir la tendance du taux de change avec {count} enregistrements"
+  "chartDescription": "Voir la tendance du taux de change avec {count} enregistrements",
+  "selectLanguage": "Sélectionner la langue",
+  "systemDefault": "Par défaut du système"
 }

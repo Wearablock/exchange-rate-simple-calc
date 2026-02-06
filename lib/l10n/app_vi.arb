@@ -60,5 +60,7 @@
   "networkError": "Vui lòng kiểm tra kết nối mạng",
   "saveRateDescription": "Lưu tỷ giá hiện tại để tham khảo sau",
   "viewChart": "Xem biểu đồ",
-  "chartDescription": "Xem xu hướng tỷ giá với {count} bản ghi"
+  "chartDescription": "Xem xu hướng tỷ giá với {count} bản ghi",
+  "selectLanguage": "Chọn ngôn ngữ",
+  "systemDefault": "Mặc định hệ thống"
 }

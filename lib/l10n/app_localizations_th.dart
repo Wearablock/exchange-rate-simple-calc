@@ -196,4 +196,10 @@ class AppLocalizationsTh extends AppLocalizations {
   String chartDescription(int count) {
     return 'ดูแนวโน้มอัตราแลกเปลี่ยนจาก $count รายการ';
   }
+
+  @override
+  String get selectLanguage => 'เลือกภาษา';
+
+  @override
+  String get systemDefault => 'ค่าเริ่มต้นของระบบ';
 }

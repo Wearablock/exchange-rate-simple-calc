@@ -60,5 +60,7 @@
   "networkError": "ネットワーク接続を確認してください",
   "saveRateDescription": "現在の為替レートを記録として保存します",
   "viewChart": "グラフを見る",
-  "chartDescription": "{count}件の記録で為替レートの推移を確認します"
+  "chartDescription": "{count}件の記録で為替レートの推移を確認します",
+  "selectLanguage": "言語選択",
+  "systemDefault": "システムデフォルト"
 }

@@ -196,4 +196,10 @@ class AppLocalizationsKo extends AppLocalizations {
   String chartDescription(int count) {
     return '$count건의 기록으로 환율 추이를 확인합니다';
   }
+
+  @override
+  String get selectLanguage => '언어 선택';
+
+  @override
+  String get systemDefault => '시스템 기본값';
 }

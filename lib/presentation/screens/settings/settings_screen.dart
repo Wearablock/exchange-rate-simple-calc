@@ -4,6 +4,7 @@ import '../../../core/constants/currencies.dart';
 import '../../../core/services/preferences_service.dart';
 import '../../../core/services/iap_service.dart';
 import '../../../l10n/app_localizations.dart';
+import '../../../main.dart';
 import '../../widgets/currency_select_dialog.dart';
 import 'webview_screen.dart';
 
@@ -20,7 +21,26 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
   String _baseCurrency = 'USD';
   String _themeMode = 'system';
+  String? _languageCode;
   bool _isPremium = false;
+
+  static const Map<String?, String> _languageNativeNames = {
+    'en': 'English',
+    'ko': '한국어',
+    'ja': '日本語',
+    'zh': '简体中文',
+    'zh_Hant': '繁體中文',
+    'de': 'Deutsch',
+    'fr': 'Français',
+    'es': 'Español',
+    'pt': 'Português',
+    'it': 'Italiano',
+    'ru': 'Русский',
+    'ar': 'العربية',
+    'th': 'ไทย',
+    'vi': 'Tiếng Việt',
+    'id': 'Bahasa Indonesia',
+  };
 
   @override
   void initState() {
@@ -32,6 +52,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     setState(() {
       _baseCurrency = _prefsService.baseCurrency;
       _themeMode = _prefsService.themeMode;
+      _languageCode = _prefsService.languageCode;
       _isPremium = _iapService.isPremium;
     });
   }
@@ -78,6 +99,54 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
   Widget _buildThemeOption(String value, String label) {
     final isSelected = _themeMode == value;
+    return SimpleDialogOption(
+      onPressed: () => Navigator.pop(context, value),
+      child: Row(
+        children: [
+          Icon(
+            isSelected ? Icons.radio_button_checked : Icons.radio_button_unchecked,
+            color: isSelected ? Theme.of(context).colorScheme.primary : null,
+          ),
+          const SizedBox(width: 8),
+          Text(label),
+        ],
+      ),
+    );
+  }
+
+  Future<void> _changeLanguage() async {
+    final l10n = AppLocalizations.of(context)!;
+
+    // Use sentinel to distinguish "system default" from dialog dismissal
+    const systemSentinel = '_system_';
+    final result = await showDialog<String>(
+      context: context,
+      builder: (context) => SimpleDialog(
+        title: Text(l10n.selectLanguage),
+        children: [
+          _buildLanguageOption(systemSentinel, l10n.systemDefault, _languageCode == null),
+          ..._languageNativeNames.entries.map(
+            (e) => _buildLanguageOption(e.key!, e.value, _languageCode == e.key),
+          ),
+        ],
+      ),
+    );
+
+    if (result == null) return; // dialog dismissed
+
+    final newCode = result == systemSentinel ? null : result;
+    if (newCode == _languageCode) return;
+
+    await _prefsService.setLanguageCode(newCode);
+    setState(() {
+      _languageCode = newCode;
+    });
+    if (mounted) {
+      EasyExchangeApp.setLocale(context, newCode);
+    }
+  }
+
+  Widget _buildLanguageOption(String value, String label, bool isSelected) {
     return SimpleDialogOption(
       onPressed: () => Navigator.pop(context, value),
       child: Row(
@@ -191,6 +260,15 @@ class _SettingsScreenState extends State<SettingsScreen> {
             onTap: _changeTheme,
           ),
 
+          // 언어
+          ListTile(
+            leading: const Icon(Icons.language),
+            title: Text(l10n.language),
+            subtitle: Text(_getLanguageLabel(l10n)),
+            trailing: const Icon(Icons.chevron_right),
+            onTap: _changeLanguage,
+          ),
+
           const Divider(),
 
           // 광고 제거 섹션
@@ -282,6 +360,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
       default:
         return l10n.themeSystem;
     }
+  }
+
+  String _getLanguageLabel(AppLocalizations l10n) {
+    if (_languageCode == null) return l10n.systemDefault;
+    return _languageNativeNames[_languageCode] ?? _languageCode!;
   }
 
   String _getAdFreeDescription(BuildContext context) {

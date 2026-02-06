@@ -60,5 +60,7 @@
   "networkError": "Bitte Netzwerkverbindung prüfen",
   "saveRateDescription": "Aktuellen Wechselkurs zur späteren Einsicht speichern",
   "viewChart": "Diagramm anzeigen",
-  "chartDescription": "Wechselkurstrend mit {count} Einträgen anzeigen"
+  "chartDescription": "Wechselkurstrend mit {count} Einträgen anzeigen",
+  "selectLanguage": "Sprache auswählen",
+  "systemDefault": "Systemstandard"
 }

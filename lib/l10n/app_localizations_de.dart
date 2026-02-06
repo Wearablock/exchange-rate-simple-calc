@@ -197,4 +197,10 @@ class AppLocalizationsDe extends AppLocalizations {
   String chartDescription(int count) {
     return 'Wechselkurstrend mit $count Einträgen anzeigen';
   }
+
+  @override
+  String get selectLanguage => 'Sprache auswählen';
+
+  @override
+  String get systemDefault => 'Systemstandard';
 }

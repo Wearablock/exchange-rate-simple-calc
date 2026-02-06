@@ -60,5 +60,7 @@
   "networkError": "請檢查網路連線",
   "saveRateDescription": "儲存目前匯率以供日後參考",
   "viewChart": "查看圖表",
-  "chartDescription": "查看{count}筆記錄的匯率趨勢"
+  "chartDescription": "查看{count}筆記錄的匯率趨勢",
+  "selectLanguage": "選擇語言",
+  "systemDefault": "系統預設"
 }

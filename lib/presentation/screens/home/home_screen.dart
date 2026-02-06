@@ -434,7 +434,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: TextField(
                       controller: _amountController,
                       focusNode: _leftFocusNode,
-                      autofocus: true,
+                      autofocus: false,
                       keyboardType: const TextInputType.numberWithOptions(decimal: true),
                       textInputAction: TextInputAction.done,
                       inputFormatters: [

@@ -60,5 +60,7 @@
   "networkError": "请检查网络连接",
   "saveRateDescription": "保存当前汇率以供日后参考",
   "viewChart": "查看图表",
-  "chartDescription": "查看{count}条记录的汇率趋势"
+  "chartDescription": "查看{count}条记录的汇率趋势",
+  "selectLanguage": "选择语言",
+  "systemDefault": "系统默认"
 }

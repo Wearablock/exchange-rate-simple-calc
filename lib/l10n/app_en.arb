@@ -78,5 +78,7 @@
     "placeholders": {
       "count": {"type": "int"}
     }
-  }
+  },
+  "selectLanguage": "Select Language",
+  "systemDefault": "System Default"
 }

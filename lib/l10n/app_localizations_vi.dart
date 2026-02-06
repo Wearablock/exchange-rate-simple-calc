@@ -196,4 +196,10 @@ class AppLocalizationsVi extends AppLocalizations {
   String chartDescription(int count) {
     return 'Xem xu hướng tỷ giá với $count bản ghi';
   }
+
+  @override
+  String get selectLanguage => 'Chọn ngôn ngữ';
+
+  @override
+  String get systemDefault => 'Mặc định hệ thống';
 }

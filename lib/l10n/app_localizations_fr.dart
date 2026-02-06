@@ -197,4 +197,10 @@ class AppLocalizationsFr extends AppLocalizations {
   String chartDescription(int count) {
     return 'Voir la tendance du taux de change avec $count enregistrements';
   }
+
+  @override
+  String get selectLanguage => 'Sélectionner la langue';
+
+  @override
+  String get systemDefault => 'Par défaut du système';
 }

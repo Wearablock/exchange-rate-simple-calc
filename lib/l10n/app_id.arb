@@ -60,5 +60,7 @@
   "networkError": "Periksa koneksi jaringan Anda",
   "saveRateDescription": "Simpan kurs saat ini untuk referensi nanti",
   "viewChart": "Lihat grafik",
-  "chartDescription": "Lihat tren kurs dengan {count} catatan"
+  "chartDescription": "Lihat tren kurs dengan {count} catatan",
+  "selectLanguage": "Pilih Bahasa",
+  "systemDefault": "Default Sistem"
 }

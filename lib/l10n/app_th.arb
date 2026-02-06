@@ -60,5 +60,7 @@
   "networkError": "กรุณาตรวจสอบการเชื่อมต่อเครือข่าย",
   "saveRateDescription": "บันทึกอัตราแลกเปลี่ยนปัจจุบันไว้ดูภายหลัง",
   "viewChart": "ดูกราฟ",
-  "chartDescription": "ดูแนวโน้มอัตราแลกเปลี่ยนจาก {count} รายการ"
+  "chartDescription": "ดูแนวโน้มอัตราแลกเปลี่ยนจาก {count} รายการ",
+  "selectLanguage": "เลือกภาษา",
+  "systemDefault": "ค่าเริ่มต้นของระบบ"
 }

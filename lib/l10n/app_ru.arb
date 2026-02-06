@@ -60,5 +60,7 @@
   "networkError": "Проверьте подключение к сети",
   "saveRateDescription": "Сохранить текущий курс для справки",
   "viewChart": "Посмотреть график",
-  "chartDescription": "Просмотр тренда курса по {count} записям"
+  "chartDescription": "Просмотр тренда курса по {count} записям",
+  "selectLanguage": "Выбор языка",
+  "systemDefault": "Системный по умолчанию"
 }

@@ -35,12 +35,18 @@ void main() async {
 class EasyExchangeApp extends StatefulWidget {
   const EasyExchangeApp({super.key});
 
+  static void setLocale(BuildContext context, String? code) {
+    final state = context.findAncestorStateOfType<_EasyExchangeAppState>();
+    state?._setLocale(code);
+  }
+
   @override
   State<EasyExchangeApp> createState() => _EasyExchangeAppState();
 }
 
 class _EasyExchangeAppState extends State<EasyExchangeApp> {
   ThemeMode _themeMode = ThemeMode.system;
+  Locale? _locale;
   bool _isOnboardingComplete = false;
 
   @override
@@ -53,8 +59,27 @@ class _EasyExchangeAppState extends State<EasyExchangeApp> {
     final prefs = PreferencesService();
     setState(() {
       _themeMode = _getThemeModeFromString(prefs.themeMode);
+      _locale = _parseLocale(prefs.languageCode);
       _isOnboardingComplete = prefs.isOnboardingComplete;
     });
+  }
+
+  void _setLocale(String? code) {
+    setState(() {
+      _locale = _parseLocale(code);
+    });
+  }
+
+  static Locale? _parseLocale(String? code) {
+    if (code == null) return null;
+    if (code.contains('_')) {
+      final parts = code.split('_');
+      return Locale.fromSubtags(
+        languageCode: parts[0],
+        scriptCode: parts[1],
+      );
+    }
+    return Locale(code);
   }
 
   ThemeMode _getThemeModeFromString(String mode) {
@@ -86,6 +111,7 @@ class _EasyExchangeAppState extends State<EasyExchangeApp> {
       themeMode: _themeMode,
 
       // 다국어
+      locale: _locale,
       localizationsDelegates: const [
         AppLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,

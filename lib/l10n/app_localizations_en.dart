@@ -198,4 +198,10 @@ class AppLocalizationsEn extends AppLocalizations {
   String chartDescription(int count) {
     return 'View exchange rate trend with $count records';
   }
+
+  @override
+  String get selectLanguage => 'Select Language';
+
+  @override
+  String get systemDefault => 'System Default';
 }

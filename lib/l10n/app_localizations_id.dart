@@ -197,4 +197,10 @@ class AppLocalizationsId extends AppLocalizations {
   String chartDescription(int count) {
     return 'Lihat tren kurs dengan $count catatan';
   }
+
+  @override
+  String get selectLanguage => 'Pilih Bahasa';
+
+  @override
+  String get systemDefault => 'Default Sistem';
 }

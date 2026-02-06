@@ -196,6 +196,12 @@ class AppLocalizationsZh extends AppLocalizations {
   String chartDescription(int count) {
     return '查看$count条记录的汇率趋势';
   }
+
+  @override
+  String get selectLanguage => '选择语言';
+
+  @override
+  String get systemDefault => '系统默认';
 }
 
 /// The translations for Chinese, using the Han script (`zh_Hant`).
@@ -390,4 +396,10 @@ class AppLocalizationsZhHant extends AppLocalizationsZh {
   String chartDescription(int count) {
     return '查看$count筆記錄的匯率趨勢';
   }
+
+  @override
+  String get selectLanguage => '選擇語言';
+
+  @override
+  String get systemDefault => '系統預設';
 }

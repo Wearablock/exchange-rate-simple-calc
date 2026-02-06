@@ -196,4 +196,10 @@ class AppLocalizationsAr extends AppLocalizations {
   String chartDescription(int count) {
     return 'عرض اتجاه سعر الصرف مع $count سجل';
   }
+
+  @override
+  String get selectLanguage => 'اختيار اللغة';
+
+  @override
+  String get systemDefault => 'الافتراضي للنظام';
 }

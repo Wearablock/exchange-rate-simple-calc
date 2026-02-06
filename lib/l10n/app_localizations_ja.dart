@@ -196,4 +196,10 @@ class AppLocalizationsJa extends AppLocalizations {
   String chartDescription(int count) {
     return '$count件の記録で為替レートの推移を確認します';
   }
+
+  @override
+  String get selectLanguage => '言語選択';
+
+  @override
+  String get systemDefault => 'システムデフォルト';
 }

@@ -60,5 +60,7 @@
   "networkError": "Controlla la connessione di rete",
   "saveRateDescription": "Salva il tasso di cambio attuale per riferimento futuro",
   "viewChart": "Visualizza grafico",
-  "chartDescription": "Visualizza l'andamento del tasso di cambio con {count} record"
+  "chartDescription": "Visualizza l'andamento del tasso di cambio con {count} record",
+  "selectLanguage": "Seleziona lingua",
+  "systemDefault": "Predefinito di sistema"
 }

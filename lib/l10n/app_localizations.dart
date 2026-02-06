@@ -488,6 +488,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'View exchange rate trend with {count} records'**
   String chartDescription(int count);
+
+  /// No description provided for @selectLanguage.
+  ///
+  /// In en, this message translates to:
+  /// **'Select Language'**
+  String get selectLanguage;
+
+  /// No description provided for @systemDefault.
+  ///
+  /// In en, this message translates to:
+  /// **'System Default'**
+  String get systemDefault;
 }
 
 class _AppLocalizationsDelegate

@@ -110,8 +110,7 @@ class AppConfig {
   // ============================================================
   // 외부 URL
   // ============================================================
-  // TODO: Replace with actual GitHub Pages URL after deployment
-  static const String _baseDocsUrl = 'https://example.github.io/easy-exchange';
+  static const String _baseDocsUrl = 'https://wearablock.github.io/exchange_rate_simple_calc';
   static const String termsUrl = '$_baseDocsUrl/terms.html';
   static const String privacyUrl = '$_baseDocsUrl/privacy.html';
   static const String supportUrl = '$_baseDocsUrl/support.html';

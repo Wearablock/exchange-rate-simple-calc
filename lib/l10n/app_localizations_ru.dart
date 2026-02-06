@@ -196,4 +196,10 @@ class AppLocalizationsRu extends AppLocalizations {
   String chartDescription(int count) {
     return 'Просмотр тренда курса по $count записям';
   }
+
+  @override
+  String get selectLanguage => 'Выбор языка';
+
+  @override
+  String get systemDefault => 'Системный по умолчанию';
 }

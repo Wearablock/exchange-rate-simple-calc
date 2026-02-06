@@ -60,5 +60,7 @@
   "networkError": "Comprueba tu conexión de red",
   "saveRateDescription": "Guardar el tipo de cambio actual para consulta futura",
   "viewChart": "Ver gráfico",
-  "chartDescription": "Ver tendencia del tipo de cambio con {count} registros"
+  "chartDescription": "Ver tendencia del tipo de cambio con {count} registros",
+  "selectLanguage": "Seleccionar idioma",
+  "systemDefault": "Predeterminado del sistema"
 }
