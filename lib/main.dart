@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:upgrader/upgrader.dart';
 import 'l10n/app_localizations.dart';
 
 import 'core/config/app_config.dart';
@@ -132,9 +133,13 @@ class _EasyExchangeAppState extends State<EasyExchangeApp> {
       supportedLocales: AppConfig.supportedLocales,
 
       // 온보딩 여부에 따라 화면 분기
-      home: _isOnboardingComplete
-          ? const MainShell()
-          : OnboardingScreen(onComplete: _onOnboardingComplete),
+      home: UpgradeAlert(
+        showIgnore: false,
+        showLater: true,
+        child: _isOnboardingComplete
+            ? const MainShell()
+            : OnboardingScreen(onComplete: _onOnboardingComplete),
+      ),
     );
   }
 }
