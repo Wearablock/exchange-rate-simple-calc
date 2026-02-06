@@ -185,4 +185,15 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get networkError => 'Проверьте подключение к сети';
+
+  @override
+  String get saveRateDescription => 'Сохранить текущий курс для справки';
+
+  @override
+  String get viewChart => 'Посмотреть график';
+
+  @override
+  String chartDescription(int count) {
+    return 'Просмотр тренда курса по $count записям';
+  }
 }

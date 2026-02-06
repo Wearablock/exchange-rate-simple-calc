@@ -185,4 +185,15 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get networkError => 'กรุณาตรวจสอบการเชื่อมต่อเครือข่าย';
+
+  @override
+  String get saveRateDescription => 'บันทึกอัตราแลกเปลี่ยนปัจจุบันไว้ดูภายหลัง';
+
+  @override
+  String get viewChart => 'ดูกราฟ';
+
+  @override
+  String chartDescription(int count) {
+    return 'ดูแนวโน้มอัตราแลกเปลี่ยนจาก $count รายการ';
+  }
 }

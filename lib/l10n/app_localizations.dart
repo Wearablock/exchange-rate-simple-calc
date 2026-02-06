@@ -470,6 +470,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Please check your network connection'**
   String get networkError;
+
+  /// No description provided for @saveRateDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Save the current exchange rate for future reference'**
+  String get saveRateDescription;
+
+  /// No description provided for @viewChart.
+  ///
+  /// In en, this message translates to:
+  /// **'View Chart'**
+  String get viewChart;
+
+  /// No description provided for @chartDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'View exchange rate trend with {count} records'**
+  String chartDescription(int count);
 }
 
 class _AppLocalizationsDelegate

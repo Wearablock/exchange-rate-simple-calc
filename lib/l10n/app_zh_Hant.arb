@@ -57,5 +57,8 @@
   "adRequired": "需要觀看廣告",
   "adNotReady": "廣告尚未準備好",
   "saveWithoutAd": "不看廣告直接儲存？",
-  "networkError": "請檢查網路連線"
+  "networkError": "請檢查網路連線",
+  "saveRateDescription": "儲存目前匯率以供日後參考",
+  "viewChart": "查看圖表",
+  "chartDescription": "查看{count}筆記錄的匯率趨勢"
 }

@@ -57,5 +57,8 @@
   "adRequired": "Se requiere ver anuncio",
   "adNotReady": "Anuncio no disponible aún",
   "saveWithoutAd": "¿Guardar sin ver anuncio?",
-  "networkError": "Comprueba tu conexión de red"
+  "networkError": "Comprueba tu conexión de red",
+  "saveRateDescription": "Guardar el tipo de cambio actual para consulta futura",
+  "viewChart": "Ver gráfico",
+  "chartDescription": "Ver tendencia del tipo de cambio con {count} registros"
 }

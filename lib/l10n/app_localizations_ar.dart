@@ -185,4 +185,15 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get networkError => 'يرجى التحقق من اتصال الشبكة';
+
+  @override
+  String get saveRateDescription => 'حفظ سعر الصرف الحالي للرجوع إليه لاحقاً';
+
+  @override
+  String get viewChart => 'عرض الرسم البياني';
+
+  @override
+  String chartDescription(int count) {
+    return 'عرض اتجاه سعر الصرف مع $count سجل';
+  }
 }

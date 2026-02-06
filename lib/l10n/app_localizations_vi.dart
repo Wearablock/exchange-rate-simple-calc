@@ -185,4 +185,15 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get networkError => 'Vui lòng kiểm tra kết nối mạng';
+
+  @override
+  String get saveRateDescription => 'Lưu tỷ giá hiện tại để tham khảo sau';
+
+  @override
+  String get viewChart => 'Xem biểu đồ';
+
+  @override
+  String chartDescription(int count) {
+    return 'Xem xu hướng tỷ giá với $count bản ghi';
+  }
 }

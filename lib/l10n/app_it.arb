@@ -57,5 +57,8 @@
   "adRequired": "È richiesta la visione di una pubblicità",
   "adNotReady": "Pubblicità non ancora pronta",
   "saveWithoutAd": "Salvare senza pubblicità?",
-  "networkError": "Controlla la connessione di rete"
+  "networkError": "Controlla la connessione di rete",
+  "saveRateDescription": "Salva il tasso di cambio attuale per riferimento futuro",
+  "viewChart": "Visualizza grafico",
+  "chartDescription": "Visualizza l'andamento del tasso di cambio con {count} record"
 }

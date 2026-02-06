@@ -185,4 +185,16 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get networkError => 'Vérifiez votre connexion réseau';
+
+  @override
+  String get saveRateDescription =>
+      'Enregistrer le taux de change actuel pour référence';
+
+  @override
+  String get viewChart => 'Voir le graphique';
+
+  @override
+  String chartDescription(int count) {
+    return 'Voir la tendance du taux de change avec $count enregistrements';
+  }
 }

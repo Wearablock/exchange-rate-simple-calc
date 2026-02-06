@@ -57,5 +57,8 @@
   "adRequired": "مطلوب مشاهدة إعلان",
   "adNotReady": "الإعلان غير جاهز بعد",
   "saveWithoutAd": "حفظ بدون إعلان؟",
-  "networkError": "يرجى التحقق من اتصال الشبكة"
+  "networkError": "يرجى التحقق من اتصال الشبكة",
+  "saveRateDescription": "حفظ سعر الصرف الحالي للرجوع إليه لاحقاً",
+  "viewChart": "عرض الرسم البياني",
+  "chartDescription": "عرض اتجاه سعر الصرف مع {count} سجل"
 }

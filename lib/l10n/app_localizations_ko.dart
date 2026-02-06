@@ -185,4 +185,15 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get networkError => '네트워크 연결을 확인해주세요';
+
+  @override
+  String get saveRateDescription => '현재 환율을 기록으로 저장합니다';
+
+  @override
+  String get viewChart => '그래프 보기';
+
+  @override
+  String chartDescription(int count) {
+    return '$count건의 기록으로 환율 추이를 확인합니다';
+  }
 }

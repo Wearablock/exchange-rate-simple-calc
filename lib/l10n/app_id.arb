@@ -57,5 +57,8 @@
   "adRequired": "Perlu menonton iklan",
   "adNotReady": "Iklan belum siap",
   "saveWithoutAd": "Simpan tanpa menonton iklan?",
-  "networkError": "Periksa koneksi jaringan Anda"
+  "networkError": "Periksa koneksi jaringan Anda",
+  "saveRateDescription": "Simpan kurs saat ini untuk referensi nanti",
+  "viewChart": "Lihat grafik",
+  "chartDescription": "Lihat tren kurs dengan {count} catatan"
 }

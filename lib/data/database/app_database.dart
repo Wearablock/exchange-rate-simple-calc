@@ -17,7 +17,6 @@ class SavedRates extends Table {
   TextColumn get targetCode => text().withLength(min: 3, max: 3)();
   RealColumn get rate => real()();
   DateTimeColumn get savedAt => dateTime()();
-  TextColumn get memo => text().nullable()();
 }
 
 /// 관심 통화 목록
@@ -44,7 +43,19 @@ class AppDatabase extends _$AppDatabase {
   AppDatabase.forTesting(super.e);
 
   @override
-  int get schemaVersion => 1;
+  int get schemaVersion => 2;
+
+  @override
+  MigrationStrategy get migration => MigrationStrategy(
+    onCreate: (migrator) async {
+      await migrator.createAll();
+    },
+    onUpgrade: (migrator, from, to) async {
+      if (from < 2) {
+        await customStatement('ALTER TABLE saved_rates DROP COLUMN memo');
+      }
+    },
+  );
 
   // ============================================================
   // 저장된 환율 기록 CRUD

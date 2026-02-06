@@ -185,4 +185,16 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get networkError => 'Bitte Netzwerkverbindung prüfen';
+
+  @override
+  String get saveRateDescription =>
+      'Aktuellen Wechselkurs zur späteren Einsicht speichern';
+
+  @override
+  String get viewChart => 'Diagramm anzeigen';
+
+  @override
+  String chartDescription(int count) {
+    return 'Wechselkurstrend mit $count Einträgen anzeigen';
+  }
 }

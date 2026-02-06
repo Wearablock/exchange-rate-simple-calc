@@ -57,5 +57,8 @@
   "adRequired": "Cần xem quảng cáo",
   "adNotReady": "Quảng cáo chưa sẵn sàng",
   "saveWithoutAd": "Lưu mà không xem quảng cáo?",
-  "networkError": "Vui lòng kiểm tra kết nối mạng"
+  "networkError": "Vui lòng kiểm tra kết nối mạng",
+  "saveRateDescription": "Lưu tỷ giá hiện tại để tham khảo sau",
+  "viewChart": "Xem biểu đồ",
+  "chartDescription": "Xem xu hướng tỷ giá với {count} bản ghi"
 }

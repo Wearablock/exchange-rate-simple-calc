@@ -186,4 +186,16 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get networkError => 'Please check your network connection';
+
+  @override
+  String get saveRateDescription =>
+      'Save the current exchange rate for future reference';
+
+  @override
+  String get viewChart => 'View Chart';
+
+  @override
+  String chartDescription(int count) {
+    return 'View exchange rate trend with $count records';
+  }
 }

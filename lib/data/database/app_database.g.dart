@@ -72,15 +72,6 @@ class $SavedRatesTable extends SavedRates
     type: DriftSqlType.dateTime,
     requiredDuringInsert: true,
   );
-  static const VerificationMeta _memoMeta = const VerificationMeta('memo');
-  @override
-  late final GeneratedColumn<String> memo = GeneratedColumn<String>(
-    'memo',
-    aliasedName,
-    true,
-    type: DriftSqlType.string,
-    requiredDuringInsert: false,
-  );
   @override
   List<GeneratedColumn> get $columns => [
     id,
@@ -88,7 +79,6 @@ class $SavedRatesTable extends SavedRates
     targetCode,
     rate,
     savedAt,
-    memo,
   ];
   @override
   String get aliasedName => _alias ?? actualTableName;
@@ -137,12 +127,6 @@ class $SavedRatesTable extends SavedRates
     } else if (isInserting) {
       context.missing(_savedAtMeta);
     }
-    if (data.containsKey('memo')) {
-      context.handle(
-        _memoMeta,
-        memo.isAcceptableOrUnknown(data['memo']!, _memoMeta),
-      );
-    }
     return context;
   }
 
@@ -172,10 +156,6 @@ class $SavedRatesTable extends SavedRates
         DriftSqlType.dateTime,
         data['${effectivePrefix}saved_at'],
       )!,
-      memo: attachedDatabase.typeMapping.read(
-        DriftSqlType.string,
-        data['${effectivePrefix}memo'],
-      ),
     );
   }
 
@@ -191,14 +171,12 @@ class SavedRate extends DataClass implements Insertable<SavedRate> {
   final String targetCode;
   final double rate;
   final DateTime savedAt;
-  final String? memo;
   const SavedRate({
     required this.id,
     required this.baseCode,
     required this.targetCode,
     required this.rate,
     required this.savedAt,
-    this.memo,
   });
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
@@ -208,9 +186,6 @@ class SavedRate extends DataClass implements Insertable<SavedRate> {
     map['target_code'] = Variable<String>(targetCode);
     map['rate'] = Variable<double>(rate);
     map['saved_at'] = Variable<DateTime>(savedAt);
-    if (!nullToAbsent || memo != null) {
-      map['memo'] = Variable<String>(memo);
-    }
     return map;
   }
 
@@ -221,7 +196,6 @@ class SavedRate extends DataClass implements Insertable<SavedRate> {
       targetCode: Value(targetCode),
       rate: Value(rate),
       savedAt: Value(savedAt),
-      memo: memo == null && nullToAbsent ? const Value.absent() : Value(memo),
     );
   }
 
@@ -236,7 +210,6 @@ class SavedRate extends DataClass implements Insertable<SavedRate> {
       targetCode: serializer.fromJson<String>(json['targetCode']),
       rate: serializer.fromJson<double>(json['rate']),
       savedAt: serializer.fromJson<DateTime>(json['savedAt']),
-      memo: serializer.fromJson<String?>(json['memo']),
     );
   }
   @override
@@ -248,7 +221,6 @@ class SavedRate extends DataClass implements Insertable<SavedRate> {
       'targetCode': serializer.toJson<String>(targetCode),
       'rate': serializer.toJson<double>(rate),
       'savedAt': serializer.toJson<DateTime>(savedAt),
-      'memo': serializer.toJson<String?>(memo),
     };
   }
 
@@ -258,14 +230,12 @@ class SavedRate extends DataClass implements Insertable<SavedRate> {
     String? targetCode,
     double? rate,
     DateTime? savedAt,
-    Value<String?> memo = const Value.absent(),
   }) => SavedRate(
     id: id ?? this.id,
     baseCode: baseCode ?? this.baseCode,
     targetCode: targetCode ?? this.targetCode,
     rate: rate ?? this.rate,
     savedAt: savedAt ?? this.savedAt,
-    memo: memo.present ? memo.value : this.memo,
   );
   SavedRate copyWithCompanion(SavedRatesCompanion data) {
     return SavedRate(
@@ -276,7 +246,6 @@ class SavedRate extends DataClass implements Insertable<SavedRate> {
           : this.targetCode,
       rate: data.rate.present ? data.rate.value : this.rate,
       savedAt: data.savedAt.present ? data.savedAt.value : this.savedAt,
-      memo: data.memo.present ? data.memo.value : this.memo,
     );
   }
 
@@ -287,15 +256,13 @@ class SavedRate extends DataClass implements Insertable<SavedRate> {
           ..write('baseCode: $baseCode, ')
           ..write('targetCode: $targetCode, ')
           ..write('rate: $rate, ')
-          ..write('savedAt: $savedAt, ')
-          ..write('memo: $memo')
+          ..write('savedAt: $savedAt')
           ..write(')'))
         .toString();
   }
 
   @override
-  int get hashCode =>
-      Object.hash(id, baseCode, targetCode, rate, savedAt, memo);
+  int get hashCode => Object.hash(id, baseCode, targetCode, rate, savedAt);
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
@@ -304,8 +271,7 @@ class SavedRate extends DataClass implements Insertable<SavedRate> {
           other.baseCode == this.baseCode &&
           other.targetCode == this.targetCode &&
           other.rate == this.rate &&
-          other.savedAt == this.savedAt &&
-          other.memo == this.memo);
+          other.savedAt == this.savedAt);
 }
 
 class SavedRatesCompanion extends UpdateCompanion<SavedRate> {
@@ -314,14 +280,12 @@ class SavedRatesCompanion extends UpdateCompanion<SavedRate> {
   final Value<String> targetCode;
   final Value<double> rate;
   final Value<DateTime> savedAt;
-  final Value<String?> memo;
   const SavedRatesCompanion({
     this.id = const Value.absent(),
     this.baseCode = const Value.absent(),
     this.targetCode = const Value.absent(),
     this.rate = const Value.absent(),
     this.savedAt = const Value.absent(),
-    this.memo = const Value.absent(),
   });
   SavedRatesCompanion.insert({
     this.id = const Value.absent(),
@@ -329,7 +293,6 @@ class SavedRatesCompanion extends UpdateCompanion<SavedRate> {
     required String targetCode,
     required double rate,
     required DateTime savedAt,
-    this.memo = const Value.absent(),
   }) : baseCode = Value(baseCode),
        targetCode = Value(targetCode),
        rate = Value(rate),
@@ -340,7 +303,6 @@ class SavedRatesCompanion extends UpdateCompanion<SavedRate> {
     Expression<String>? targetCode,
     Expression<double>? rate,
     Expression<DateTime>? savedAt,
-    Expression<String>? memo,
   }) {
     return RawValuesInsertable({
       if (id != null) 'id': id,
@@ -348,7 +310,6 @@ class SavedRatesCompanion extends UpdateCompanion<SavedRate> {
       if (targetCode != null) 'target_code': targetCode,
       if (rate != null) 'rate': rate,
       if (savedAt != null) 'saved_at': savedAt,
-      if (memo != null) 'memo': memo,
     });
   }
 
@@ -358,7 +319,6 @@ class SavedRatesCompanion extends UpdateCompanion<SavedRate> {
     Value<String>? targetCode,
     Value<double>? rate,
     Value<DateTime>? savedAt,
-    Value<String?>? memo,
   }) {
     return SavedRatesCompanion(
       id: id ?? this.id,
@@ -366,7 +326,6 @@ class SavedRatesCompanion extends UpdateCompanion<SavedRate> {
       targetCode: targetCode ?? this.targetCode,
       rate: rate ?? this.rate,
       savedAt: savedAt ?? this.savedAt,
-      memo: memo ?? this.memo,
     );
   }
 
@@ -388,9 +347,6 @@ class SavedRatesCompanion extends UpdateCompanion<SavedRate> {
     if (savedAt.present) {
       map['saved_at'] = Variable<DateTime>(savedAt.value);
     }
-    if (memo.present) {
-      map['memo'] = Variable<String>(memo.value);
-    }
     return map;
   }
 
@@ -401,8 +357,7 @@ class SavedRatesCompanion extends UpdateCompanion<SavedRate> {
           ..write('baseCode: $baseCode, ')
           ..write('targetCode: $targetCode, ')
           ..write('rate: $rate, ')
-          ..write('savedAt: $savedAt, ')
-          ..write('memo: $memo')
+          ..write('savedAt: $savedAt')
           ..write(')'))
         .toString();
   }
@@ -693,7 +648,6 @@ typedef $$SavedRatesTableCreateCompanionBuilder =
       required String targetCode,
       required double rate,
       required DateTime savedAt,
-      Value<String?> memo,
     });
 typedef $$SavedRatesTableUpdateCompanionBuilder =
     SavedRatesCompanion Function({
@@ -702,7 +656,6 @@ typedef $$SavedRatesTableUpdateCompanionBuilder =
       Value<String> targetCode,
       Value<double> rate,
       Value<DateTime> savedAt,
-      Value<String?> memo,
     });
 
 class $$SavedRatesTableFilterComposer
@@ -736,11 +689,6 @@ class $$SavedRatesTableFilterComposer
 
   ColumnFilters<DateTime> get savedAt => $composableBuilder(
     column: $table.savedAt,
-    builder: (column) => ColumnFilters(column),
-  );
-
-  ColumnFilters<String> get memo => $composableBuilder(
-    column: $table.memo,
     builder: (column) => ColumnFilters(column),
   );
 }
@@ -778,11 +726,6 @@ class $$SavedRatesTableOrderingComposer
     column: $table.savedAt,
     builder: (column) => ColumnOrderings(column),
   );
-
-  ColumnOrderings<String> get memo => $composableBuilder(
-    column: $table.memo,
-    builder: (column) => ColumnOrderings(column),
-  );
 }
 
 class $$SavedRatesTableAnnotationComposer
@@ -810,9 +753,6 @@ class $$SavedRatesTableAnnotationComposer
 
   GeneratedColumn<DateTime> get savedAt =>
       $composableBuilder(column: $table.savedAt, builder: (column) => column);
-
-  GeneratedColumn<String> get memo =>
-      $composableBuilder(column: $table.memo, builder: (column) => column);
 }
 
 class $$SavedRatesTableTableManager
@@ -851,14 +791,12 @@ class $$SavedRatesTableTableManager
                 Value<String> targetCode = const Value.absent(),
                 Value<double> rate = const Value.absent(),
                 Value<DateTime> savedAt = const Value.absent(),
-                Value<String?> memo = const Value.absent(),
               }) => SavedRatesCompanion(
                 id: id,
                 baseCode: baseCode,
                 targetCode: targetCode,
                 rate: rate,
                 savedAt: savedAt,
-                memo: memo,
               ),
           createCompanionCallback:
               ({
@@ -867,14 +805,12 @@ class $$SavedRatesTableTableManager
                 required String targetCode,
                 required double rate,
                 required DateTime savedAt,
-                Value<String?> memo = const Value.absent(),
               }) => SavedRatesCompanion.insert(
                 id: id,
                 baseCode: baseCode,
                 targetCode: targetCode,
                 rate: rate,
                 savedAt: savedAt,
-                memo: memo,
               ),
           withReferenceMapper: (p0) => p0
               .map((e) => (e.readTable(table), BaseReferences(db, table, e)))

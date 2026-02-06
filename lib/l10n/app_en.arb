@@ -70,5 +70,13 @@
   "adRequired": "Ad viewing required",
   "adNotReady": "Ad is not ready yet",
   "saveWithoutAd": "Save without watching ad?",
-  "networkError": "Please check your network connection"
+  "networkError": "Please check your network connection",
+  "saveRateDescription": "Save the current exchange rate for future reference",
+  "viewChart": "View Chart",
+  "chartDescription": "View exchange rate trend with {count} records",
+  "@chartDescription": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  }
 }

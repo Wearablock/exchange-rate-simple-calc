@@ -185,4 +185,16 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get networkError => 'Periksa koneksi jaringan Anda';
+
+  @override
+  String get saveRateDescription =>
+      'Simpan kurs saat ini untuk referensi nanti';
+
+  @override
+  String get viewChart => 'Lihat grafik';
+
+  @override
+  String chartDescription(int count) {
+    return 'Lihat tren kurs dengan $count catatan';
+  }
 }

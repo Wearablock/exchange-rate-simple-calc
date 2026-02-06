@@ -57,5 +57,8 @@
   "adRequired": "広告の視聴が必要です",
   "adNotReady": "広告の準備ができていません",
   "saveWithoutAd": "広告なしで保存しますか？",
-  "networkError": "ネットワーク接続を確認してください"
+  "networkError": "ネットワーク接続を確認してください",
+  "saveRateDescription": "現在の為替レートを記録として保存します",
+  "viewChart": "グラフを見る",
+  "chartDescription": "{count}件の記録で為替レートの推移を確認します"
 }

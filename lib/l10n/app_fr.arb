@@ -57,5 +57,8 @@
   "adRequired": "Visionnage de pub requis",
   "adNotReady": "Pub pas encore prête",
   "saveWithoutAd": "Enregistrer sans pub ?",
-  "networkError": "Vérifiez votre connexion réseau"
+  "networkError": "Vérifiez votre connexion réseau",
+  "saveRateDescription": "Enregistrer le taux de change actuel pour référence",
+  "viewChart": "Voir le graphique",
+  "chartDescription": "Voir la tendance du taux de change avec {count} enregistrements"
 }

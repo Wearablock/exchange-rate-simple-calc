@@ -15,6 +15,7 @@ class PreferencesService {
   static const String _keyThemeMode = 'theme_mode';
   static const String _keyOnboardingComplete = 'onboarding_complete';
   static const String _keyLanguageCode = 'language_code';
+  static const String _keyHistoryGroupOrder = 'history_group_order';
 
   // 기본값
   static const String _defaultBaseCurrency = 'USD';
@@ -101,6 +102,17 @@ class PreferencesService {
       await _prefs?.setString(_keyLanguageCode, code);
     }
     debugPrint('[PreferencesService] 언어 설정: $code');
+  }
+
+  // ============================================================
+  // 기록 그룹 순서
+  // ============================================================
+  List<String> get historyGroupOrder {
+    return _prefs?.getStringList(_keyHistoryGroupOrder) ?? [];
+  }
+
+  Future<void> setHistoryGroupOrder(List<String> order) async {
+    await _prefs?.setStringList(_keyHistoryGroupOrder, order);
   }
 
   // ============================================================

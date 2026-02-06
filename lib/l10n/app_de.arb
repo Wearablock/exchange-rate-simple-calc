@@ -57,5 +57,8 @@
   "adRequired": "Werbung ansehen erforderlich",
   "adNotReady": "Werbung noch nicht bereit",
   "saveWithoutAd": "Ohne Werbung speichern?",
-  "networkError": "Bitte Netzwerkverbindung prüfen"
+  "networkError": "Bitte Netzwerkverbindung prüfen",
+  "saveRateDescription": "Aktuellen Wechselkurs zur späteren Einsicht speichern",
+  "viewChart": "Diagramm anzeigen",
+  "chartDescription": "Wechselkurstrend mit {count} Einträgen anzeigen"
 }

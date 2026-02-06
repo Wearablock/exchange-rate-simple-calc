@@ -185,6 +185,17 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get networkError => '请检查网络连接';
+
+  @override
+  String get saveRateDescription => '保存当前汇率以供日后参考';
+
+  @override
+  String get viewChart => '查看图表';
+
+  @override
+  String chartDescription(int count) {
+    return '查看$count条记录的汇率趋势';
+  }
 }
 
 /// The translations for Chinese, using the Han script (`zh_Hant`).
@@ -368,4 +379,15 @@ class AppLocalizationsZhHant extends AppLocalizationsZh {
 
   @override
   String get networkError => '請檢查網路連線';
+
+  @override
+  String get saveRateDescription => '儲存目前匯率以供日後參考';
+
+  @override
+  String get viewChart => '查看圖表';
+
+  @override
+  String chartDescription(int count) {
+    return '查看$count筆記錄的匯率趨勢';
+  }
 }

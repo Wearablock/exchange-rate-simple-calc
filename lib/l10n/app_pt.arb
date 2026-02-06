@@ -57,5 +57,8 @@
   "adRequired": "É necessário assistir anúncio",
   "adNotReady": "Anúncio ainda não disponível",
   "saveWithoutAd": "Salvar sem assistir anúncio?",
-  "networkError": "Verifique sua conexão de rede"
+  "networkError": "Verifique sua conexão de rede",
+  "saveRateDescription": "Salvar a taxa de câmbio atual para consulta futura",
+  "viewChart": "Ver gráfico",
+  "chartDescription": "Ver tendência da taxa de câmbio com {count} registros"
 }

@@ -5,6 +5,7 @@ import '../../../core/services/preferences_service.dart';
 import '../../../core/services/ad_service.dart';
 import '../../../core/services/exchange_rate_service.dart';
 import '../../../core/services/iap_service.dart';
+import '../../../core/services/rate_history_service.dart';
 import '../../../data/models/exchange_rate.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../widgets/currency_select_dialog.dart';
@@ -21,6 +22,7 @@ class _HomeScreenState extends State<HomeScreen> {
   final ExchangeRateService _exchangeService = ExchangeRateService();
   final AdService _adService = AdService();
   final IAPService _iapService = IAPService();
+  final RateHistoryService _historyService = RateHistoryService();
 
   final TextEditingController _amountController = TextEditingController();
   final TextEditingController _rightAmountController = TextEditingController();
@@ -135,21 +137,11 @@ class _HomeScreenState extends State<HomeScreen> {
 
     if (confirmed != true || !mounted) return;
 
-    if (isPremium) {
-      _refresh();
-    } else {
-      final adShown = await _adService.showRewardedAd(
-        onRewarded: (_) {
-          if (mounted) _refresh();
-        },
-      );
-
-      if (!adShown && mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(l10n.adNotReady)),
-        );
-      }
+    if (!isPremium) {
+      await _adService.showInterstitialAd();
     }
+
+    if (mounted) _refresh();
   }
 
   Future<void> _refresh() async {
@@ -581,17 +573,148 @@ class _HomeScreenState extends State<HomeScreen> {
     _prefsService.setWatchList(_watchList);
   }
 
-  void _showSaveDialog(String currencyCode) {
-    // TODO: 환율 저장 다이얼로그 구현
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text('Save $_baseCurrency → $currencyCode'),
-        action: SnackBarAction(
-          label: 'OK',
-          onPressed: () {},
+  Future<void> _showSaveDialog(String currencyCode) async {
+    final l10n = AppLocalizations.of(context)!;
+    final theme = Theme.of(context);
+    final isPremium = _iapService.isPremium;
+    final rate = _getRate(currencyCode);
+
+    final confirmed = await showDialog<bool>(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Row(
+          children: [
+            Text(l10n.saveRate),
+            if (!isPremium) ...[
+              const SizedBox(width: 8),
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+                decoration: BoxDecoration(
+                  color: theme.colorScheme.primary,
+                  borderRadius: BorderRadius.circular(6),
+                ),
+                child: Text(
+                  'AD',
+                  style: TextStyle(
+                    color: theme.colorScheme.onPrimary,
+                    fontWeight: FontWeight.w800,
+                    fontSize: 12,
+                  ),
+                ),
+              ),
+            ],
+          ],
         ),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  Currencies.getByCode(_baseCurrency)?.flag ?? '',
+                  style: const TextStyle(fontSize: 24),
+                ),
+                const SizedBox(width: 6),
+                Text(
+                  _baseCurrency,
+                  style: theme.textTheme.titleSmall?.copyWith(
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8),
+                  child: Icon(
+                    Icons.arrow_forward,
+                    size: 16,
+                    color: theme.colorScheme.primary,
+                  ),
+                ),
+                Text(
+                  Currencies.getByCode(currencyCode)?.flag ?? '',
+                  style: const TextStyle(fontSize: 24),
+                ),
+                const SizedBox(width: 6),
+                Text(
+                  currencyCode,
+                  style: theme.textTheme.titleSmall?.copyWith(
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 8),
+            Text(
+              _formatNumber(rate * (Currencies.getByCode(_baseCurrency)?.baseUnit ?? 1)),
+              style: theme.textTheme.headlineSmall?.copyWith(
+                fontWeight: FontWeight.bold,
+                color: theme.colorScheme.primary,
+              ),
+            ),
+            Text(
+              '/ ${_formatNumber((Currencies.getByCode(_baseCurrency)?.baseUnit ?? 1).toDouble())} $_baseCurrency',
+              style: theme.textTheme.bodySmall?.copyWith(
+                color: theme.colorScheme.onSurface.withValues(alpha: 0.5),
+              ),
+            ),
+            const SizedBox(height: 8),
+            Text(
+              l10n.saveRateDescription,
+              style: theme.textTheme.bodySmall?.copyWith(
+                color: theme.colorScheme.onSurface.withValues(alpha: 0.6),
+              ),
+              textAlign: TextAlign.center,
+            ),
+          ],
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context, false),
+            child: Text(l10n.cancel),
+          ),
+          TextButton(
+            onPressed: () => Navigator.pop(context, true),
+            child: Text(l10n.save),
+          ),
+        ],
       ),
     );
+
+    if (confirmed != true || !mounted) return;
+
+    if (isPremium) {
+      _saveRate(currencyCode, rate);
+    } else {
+      final adShown = await _adService.showRewardedAd(
+        onRewarded: (_) {
+          if (mounted) _saveRate(currencyCode, rate);
+        },
+      );
+
+      if (!adShown && mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(l10n.adNotReady)),
+        );
+      }
+    }
+  }
+
+  Future<void> _saveRate(String currencyCode, double rate) async {
+    await _historyService.saveRate(
+      baseCode: _baseCurrency,
+      targetCode: currencyCode,
+      rate: rate,
+    );
+
+    if (mounted) {
+      final l10n = AppLocalizations.of(context)!;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(l10n.rateSaved),
+          backgroundColor: Colors.green,
+        ),
+      );
+    }
   }
 }
 
@@ -667,12 +790,13 @@ class _RateCard extends StatelessWidget {
               children: [
                 Text(
                   _formatRate(adjustedRate, targetCurrency),
-                  style: theme.textTheme.titleLarge?.copyWith(
+                  style: theme.textTheme.headlineSmall?.copyWith(
                     fontWeight: FontWeight.bold,
+                    color: theme.colorScheme.primary,
                   ),
                 ),
                 Text(
-                  _formatBaseUnit(inputAmount, baseCurrency),
+                  '/ ${_formatBaseUnit(inputAmount, baseCurrency)}',
                   style: theme.textTheme.bodySmall?.copyWith(
                     color: theme.colorScheme.onSurface.withValues(alpha: 0.6),
                   ),

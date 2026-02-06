@@ -1,5 +1,4 @@
 import 'package:flutter/foundation.dart';
-import 'package:drift/drift.dart';
 import '../../data/database/app_database.dart';
 
 class RateHistoryService {
@@ -22,7 +21,6 @@ class RateHistoryService {
     required String baseCode,
     required String targetCode,
     required double rate,
-    String? memo,
   }) async {
     final id = await _db.insertSavedRate(
       SavedRatesCompanion.insert(
@@ -30,7 +28,6 @@ class RateHistoryService {
         targetCode: targetCode,
         rate: rate,
         savedAt: DateTime.now(),
-        memo: Value(memo),
       ),
     );
 

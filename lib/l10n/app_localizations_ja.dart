@@ -185,4 +185,15 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get networkError => 'ネットワーク接続を確認してください';
+
+  @override
+  String get saveRateDescription => '現在の為替レートを記録として保存します';
+
+  @override
+  String get viewChart => 'グラフを見る';
+
+  @override
+  String chartDescription(int count) {
+    return '$count件の記録で為替レートの推移を確認します';
+  }
 }
