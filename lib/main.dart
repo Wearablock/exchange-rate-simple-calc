@@ -40,6 +40,11 @@ class EasyExchangeApp extends StatefulWidget {
     state?._setLocale(code);
   }
 
+  static void setThemeMode(BuildContext context, String mode) {
+    final state = context.findAncestorStateOfType<_EasyExchangeAppState>();
+    state?._setThemeMode(mode);
+  }
+
   @override
   State<EasyExchangeApp> createState() => _EasyExchangeAppState();
 }
@@ -67,6 +72,12 @@ class _EasyExchangeAppState extends State<EasyExchangeApp> {
   void _setLocale(String? code) {
     setState(() {
       _locale = _parseLocale(code);
+    });
+  }
+
+  void _setThemeMode(String mode) {
+    setState(() {
+      _themeMode = _getThemeModeFromString(mode);
     });
   }
 

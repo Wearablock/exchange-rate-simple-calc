@@ -190,9 +190,9 @@ class _HistoryScreenState extends State<HistoryScreen> {
                   const SizedBox(width: 8),
                   ReorderableDragStartListener(
                     index: index,
-                    child: const Icon(
+                    child: Icon(
                       Icons.drag_handle,
-                      color: Colors.grey,
+                      color: Theme.of(context).colorScheme.outline,
                     ),
                   ),
                 ],

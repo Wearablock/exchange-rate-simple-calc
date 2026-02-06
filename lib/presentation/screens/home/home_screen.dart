@@ -711,7 +711,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(l10n.rateSaved),
-          backgroundColor: Colors.green,
+          backgroundColor: Theme.of(context).colorScheme.primary,
         ),
       );
     }
@@ -816,9 +816,9 @@ class _RateCard extends StatelessWidget {
             // 드래그 핸들
             ReorderableDragStartListener(
               index: index,
-              child: const Icon(
+              child: Icon(
                 Icons.drag_handle,
-                color: Colors.grey,
+                color: Theme.of(context).colorScheme.outline,
               ),
             ),
           ],

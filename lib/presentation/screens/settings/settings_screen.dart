@@ -93,7 +93,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
       setState(() {
         _themeMode = result;
       });
-      // TODO: 앱 전체 테마 변경 적용
+      if (mounted) {
+        EasyExchangeApp.setThemeMode(context, result);
+      }
     }
   }
 
