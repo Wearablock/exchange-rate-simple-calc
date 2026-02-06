@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'l10n/app_localizations.dart';
 
 import 'core/config/app_config.dart';
@@ -12,12 +13,17 @@ import 'presentation/screens/main/main_shell.dart';
 import 'presentation/screens/onboarding/onboarding_screen.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+  // 스플래시 유지
+  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
 
   // 서비스 초기화
   await PreferencesService().initialize();
   await AdService().initialize();
   await IAPService().initialize();
+
+  // 스플래시 종료
+  FlutterNativeSplash.remove();
 
   runApp(
     const ProviderScope(

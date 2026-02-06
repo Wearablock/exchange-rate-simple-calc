@@ -6,6 +6,29 @@ class AppTheme {
   AppTheme._();
 
   // ============================================================
+  // 폰트 두께 강화된 텍스트 테마
+  // ============================================================
+  static TextTheme _buildTextTheme(TextTheme base) {
+    return base.copyWith(
+      displayLarge: base.displayLarge?.copyWith(fontWeight: FontWeight.w700),
+      displayMedium: base.displayMedium?.copyWith(fontWeight: FontWeight.w700),
+      displaySmall: base.displaySmall?.copyWith(fontWeight: FontWeight.w700),
+      headlineLarge: base.headlineLarge?.copyWith(fontWeight: FontWeight.w700),
+      headlineMedium: base.headlineMedium?.copyWith(fontWeight: FontWeight.w600),
+      headlineSmall: base.headlineSmall?.copyWith(fontWeight: FontWeight.w600),
+      titleLarge: base.titleLarge?.copyWith(fontWeight: FontWeight.w700),
+      titleMedium: base.titleMedium?.copyWith(fontWeight: FontWeight.w600),
+      titleSmall: base.titleSmall?.copyWith(fontWeight: FontWeight.w600),
+      bodyLarge: base.bodyLarge?.copyWith(fontWeight: FontWeight.w500),
+      bodyMedium: base.bodyMedium?.copyWith(fontWeight: FontWeight.w500),
+      bodySmall: base.bodySmall?.copyWith(fontWeight: FontWeight.w500),
+      labelLarge: base.labelLarge?.copyWith(fontWeight: FontWeight.w600),
+      labelMedium: base.labelMedium?.copyWith(fontWeight: FontWeight.w500),
+      labelSmall: base.labelSmall?.copyWith(fontWeight: FontWeight.w500),
+    );
+  }
+
+  // ============================================================
   // Light Theme
   // ============================================================
   static ThemeData get lightTheme {
@@ -28,9 +51,9 @@ class AppTheme {
         scrolledUnderElevation: 0,
         centerTitle: true,
         iconTheme: IconThemeData(color: AppConfig.primaryColor),
-        titleTextStyle: GoogleFonts.notoSans(
+        titleTextStyle: GoogleFonts.outfit(
           fontSize: 20,
-          fontWeight: FontWeight.w600,
+          fontWeight: FontWeight.w700,
           color: AppConfig.primaryColor,
         ),
       ),
@@ -48,6 +71,9 @@ class AppTheme {
           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12),
+          ),
+          textStyle: GoogleFonts.outfit(
+            fontWeight: FontWeight.w600,
           ),
         ),
       ),
@@ -83,21 +109,22 @@ class AppTheme {
         ),
         contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
       ),
-      textTheme: GoogleFonts.notoSansTextTheme(),
+      textTheme: _buildTextTheme(GoogleFonts.outfitTextTheme()),
       navigationBarTheme: NavigationBarThemeData(
         backgroundColor: Colors.white,
         elevation: 3,
         indicatorColor: AppConfig.primaryColor.withValues(alpha: 0.1),
         labelTextStyle: WidgetStateProperty.resolveWith((states) {
           if (states.contains(WidgetState.selected)) {
-            return TextStyle(
+            return GoogleFonts.outfit(
               color: AppConfig.primaryColor,
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w700,
               fontSize: 12,
             );
           }
-          return const TextStyle(
+          return GoogleFonts.outfit(
             color: Colors.grey,
+            fontWeight: FontWeight.w500,
             fontSize: 12,
           );
         }),
@@ -143,9 +170,9 @@ class AppTheme {
         scrolledUnderElevation: 0,
         centerTitle: true,
         iconTheme: IconThemeData(color: AppConfig.primaryLightColor),
-        titleTextStyle: GoogleFonts.notoSans(
+        titleTextStyle: GoogleFonts.outfit(
           fontSize: 20,
-          fontWeight: FontWeight.w600,
+          fontWeight: FontWeight.w700,
           color: AppConfig.primaryLightColor,
         ),
       ),
@@ -163,6 +190,9 @@ class AppTheme {
           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12),
+          ),
+          textStyle: GoogleFonts.outfit(
+            fontWeight: FontWeight.w600,
           ),
         ),
       ),
@@ -198,21 +228,22 @@ class AppTheme {
         ),
         contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
       ),
-      textTheme: GoogleFonts.notoSansTextTheme(ThemeData.dark().textTheme),
+      textTheme: _buildTextTheme(GoogleFonts.outfitTextTheme(ThemeData.dark().textTheme)),
       navigationBarTheme: NavigationBarThemeData(
         backgroundColor: const Color(0xFF1E1E1E),
         elevation: 3,
         indicatorColor: AppConfig.primaryLightColor.withValues(alpha: 0.2),
         labelTextStyle: WidgetStateProperty.resolveWith((states) {
           if (states.contains(WidgetState.selected)) {
-            return TextStyle(
+            return GoogleFonts.outfit(
               color: AppConfig.primaryLightColor,
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w700,
               fontSize: 12,
             );
           }
-          return const TextStyle(
+          return GoogleFonts.outfit(
             color: Colors.grey,
+            fontWeight: FontWeight.w500,
             fontSize: 12,
           );
         }),

@@ -47,6 +47,9 @@ dependencies:
   http: ^1.2.2
   url_launcher: ^6.3.1
 
+  # 스플래시
+  flutter_native_splash: ^2.4.7
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -57,27 +60,36 @@ dev_dependencies:
   build_runner: ^2.4.14
   drift_dev: ^2.22.1
 
-  # 스플래시 & 아이콘
-  flutter_native_splash: ^2.4.4
-  flutter_launcher_icons: ^0.14.3
+  # 아이콘
+  flutter_launcher_icons: ^0.14.4
 
 # 스플래시 화면 설정
 flutter_native_splash:
-  color: "#4CAF50"
+  color: "#FAFAFA"
   color_dark: "#121212"
   image: assets/splash/splash_logo.png
+  branding: assets/splash/splash_branding.png
+  branding_mode: bottom
+  branding_bottom_padding: 50
   android_12:
-    color: "#4CAF50"
+    color: "#FAFAFA"
     color_dark: "#121212"
-    image: assets/splash/splash_logo.png
+    image: assets/splash/splash_logo_android12.png
+    branding: assets/splash/splash_branding.png
+    branding_mode: bottom
+    branding_bottom_padding: 50
+  ios: true
+  android: true
+  web: false
 
 # 앱 아이콘 설정
 flutter_launcher_icons:
   android: true
   ios: true
   image_path: "assets/icon/app_icon.png"
-  adaptive_icon_background: "#4CAF50"
+  adaptive_icon_background: "#FFFFFF"
   adaptive_icon_foreground: "assets/icon/app_icon.png"
+  remove_alpha_ios: true
   min_sdk_android: 21
 
 flutter:
