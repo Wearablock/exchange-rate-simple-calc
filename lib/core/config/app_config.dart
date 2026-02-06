@@ -59,20 +59,32 @@ class AppConfig {
   // ============================================================
 
   // 테스트 광고 ID
-  static const String _testBannerIdAndroid = 'ca-app-pub-3940256099942544/6300978111';
-  static const String _testBannerIdIOS = 'ca-app-pub-3940256099942544/2934735716';
-  static const String _testInterstitialIdAndroid = 'ca-app-pub-3940256099942544/1033173712';
-  static const String _testInterstitialIdIOS = 'ca-app-pub-3940256099942544/4411468910';
-  static const String _testRewardedIdAndroid = 'ca-app-pub-3940256099942544/5224354917';
-  static const String _testRewardedIdIOS = 'ca-app-pub-3940256099942544/1712485313';
+  static const String _testBannerIdAndroid =
+      'ca-app-pub-3940256099942544/6300978111';
+  static const String _testBannerIdIOS =
+      'ca-app-pub-3940256099942544/2934735716';
+  static const String _testInterstitialIdAndroid =
+      'ca-app-pub-3940256099942544/1033173712';
+  static const String _testInterstitialIdIOS =
+      'ca-app-pub-3940256099942544/4411468910';
+  static const String _testRewardedIdAndroid =
+      'ca-app-pub-3940256099942544/5224354917';
+  static const String _testRewardedIdIOS =
+      'ca-app-pub-3940256099942544/1712485313';
 
   // 프로덕션 광고 ID
-  static const String _prodBannerIdAndroid = 'ca-app-pub-8841058711613546/8750577075';
-  static const String _prodBannerIdIOS = 'ca-app-pub-8841058711613546/6946550559';
-  static const String _prodInterstitialIdAndroid = 'ca-app-pub-8841058711613546/6124413732';
-  static const String _prodInterstitialIdIOS = 'ca-app-pub-8841058711613546/8259622487';
-  static const String _prodRewardedIdAndroid = 'ca-app-pub-8841058711613546/2185168726';
-  static const String _prodRewardedIdIOS = 'ca-app-pub-8841058711613546/4396408830';
+  static const String _prodBannerIdAndroid =
+      'ca-app-pub-8841058711613546/8750577075';
+  static const String _prodBannerIdIOS =
+      'ca-app-pub-8841058711613546/6946550559';
+  static const String _prodInterstitialIdAndroid =
+      'ca-app-pub-8841058711613546/6124413732';
+  static const String _prodInterstitialIdIOS =
+      'ca-app-pub-8841058711613546/8259622487';
+  static const String _prodRewardedIdAndroid =
+      'ca-app-pub-8841058711613546/2185168726';
+  static const String _prodRewardedIdIOS =
+      'ca-app-pub-8841058711613546/4396408830';
 
   // 플랫폼별 광고 ID 반환
   static String getBannerId({required bool isTestMode}) {
@@ -84,9 +96,13 @@ class AppConfig {
 
   static String getInterstitialId({required bool isTestMode}) {
     if (isTestMode) {
-      return Platform.isAndroid ? _testInterstitialIdAndroid : _testInterstitialIdIOS;
+      return Platform.isAndroid
+          ? _testInterstitialIdAndroid
+          : _testInterstitialIdIOS;
     }
-    return Platform.isAndroid ? _prodInterstitialIdAndroid : _prodInterstitialIdIOS;
+    return Platform.isAndroid
+        ? _prodInterstitialIdAndroid
+        : _prodInterstitialIdIOS;
   }
 
   static String getRewardedId({required bool isTestMode}) {
@@ -99,12 +115,14 @@ class AppConfig {
   // ============================================================
   // 인앱결제 설정 (IAP)
   // ============================================================
-  static const String removeAdsProductId = 'exchange_rate_simple_calc_remove_ads';
+  static const String removeAdsProductId =
+      'exchange_rate_simple_calc_remove_ads';
 
   // ============================================================
   // 외부 URL
   // ============================================================
-  static const String _baseDocsUrl = 'https://wearablock.github.io/exchange_rate_simple_calc';
+  static const String _baseDocsUrl =
+      'https://wearablock.github.io/exchange-rate-simple-calc';
   static const String termsUrl = '$_baseDocsUrl/terms.html';
   static const String privacyUrl = '$_baseDocsUrl/privacy.html';
   static const String supportUrl = '$_baseDocsUrl/support.html';
