@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Support - Easy Exchange</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <div class="header-brand">
+        <img src="logo.png" alt="Easy Exchange">
+        <span>Easy Exchange</span>
+      </div>
+      <div class="lang-selector">
+        <select id="langSelect" onchange="switchLang(this.value)">
+          <option value="en">English</option>
+          <option value="ko">한국어</option>
+          <option value="ja">日本語</option>
+          <option value="zh">简体中文</option>
+          <option value="zh-TW">繁體中文</option>
+          <option value="de">Deutsch</option>
+          <option value="fr">Français</option>
+          <option value="es">Español</option>
+          <option value="pt">Português</option>
+          <option value="it">Italiano</option>
+          <option value="ru">Русский</option>
+          <option value="ar">العربية</option>
+          <option value="th">ไทย</option>
+          <option value="vi">Tiếng Việt</option>
+          <option value="id">Bahasa Indonesia</option>
+        </select>
+      </div>
+    </div>
+  </header>
+
+  <div class="content">
+    <!-- English -->
+    <div id="content-en" class="lang-section">
+      <h1>Support</h1>
+      <p class="effective-date">Easy Exchange - Help & FAQ</p>
+
+      <h2>Frequently Asked Questions</h2>
+
+      <div class="faq-item">
+        <h3>Where do the exchange rates come from?</h3>
+        <p>Exchange rates are sourced from ExchangeRate-API, a reliable third-party data provider. Rates are updated periodically and are for reference purposes only.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>How do I change my base currency?</h3>
+        <p>Go to Settings and tap "Base Currency" to select your preferred currency from the list.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Can I use the app offline?</h3>
+        <p>Yes! The app caches exchange rates locally. You can view the last fetched rates and use the converter even without an internet connection.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>How do I remove ads?</h3>
+        <p>Go to Settings and tap "Remove Ads" to make a one-time purchase. Once purchased, all ads will be permanently removed.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>I purchased ad removal but ads still appear.</h3>
+        <p>Try using "Restore Purchase" in Settings. If the issue persists, please contact us via email.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Is my data stored on a server?</h3>
+        <p>No. All your data (currency preferences, saved rates, settings) is stored only on your device. We do not collect or transmit any personal data.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>How do I save an exchange rate?</h3>
+        <p>On the home screen, tap the bookmark icon on any currency card to save the current rate. You can view saved rates in the History section.</p>
+      </div>
+
+      <div class="contact-box">
+        <h2>Still need help?</h2>
+        <p>Contact us and we'll get back to you as soon as possible.</p>
+        <a href="mailto:easy.exchange.app@gmail.com">easy.exchange.app@gmail.com</a>
+      </div>
+    </div>
+
+    <!-- Korean -->
+    <div id="content-ko" class="lang-section">
+      <h1>지원</h1>
+      <p class="effective-date">Easy Exchange - 도움말 및 FAQ</p>
+
+      <h2>자주 묻는 질문</h2>
+
+      <div class="faq-item">
+        <h3>환율 데이터는 어디서 가져오나요?</h3>
+        <p>환율은 신뢰할 수 있는 제3자 데이터 제공업체인 ExchangeRate-API에서 제공됩니다. 환율은 주기적으로 업데이트되며 참고용으로만 제공됩니다.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>기준 통화는 어떻게 변경하나요?</h3>
+        <p>설정에서 "기준 통화"를 탭하여 목록에서 원하는 통화를 선택하세요.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>오프라인에서 사용할 수 있나요?</h3>
+        <p>네! 앱은 환율을 로컬에 캐시합니다. 인터넷 연결 없이도 마지막으로 가져온 환율을 확인하고 환산 기능을 사용할 수 있습니다.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>광고를 제거하려면 어떻게 하나요?</h3>
+        <p>설정에서 "광고 제거"를 탭하여 일회성 구매를 진행하세요. 구매 후 모든 광고가 영구적으로 제거됩니다.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>광고 제거를 구매했는데 광고가 계속 표시됩니다.</h3>
+        <p>설정에서 "구매 복원"을 시도해 보세요. 문제가 지속되면 이메일로 문의해 주세요.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>내 데이터가 서버에 저장되나요?</h3>
+        <p>아니요. 모든 데이터(통화 설정, 저장된 환율, 설정)는 기기에만 저장됩니다. 개인 데이터를 수집하거나 전송하지 않습니다.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>환율은 어떻게 저장하나요?</h3>
+        <p>홈 화면에서 통화 카드의 북마크 아이콘을 탭하여 현재 환율을 저장하세요. 저장된 환율은 히스토리 섹션에서 확인할 수 있습니다.</p>
+      </div>
+
+      <div class="contact-box">
+        <h2>도움이 더 필요하신가요?</h2>
+        <p>문의해 주시면 최대한 빨리 답변드리겠습니다.</p>
+        <a href="mailto:easy.exchange.app@gmail.com">easy.exchange.app@gmail.com</a>
+      </div>
+    </div>
+
+    <!-- Japanese -->
+    <div id="content-ja" class="lang-section">
+      <h1>サポート</h1>
+      <p class="effective-date">Easy Exchange - ヘルプとFAQ</p>
+
+      <h2>よくある質問</h2>
+
+      <div class="faq-item">
+        <h3>為替レートはどこから取得していますか？</h3>
+        <p>為替レートは、信頼性の高いサードパーティデータプロバイダーであるExchangeRate-APIから提供されています。レートは定期的に更新され、参考情報としてのみ提供されます。</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>基準通貨はどのように変更しますか？</h3>
+        <p>設定で「基準通貨」をタップし、リストからお好みの通貨を選択してください。</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>オフラインで使用できますか？</h3>
+        <p>はい！アプリは為替レートをローカルにキャッシュします。インターネット接続がなくても、最後に取得したレートを確認し、換算機能を使用できます。</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>広告を削除するにはどうすればいいですか？</h3>
+        <p>設定で「広告削除」をタップし、一回限りの購入を行ってください。購入後、すべての広告が永久に削除されます。</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>広告削除を購入しましたが、まだ広告が表示されます。</h3>
+        <p>設定で「購入を復元」をお試しください。問題が解決しない場合は、メールでお問い合わせください。</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>データはサーバーに保存されますか？</h3>
+        <p>いいえ。すべてのデータ（通貨設定、保存されたレート、設定）はデバイスにのみ保存されます。個人データの収集や送信は行いません。</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>為替レートはどのように保存しますか？</h3>
+        <p>ホーム画面で通貨カードのブックマークアイコンをタップして、現在のレートを保存してください。保存されたレートは履歴セクションで確認できます。</p>
+      </div>
+
+      <div class="contact-box">
+        <h2>まだお困りですか？</h2>
+        <p>お問い合わせいただければ、できるだけ早くお返事いたします。</p>
+        <a href="mailto:easy.exchange.app@gmail.com">easy.exchange.app@gmail.com</a>
+      </div>
+    </div>
+
+    <!-- Chinese Simplified -->
+    <div id="content-zh" class="lang-section">
+      <h1>支持</h1>
+      <p class="effective-date">Easy Exchange - 帮助与常见问题</p>
+
+      <h2>常见问题</h2>
+
+      <div class="faq-item">
+        <h3>汇率数据来自哪里？</h3>
+        <p>汇率来自可靠的第三方数据提供商ExchangeRate-API。汇率定期更新，仅供参考。</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>如何更改基准货币？</h3>
+        <p>进入设置，点击"基准货币"从列表中选择您想要的货币。</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>可以离线使用吗？</h3>
+        <p>可以！应用会在本地缓存汇率。即使没有网络连接，也可以查看最近获取的汇率并使用转换功能。</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>如何移除广告？</h3>
+        <p>进入设置，点击"移除广告"进行一次性购买。购买后，所有广告将永久移除。</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>我购买了广告移除但广告仍然出现。</h3>
+        <p>请尝试在设置中使用"恢复购买"。如果问题持续存在，请通过邮件联系我们。</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>我的数据会存储在服务器上吗？</h3>
+        <p>不会。您的所有数据（货币偏好、保存的汇率、设置）仅存储在您的设备上。我们不收集或传输任何个人数据。</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>如何保存汇率？</h3>
+        <p>在主屏幕上，点击任意货币卡片上的书签图标来保存当前汇率。您可以在历史记录中查看已保存的汇率。</p>
+      </div>
+
+      <div class="contact-box">
+        <h2>还需要帮助吗？</h2>
+        <p>联系我们，我们会尽快回复您。</p>
+        <a href="mailto:easy.exchange.app@gmail.com">easy.exchange.app@gmail.com</a>
+      </div>
+    </div>
+
+    <!-- Chinese Traditional -->
+    <div id="content-zh-TW" class="lang-section">
+      <h1>支援</h1>
+      <p class="effective-date">Easy Exchange - 幫助與常見問題</p>
+
+      <h2>常見問題</h2>
+
+      <div class="faq-item">
+        <h3>匯率資料來自哪裡？</h3>
+        <p>匯率來自可靠的第三方資料提供商ExchangeRate-API。匯率定期更新，僅供參考。</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>如何更改基準貨幣？</h3>
+        <p>進入設定，點擊「基準貨幣」從列表中選擇您想要的貨幣。</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>可以離線使用嗎？</h3>
+        <p>可以！應用程式會在本機快取匯率。即使沒有網路連線，也可以查看最近取得的匯率並使用轉換功能。</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>如何移除廣告？</h3>
+        <p>進入設定，點擊「移除廣告」進行一次性購買。購買後，所有廣告將永久移除。</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>我購買了廣告移除但廣告仍然出現。</h3>
+        <p>請嘗試在設定中使用「恢復購買」。如果問題持續存在，請透過郵件聯繫我們。</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>我的資料會儲存在伺服器上嗎？</h3>
+        <p>不會。您的所有資料（貨幣偏好、儲存的匯率、設定）僅儲存在您的裝置上。我們不收集或傳輸任何個人資料。</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>如何儲存匯率？</h3>
+        <p>在主畫面上，點擊任意貨幣卡片上的書籤圖示來儲存當前匯率。您可以在歷史記錄中查看已儲存的匯率。</p>
+      </div>
+
+      <div class="contact-box">
+        <h2>還需要幫助嗎？</h2>
+        <p>聯繫我們，我們會盡快回覆您。</p>
+        <a href="mailto:easy.exchange.app@gmail.com">easy.exchange.app@gmail.com</a>
+      </div>
+    </div>
+
+    <!-- German -->
+    <div id="content-de" class="lang-section">
+      <h1>Support</h1>
+      <p class="effective-date">Easy Exchange - Hilfe & FAQ</p>
+
+      <h2>Häufig gestellte Fragen</h2>
+
+      <div class="faq-item">
+        <h3>Woher stammen die Wechselkurse?</h3>
+        <p>Die Wechselkurse stammen von ExchangeRate-API, einem zuverlässigen Drittanbieter. Die Kurse werden regelmäßig aktualisiert und dienen nur als Referenz.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Wie ändere ich meine Basiswährung?</h3>
+        <p>Gehen Sie zu Einstellungen und tippen Sie auf „Basiswährung", um Ihre bevorzugte Währung aus der Liste auszuwählen.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Kann ich die App offline verwenden?</h3>
+        <p>Ja! Die App speichert Wechselkurse lokal. Sie können die zuletzt abgerufenen Kurse anzeigen und den Umrechner auch ohne Internetverbindung nutzen.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Wie entferne ich Werbung?</h3>
+        <p>Gehen Sie zu Einstellungen und tippen Sie auf „Werbung entfernen" für einen einmaligen Kauf. Nach dem Kauf werden alle Anzeigen dauerhaft entfernt.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Ich habe die Werbeentfernung gekauft, aber es werden noch Anzeigen angezeigt.</h3>
+        <p>Versuchen Sie „Kauf wiederherstellen" in den Einstellungen. Wenn das Problem weiterhin besteht, kontaktieren Sie uns bitte per E-Mail.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Werden meine Daten auf einem Server gespeichert?</h3>
+        <p>Nein. Alle Ihre Daten (Währungseinstellungen, gespeicherte Kurse, Einstellungen) werden nur auf Ihrem Gerät gespeichert. Wir erheben oder übertragen keine persönlichen Daten.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Wie speichere ich einen Wechselkurs?</h3>
+        <p>Tippen Sie auf dem Startbildschirm auf das Lesezeichen-Symbol auf einer Währungskarte, um den aktuellen Kurs zu speichern. Gespeicherte Kurse finden Sie im Verlauf.</p>
+      </div>
+
+      <div class="contact-box">
+        <h2>Brauchen Sie noch Hilfe?</h2>
+        <p>Kontaktieren Sie uns und wir melden uns schnellstmöglich bei Ihnen.</p>
+        <a href="mailto:easy.exchange.app@gmail.com">easy.exchange.app@gmail.com</a>
+      </div>
+    </div>
+
+    <!-- French -->
+    <div id="content-fr" class="lang-section">
+      <h1>Support</h1>
+      <p class="effective-date">Easy Exchange - Aide et FAQ</p>
+
+      <h2>Questions fréquentes</h2>
+
+      <div class="faq-item">
+        <h3>D'où proviennent les taux de change ?</h3>
+        <p>Les taux de change proviennent d'ExchangeRate-API, un fournisseur de données tiers fiable. Les taux sont mis à jour périodiquement et sont fournis à titre indicatif uniquement.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Comment changer ma devise de base ?</h3>
+        <p>Allez dans Paramètres et appuyez sur « Devise de base » pour sélectionner votre devise préférée dans la liste.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Puis-je utiliser l'application hors ligne ?</h3>
+        <p>Oui ! L'application met en cache les taux de change localement. Vous pouvez consulter les derniers taux récupérés et utiliser le convertisseur même sans connexion Internet.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Comment supprimer les publicités ?</h3>
+        <p>Allez dans Paramètres et appuyez sur « Supprimer les publicités » pour effectuer un achat unique. Après l'achat, toutes les publicités seront définitivement supprimées.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>J'ai acheté la suppression des publicités mais elles apparaissent toujours.</h3>
+        <p>Essayez « Restaurer l'achat » dans les Paramètres. Si le problème persiste, contactez-nous par e-mail.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Mes données sont-elles stockées sur un serveur ?</h3>
+        <p>Non. Toutes vos données (préférences de devise, taux enregistrés, paramètres) sont stockées uniquement sur votre appareil. Nous ne collectons ni ne transmettons aucune donnée personnelle.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Comment sauvegarder un taux de change ?</h3>
+        <p>Sur l'écran d'accueil, appuyez sur l'icône de signet sur une carte de devise pour enregistrer le taux actuel. Les taux enregistrés sont consultables dans la section Historique.</p>
+      </div>
+
+      <div class="contact-box">
+        <h2>Besoin d'aide supplémentaire ?</h2>
+        <p>Contactez-nous et nous vous répondrons dans les plus brefs délais.</p>
+        <a href="mailto:easy.exchange.app@gmail.com">easy.exchange.app@gmail.com</a>
+      </div>
+    </div>
+
+    <!-- Spanish -->
+    <div id="content-es" class="lang-section">
+      <h1>Soporte</h1>
+      <p class="effective-date">Easy Exchange - Ayuda y FAQ</p>
+
+      <h2>Preguntas frecuentes</h2>
+
+      <div class="faq-item">
+        <h3>¿De dónde provienen los tipos de cambio?</h3>
+        <p>Los tipos de cambio provienen de ExchangeRate-API, un proveedor de datos de terceros confiable. Las tasas se actualizan periódicamente y son solo para referencia.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>¿Cómo cambio mi moneda base?</h3>
+        <p>Ve a Configuración y toca "Moneda base" para seleccionar tu moneda preferida de la lista.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>¿Puedo usar la aplicación sin conexión?</h3>
+        <p>¡Sí! La aplicación almacena los tipos de cambio localmente. Puedes ver las últimas tasas obtenidas y usar el conversor incluso sin conexión a Internet.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>¿Cómo elimino los anuncios?</h3>
+        <p>Ve a Configuración y toca "Eliminar anuncios" para realizar una compra única. Después de la compra, todos los anuncios se eliminarán permanentemente.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Compré la eliminación de anuncios pero siguen apareciendo.</h3>
+        <p>Intenta "Restaurar compra" en Configuración. Si el problema persiste, contáctanos por correo electrónico.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>¿Se almacenan mis datos en un servidor?</h3>
+        <p>No. Todos tus datos (preferencias de moneda, tasas guardadas, configuración) se almacenan solo en tu dispositivo. No recopilamos ni transmitimos datos personales.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>¿Cómo guardo un tipo de cambio?</h3>
+        <p>En la pantalla principal, toca el icono de marcador en cualquier tarjeta de moneda para guardar la tasa actual. Puedes ver las tasas guardadas en la sección Historial.</p>
+      </div>
+
+      <div class="contact-box">
+        <h2>¿Aún necesitas ayuda?</h2>
+        <p>Contáctanos y te responderemos lo antes posible.</p>
+        <a href="mailto:easy.exchange.app@gmail.com">easy.exchange.app@gmail.com</a>
+      </div>
+    </div>
+
+    <!-- Portuguese -->
+    <div id="content-pt" class="lang-section">
+      <h1>Suporte</h1>
+      <p class="effective-date">Easy Exchange - Ajuda e FAQ</p>
+
+      <h2>Perguntas Frequentes</h2>
+
+      <div class="faq-item">
+        <h3>De onde vêm as taxas de câmbio?</h3>
+        <p>As taxas de câmbio são fornecidas pela ExchangeRate-API, um provedor de dados terceirizado confiável. As taxas são atualizadas periodicamente e servem apenas como referência.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Como altero minha moeda base?</h3>
+        <p>Vá em Configurações e toque em "Moeda Base" para selecionar sua moeda preferida da lista.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Posso usar o aplicativo offline?</h3>
+        <p>Sim! O aplicativo armazena taxas de câmbio localmente. Você pode ver as últimas taxas obtidas e usar o conversor mesmo sem conexão com a Internet.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Como removo os anúncios?</h3>
+        <p>Vá em Configurações e toque em "Remover Anúncios" para fazer uma compra única. Após a compra, todos os anúncios serão removidos permanentemente.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Comprei a remoção de anúncios mas eles ainda aparecem.</h3>
+        <p>Tente "Restaurar Compra" nas Configurações. Se o problema persistir, entre em contato conosco por e-mail.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Meus dados são armazenados em um servidor?</h3>
+        <p>Não. Todos os seus dados (preferências de moeda, taxas salvas, configurações) são armazenados apenas no seu dispositivo. Não coletamos nem transmitimos dados pessoais.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Como salvo uma taxa de câmbio?</h3>
+        <p>Na tela inicial, toque no ícone de favorito em qualquer cartão de moeda para salvar a taxa atual. Você pode ver as taxas salvas na seção Histórico.</p>
+      </div>
+
+      <div class="contact-box">
+        <h2>Ainda precisa de ajuda?</h2>
+        <p>Entre em contato e responderemos o mais rápido possível.</p>
+        <a href="mailto:easy.exchange.app@gmail.com">easy.exchange.app@gmail.com</a>
+      </div>
+    </div>
+
+    <!-- Italian -->
+    <div id="content-it" class="lang-section">
+      <h1>Supporto</h1>
+      <p class="effective-date">Easy Exchange - Aiuto e FAQ</p>
+
+      <h2>Domande Frequenti</h2>
+
+      <div class="faq-item">
+        <h3>Da dove provengono i tassi di cambio?</h3>
+        <p>I tassi di cambio provengono da ExchangeRate-API, un affidabile fornitore di dati di terze parti. I tassi vengono aggiornati periodicamente e sono solo a scopo di riferimento.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Come cambio la mia valuta base?</h3>
+        <p>Vai in Impostazioni e tocca "Valuta base" per selezionare la tua valuta preferita dall'elenco.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Posso usare l'app offline?</h3>
+        <p>Sì! L'app memorizza i tassi di cambio localmente. Puoi visualizzare gli ultimi tassi scaricati e usare il convertitore anche senza connessione Internet.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Come rimuovo la pubblicità?</h3>
+        <p>Vai in Impostazioni e tocca "Rimuovi pubblicità" per effettuare un acquisto una tantum. Dopo l'acquisto, tutta la pubblicità verrà rimossa permanentemente.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Ho acquistato la rimozione della pubblicità ma gli annunci appaiono ancora.</h3>
+        <p>Prova "Ripristina acquisto" nelle Impostazioni. Se il problema persiste, contattaci via email.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>I miei dati sono archiviati su un server?</h3>
+        <p>No. Tutti i tuoi dati (preferenze valutarie, tassi salvati, impostazioni) sono archiviati solo sul tuo dispositivo. Non raccogliamo né trasmettiamo dati personali.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Come salvo un tasso di cambio?</h3>
+        <p>Nella schermata principale, tocca l'icona del segnalibro su qualsiasi scheda valuta per salvare il tasso attuale. Puoi visualizzare i tassi salvati nella sezione Cronologia.</p>
+      </div>
+
+      <div class="contact-box">
+        <h2>Hai ancora bisogno di aiuto?</h2>
+        <p>Contattaci e ti risponderemo il prima possibile.</p>
+        <a href="mailto:easy.exchange.app@gmail.com">easy.exchange.app@gmail.com</a>
+      </div>
+    </div>
+
+    <!-- Russian -->
+    <div id="content-ru" class="lang-section">
+      <h1>Поддержка</h1>
+      <p class="effective-date">Easy Exchange - Помощь и FAQ</p>
+
+      <h2>Часто задаваемые вопросы</h2>
+
+      <div class="faq-item">
+        <h3>Откуда берутся курсы валют?</h3>
+        <p>Курсы валют предоставлены ExchangeRate-API, надёжным сторонним поставщиком данных. Курсы обновляются периодически и предоставляются только для справки.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Как изменить базовую валюту?</h3>
+        <p>Перейдите в Настройки и нажмите «Базовая валюта», чтобы выбрать предпочитаемую валюту из списка.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Можно ли использовать приложение офлайн?</h3>
+        <p>Да! Приложение кэширует курсы валют локально. Вы можете просматривать последние полученные курсы и использовать конвертер даже без подключения к Интернету.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Как удалить рекламу?</h3>
+        <p>Перейдите в Настройки и нажмите «Удалить рекламу» для разовой покупки. После покупки вся реклама будет навсегда удалена.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Я купил удаление рекламы, но реклама всё ещё появляется.</h3>
+        <p>Попробуйте «Восстановить покупку» в Настройках. Если проблема сохраняется, свяжитесь с нами по электронной почте.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Хранятся ли мои данные на сервере?</h3>
+        <p>Нет. Все ваши данные (валютные настройки, сохранённые курсы, настройки) хранятся только на вашем устройстве. Мы не собираем и не передаём персональные данные.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Как сохранить курс валют?</h3>
+        <p>На главном экране нажмите значок закладки на любой карточке валюты, чтобы сохранить текущий курс. Сохранённые курсы доступны в разделе История.</p>
+      </div>
+
+      <div class="contact-box">
+        <h2>Нужна дополнительная помощь?</h2>
+        <p>Свяжитесь с нами, и мы ответим как можно скорее.</p>
+        <a href="mailto:easy.exchange.app@gmail.com">easy.exchange.app@gmail.com</a>
+      </div>
+    </div>
+
+    <!-- Arabic -->
+    <div id="content-ar" class="lang-section" dir="rtl">
+      <h1>الدعم</h1>
+      <p class="effective-date">Easy Exchange - المساعدة والأسئلة الشائعة</p>
+
+      <h2>الأسئلة الشائعة</h2>
+
+      <div class="faq-item">
+        <h3>من أين تأتي أسعار الصرف؟</h3>
+        <p>تأتي أسعار الصرف من ExchangeRate-API، وهو مزود بيانات خارجي موثوق. يتم تحديث الأسعار بشكل دوري وهي للإشارة فقط.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>كيف أغير العملة الأساسية؟</h3>
+        <p>انتقل إلى الإعدادات واضغط على "العملة الأساسية" لاختيار عملتك المفضلة من القائمة.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>هل يمكنني استخدام التطبيق بدون اتصال؟</h3>
+        <p>نعم! يخزن التطبيق أسعار الصرف محلياً. يمكنك عرض آخر الأسعار المحملة واستخدام المحول حتى بدون اتصال بالإنترنت.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>كيف أزيل الإعلانات؟</h3>
+        <p>انتقل إلى الإعدادات واضغط على "إزالة الإعلانات" لإجراء عملية شراء لمرة واحدة. بعد الشراء، ستتم إزالة جميع الإعلانات نهائياً.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>اشتريت إزالة الإعلانات لكنها لا تزال تظهر.</h3>
+        <p>جرب "استعادة الشراء" في الإعدادات. إذا استمرت المشكلة، يرجى التواصل معنا عبر البريد الإلكتروني.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>هل يتم تخزين بياناتي على خادم؟</h3>
+        <p>لا. جميع بياناتك (تفضيلات العملة، الأسعار المحفوظة، الإعدادات) مخزنة فقط على جهازك. نحن لا نجمع أو ننقل أي بيانات شخصية.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>كيف أحفظ سعر الصرف؟</h3>
+        <p>في الشاشة الرئيسية، اضغط على أيقونة الإشارة المرجعية في أي بطاقة عملة لحفظ السعر الحالي. يمكنك عرض الأسعار المحفوظة في قسم السجل.</p>
+      </div>
+
+      <div class="contact-box">
+        <h2>هل لا تزال بحاجة إلى مساعدة؟</h2>
+        <p>تواصل معنا وسنرد عليك في أقرب وقت ممكن.</p>
+        <a href="mailto:easy.exchange.app@gmail.com">easy.exchange.app@gmail.com</a>
+      </div>
+    </div>
+
+    <!-- Thai -->
+    <div id="content-th" class="lang-section">
+      <h1>ช่วยเหลือ</h1>
+      <p class="effective-date">Easy Exchange - ช่วยเหลือและคำถามที่พบบ่อย</p>
+
+      <h2>คำถามที่พบบ่อย</h2>
+
+      <div class="faq-item">
+        <h3>อัตราแลกเปลี่ยนมาจากไหน?</h3>
+        <p>อัตราแลกเปลี่ยนมาจาก ExchangeRate-API ผู้ให้บริการข้อมูลบุคคลที่สามที่เชื่อถือได้ อัตราจะอัปเดตเป็นระยะและเป็นเพียงข้อมูลอ้างอิงเท่านั้น</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>จะเปลี่ยนสกุลเงินหลักได้อย่างไร?</h3>
+        <p>ไปที่การตั้งค่าแล้วแตะ "สกุลเงินหลัก" เพื่อเลือกสกุลเงินที่ต้องการจากรายการ</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>ใช้แอปแบบออฟไลน์ได้ไหม?</h3>
+        <p>ได้! แอปจะเก็บอัตราแลกเปลี่ยนไว้ในเครื่อง คุณสามารถดูอัตราล่าสุดที่ดึงมาและใช้ตัวแปลงค่าได้แม้ไม่มีการเชื่อมต่ออินเทอร์เน็ต</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>จะลบโฆษณาได้อย่างไร?</h3>
+        <p>ไปที่การตั้งค่าแล้วแตะ "ลบโฆษณา" เพื่อซื้อครั้งเดียว หลังจากซื้อแล้ว โฆษณาทั้งหมดจะถูกลบออกอย่างถาวร</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>ฉันซื้อการลบโฆษณาแล้วแต่โฆษณายังแสดงอยู่</h3>
+        <p>ลอง "กู้คืนการซื้อ" ในการตั้งค่า หากปัญหายังคงอยู่ กรุณาติดต่อเราทางอีเมล</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>ข้อมูลของฉันถูกเก็บบนเซิร์ฟเวอร์หรือไม่?</h3>
+        <p>ไม่ ข้อมูลทั้งหมดของคุณ (การตั้งค่าสกุลเงิน อัตราที่บันทึก การตั้งค่า) จะถูกเก็บไว้บนอุปกรณ์ของคุณเท่านั้น เราไม่รวบรวมหรือส่งข้อมูลส่วนบุคคลใด ๆ</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>จะบันทึกอัตราแลกเปลี่ยนได้อย่างไร?</h3>
+        <p>บนหน้าจอหลัก แตะไอคอนบุ๊กมาร์กบนการ์ดสกุลเงินใด ๆ เพื่อบันทึกอัตราปัจจุบัน คุณสามารถดูอัตราที่บันทึกไว้ในส่วนประวัติ</p>
+      </div>
+
+      <div class="contact-box">
+        <h2>ยังต้องการความช่วยเหลือ?</h2>
+        <p>ติดต่อเราแล้วเราจะตอบกลับโดยเร็วที่สุด</p>
+        <a href="mailto:easy.exchange.app@gmail.com">easy.exchange.app@gmail.com</a>
+      </div>
+    </div>
+
+    <!-- Vietnamese -->
+    <div id="content-vi" class="lang-section">
+      <h1>Hỗ trợ</h1>
+      <p class="effective-date">Easy Exchange - Trợ giúp và FAQ</p>
+
+      <h2>Câu hỏi thường gặp</h2>
+
+      <div class="faq-item">
+        <h3>Tỷ giá hối đoái lấy từ đâu?</h3>
+        <p>Tỷ giá hối đoái được cung cấp bởi ExchangeRate-API, nhà cung cấp dữ liệu bên thứ ba đáng tin cậy. Tỷ giá được cập nhật định kỳ và chỉ mang tính tham khảo.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Làm thế nào để thay đổi đơn vị tiền tệ cơ sở?</h3>
+        <p>Vào Cài đặt và nhấn "Tiền tệ cơ sở" để chọn loại tiền tệ mong muốn từ danh sách.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Tôi có thể sử dụng ứng dụng ngoại tuyến không?</h3>
+        <p>Có! Ứng dụng lưu trữ tỷ giá cục bộ. Bạn có thể xem tỷ giá được tải gần nhất và sử dụng bộ chuyển đổi ngay cả khi không có kết nối Internet.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Làm thế nào để xóa quảng cáo?</h3>
+        <p>Vào Cài đặt và nhấn "Xóa quảng cáo" để mua một lần. Sau khi mua, tất cả quảng cáo sẽ bị xóa vĩnh viễn.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Tôi đã mua xóa quảng cáo nhưng quảng cáo vẫn xuất hiện.</h3>
+        <p>Hãy thử "Khôi phục mua hàng" trong Cài đặt. Nếu sự cố vẫn tiếp diễn, vui lòng liên hệ qua email.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Dữ liệu của tôi có được lưu trên máy chủ không?</h3>
+        <p>Không. Tất cả dữ liệu (tùy chọn tiền tệ, tỷ giá đã lưu, cài đặt) chỉ được lưu trữ trên thiết bị của bạn. Chúng tôi không thu thập hoặc truyền dữ liệu cá nhân.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Làm thế nào để lưu tỷ giá hối đoái?</h3>
+        <p>Trên màn hình chính, nhấn biểu tượng đánh dấu trên bất kỳ thẻ tiền tệ nào để lưu tỷ giá hiện tại. Bạn có thể xem tỷ giá đã lưu trong phần Lịch sử.</p>
+      </div>
+
+      <div class="contact-box">
+        <h2>Vẫn cần trợ giúp?</h2>
+        <p>Liên hệ với chúng tôi, chúng tôi sẽ phản hồi sớm nhất có thể.</p>
+        <a href="mailto:easy.exchange.app@gmail.com">easy.exchange.app@gmail.com</a>
+      </div>
+    </div>
+
+    <!-- Indonesian -->
+    <div id="content-id" class="lang-section">
+      <h1>Dukungan</h1>
+      <p class="effective-date">Easy Exchange - Bantuan & FAQ</p>
+
+      <h2>Pertanyaan yang Sering Diajukan</h2>
+
+      <div class="faq-item">
+        <h3>Dari mana data nilai tukar berasal?</h3>
+        <p>Nilai tukar bersumber dari ExchangeRate-API, penyedia data pihak ketiga yang terpercaya. Nilai tukar diperbarui secara berkala dan hanya untuk referensi.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Bagaimana cara mengubah mata uang dasar?</h3>
+        <p>Buka Pengaturan dan ketuk "Mata Uang Dasar" untuk memilih mata uang pilihan Anda dari daftar.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Bisakah saya menggunakan aplikasi secara offline?</h3>
+        <p>Ya! Aplikasi menyimpan nilai tukar secara lokal. Anda dapat melihat nilai tukar terakhir yang diambil dan menggunakan konverter meskipun tanpa koneksi Internet.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Bagaimana cara menghapus iklan?</h3>
+        <p>Buka Pengaturan dan ketuk "Hapus Iklan" untuk melakukan pembelian satu kali. Setelah pembelian, semua iklan akan dihapus secara permanen.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Saya sudah membeli penghapusan iklan tapi iklan masih muncul.</h3>
+        <p>Coba "Pulihkan Pembelian" di Pengaturan. Jika masalah berlanjut, silakan hubungi kami melalui email.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Apakah data saya disimpan di server?</h3>
+        <p>Tidak. Semua data Anda (preferensi mata uang, nilai tukar tersimpan, pengaturan) hanya disimpan di perangkat Anda. Kami tidak mengumpulkan atau mengirimkan data pribadi apa pun.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Bagaimana cara menyimpan nilai tukar?</h3>
+        <p>Di layar utama, ketuk ikon bookmark pada kartu mata uang mana pun untuk menyimpan nilai tukar saat ini. Anda dapat melihat nilai tukar tersimpan di bagian Riwayat.</p>
+      </div>
+
+      <div class="contact-box">
+        <h2>Masih butuh bantuan?</h2>
+        <p>Hubungi kami dan kami akan membalas secepat mungkin.</p>
+        <a href="mailto:easy.exchange.app@gmail.com">easy.exchange.app@gmail.com</a>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p>&copy; <span id="year"></span> Easy Exchange. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function switchLang(lang) {
+      document.querySelectorAll('.lang-section').forEach(function(el) {
+        el.classList.remove('active');
+      });
+      var target = document.getElementById('content-' + lang);
+      if (target) {
+        target.classList.add('active');
+      } else {
+        document.getElementById('content-en').classList.add('active');
+      }
+      document.getElementById('langSelect').value = lang;
+      if (lang === 'ar') {
+        document.documentElement.setAttribute('dir', 'rtl');
+      } else {
+        document.documentElement.removeAttribute('dir');
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      document.getElementById('year').textContent = new Date().getFullYear();
+      var params = new URLSearchParams(window.location.search);
+      var lang = params.get('lang') || 'en';
+      switchLang(lang);
+    });
+  </script>
+</body>
+</html>

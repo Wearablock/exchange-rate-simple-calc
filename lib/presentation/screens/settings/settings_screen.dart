@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import '../../../core/config/app_config.dart';
 import '../../../core/constants/currencies.dart';
 import '../../../core/services/preferences_service.dart';
 import '../../../core/services/iap_service.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../widgets/currency_select_dialog.dart';
+import 'webview_screen.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});
@@ -128,6 +130,33 @@ class _SettingsScreenState extends State<SettingsScreen> {
     }
   }
 
+  void _openWebView(String title, String baseUrl) {
+    // Determine language code for the HTML page
+    String? langCode = _prefsService.languageCode;
+    if (langCode == null) {
+      final locale = Localizations.localeOf(context);
+      if (locale.scriptCode == 'Hant') {
+        langCode = 'zh-TW';
+      } else {
+        langCode = locale.languageCode;
+      }
+    } else if (langCode == 'zh_Hant') {
+      langCode = 'zh-TW';
+    }
+
+    final url = '$baseUrl?lang=$langCode';
+
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => WebViewScreen(
+          title: title,
+          url: url,
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
@@ -205,19 +234,22 @@ class _SettingsScreenState extends State<SettingsScreen> {
           ListTile(
             leading: const Icon(Icons.description_outlined),
             title: Text(l10n.privacyPolicy),
-            trailing: const Icon(Icons.open_in_new),
-            onTap: () {
-              // TODO: 개인정보처리방침 URL 열기
-            },
+            trailing: const Icon(Icons.chevron_right),
+            onTap: () => _openWebView(l10n.privacyPolicy, AppConfig.privacyUrl),
           ),
 
           ListTile(
             leading: const Icon(Icons.article_outlined),
             title: Text(l10n.termsOfService),
-            trailing: const Icon(Icons.open_in_new),
-            onTap: () {
-              // TODO: 이용약관 URL 열기
-            },
+            trailing: const Icon(Icons.chevron_right),
+            onTap: () => _openWebView(l10n.termsOfService, AppConfig.termsUrl),
+          ),
+
+          ListTile(
+            leading: const Icon(Icons.help_outline),
+            title: Text(l10n.support),
+            trailing: const Icon(Icons.chevron_right),
+            onTap: () => _openWebView(l10n.support, AppConfig.supportUrl),
           ),
 
           const SizedBox(height: 32),

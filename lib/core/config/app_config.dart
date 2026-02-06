@@ -110,7 +110,9 @@ class AppConfig {
   // ============================================================
   // 외부 URL
   // ============================================================
-  static const String termsUrl = 'https://example.com/terms';
-  static const String privacyUrl = 'https://example.com/privacy';
-  static const String supportUrl = 'https://example.com/support';
+  // TODO: Replace with actual GitHub Pages URL after deployment
+  static const String _baseDocsUrl = 'https://example.github.io/easy-exchange';
+  static const String termsUrl = '$_baseDocsUrl/terms.html';
+  static const String privacyUrl = '$_baseDocsUrl/privacy.html';
+  static const String supportUrl = '$_baseDocsUrl/support.html';
 }
