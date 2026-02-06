@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import '../../../core/constants/currencies.dart';
 import '../../../core/services/preferences_service.dart';
+import '../../../core/services/exchange_rate_service.dart';
+import '../../../data/models/exchange_rate.dart';
 import '../../../l10n/app_localizations.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -12,10 +14,13 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   final PreferencesService _prefsService = PreferencesService();
+  final ExchangeRateService _exchangeService = ExchangeRateService();
 
   String _baseCurrency = 'USD';
   List<String> _watchList = [];
+  ExchangeRateResponse? _rates;
   bool _isLoading = true;
+  String? _error;
 
   @override
   void initState() {
@@ -24,18 +29,73 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Future<void> _loadData() async {
+    final baseCurrency = _prefsService.baseCurrency;
+    // 기준 통화를 관심 목록에서 제외
+    final watchList = _prefsService.watchList
+        .where((code) => code != baseCurrency)
+        .toList();
+
     setState(() {
-      _baseCurrency = _prefsService.baseCurrency;
-      _watchList = _prefsService.watchList;
-      _isLoading = false;
+      _baseCurrency = baseCurrency;
+      _watchList = watchList;
+      _isLoading = true;
+      _error = null;
     });
+
+    // API에서 환율 데이터 가져오기
+    final rates = await _exchangeService.getRates(_baseCurrency);
+
+    if (mounted) {
+      setState(() {
+        _isLoading = false;
+        if (rates != null) {
+          _rates = rates;
+        } else {
+          _error = 'Failed to load exchange rates';
+        }
+      });
+    }
   }
 
   Future<void> _refresh() async {
-    setState(() => _isLoading = true);
-    // TODO: API에서 환율 데이터 가져오기
-    await Future.delayed(const Duration(seconds: 1));
-    setState(() => _isLoading = false);
+    setState(() {
+      _isLoading = true;
+      _error = null;
+    });
+
+    // 강제 새로고침
+    final rates = await _exchangeService.refreshRates(_baseCurrency);
+
+    if (mounted) {
+      setState(() {
+        _isLoading = false;
+        if (rates != null) {
+          _rates = rates;
+        }
+      });
+    }
+  }
+
+  double _getRate(String targetCode) {
+    return _rates?.getRateValue(targetCode) ?? 0;
+  }
+
+  String _getLastUpdatedText(AppLocalizations l10n) {
+    final lastUpdate = _exchangeService.lastUpdateTime;
+    if (lastUpdate == null || _rates == null) {
+      return '${l10n.lastUpdated}: -';
+    }
+
+    final now = DateTime.now();
+    final diff = now.difference(lastUpdate);
+
+    if (diff.inMinutes < 1) {
+      return '${l10n.lastUpdated}: ${l10n.justNow}';
+    } else if (diff.inMinutes < 60) {
+      return '${l10n.lastUpdated}: ${l10n.minutesAgo(diff.inMinutes)}';
+    } else {
+      return '${l10n.lastUpdated}: ${l10n.hoursAgo(diff.inHours)}';
+    }
   }
 
   @override
@@ -82,7 +142,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ),
                               ),
                               Text(
-                                '${l10n.lastUpdated}: ${l10n.justNow}',
+                                _getLastUpdatedText(l10n),
                                 style: theme.textTheme.bodySmall?.copyWith(
                                   color: theme.colorScheme.onSurface.withValues(alpha: 0.6),
                                 ),
@@ -94,8 +154,44 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
 
+                  // 에러 상태
+                  if (_error != null && _rates == null)
+                    SliverFillRemaining(
+                      child: Center(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(
+                              Icons.cloud_off,
+                              size: 64,
+                              color: theme.colorScheme.error,
+                            ),
+                            const SizedBox(height: 16),
+                            Text(
+                              l10n.loadingFailed,
+                              style: theme.textTheme.bodyLarge?.copyWith(
+                                color: theme.colorScheme.error,
+                              ),
+                            ),
+                            const SizedBox(height: 8),
+                            Text(
+                              l10n.networkError,
+                              style: theme.textTheme.bodyMedium?.copyWith(
+                                color: theme.colorScheme.outline,
+                              ),
+                            ),
+                            const SizedBox(height: 16),
+                            ElevatedButton.icon(
+                              onPressed: _loadData,
+                              icon: const Icon(Icons.refresh),
+                              label: Text(l10n.retry),
+                            ),
+                          ],
+                        ),
+                      ),
+                    )
                   // 관심 통화 목록
-                  if (_watchList.isEmpty)
+                  else if (_watchList.isEmpty)
                     SliverFillRemaining(
                       child: Center(
                         child: Column(
@@ -127,7 +223,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             return _RateCard(
                               baseCurrency: _baseCurrency,
                               targetCurrency: currencyCode,
-                              rate: _getMockRate(currencyCode),
+                              rate: _getRate(currencyCode),
                               onSave: () => _showSaveDialog(currencyCode),
                             );
                           },
@@ -144,21 +240,6 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
     );
-  }
-
-  // 임시 환율 데이터 (나중에 API로 대체)
-  double _getMockRate(String currencyCode) {
-    final mockRates = {
-      'KRW': 1350.50,
-      'JPY': 149.25,
-      'EUR': 0.92,
-      'GBP': 0.79,
-      'CNY': 7.24,
-      'AUD': 1.53,
-      'CAD': 1.36,
-      'CHF': 0.88,
-    };
-    return mockRates[currencyCode] ?? 1.0;
   }
 
   void _showSaveDialog(String currencyCode) {

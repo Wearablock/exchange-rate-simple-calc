@@ -60,7 +60,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
         .where((c) => c != _selectedBaseCurrency)
         .toList();
 
-    // 관심 통화 DB에 저장
+    // 관심 통화 저장 (SharedPreferences + DB 둘 다)
+    await _prefsService.setWatchList(targetCurrencies);
     await _historyService.setWatchList(targetCurrencies);
 
     // 온보딩 완료 표시
@@ -132,7 +133,21 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     selectedCurrency: _selectedBaseCurrency,
                     onCurrencySelected: (currency) {
                       setState(() {
+                        final oldBaseCurrency = _selectedBaseCurrency;
                         _selectedBaseCurrency = currency;
+
+                        // 새 기준 통화를 관심 목록에서 제거
+                        _selectedTargetCurrencies = _selectedTargetCurrencies
+                            .where((c) => c != currency)
+                            .toList();
+
+                        // 이전 기준 통화를 관심 목록 맨 앞에 추가 (없는 경우)
+                        if (!_selectedTargetCurrencies.contains(oldBaseCurrency)) {
+                          _selectedTargetCurrencies = [
+                            oldBaseCurrency,
+                            ..._selectedTargetCurrencies,
+                          ];
+                        }
                       });
                     },
                     onNext: _nextPage,
