@@ -1,0 +1,1 @@
+Rilis pertama! Cek kurs secara real-time, konversi mata uang secara instan, simpan kurs, dan lacak tren dengan grafik interaktif. Mendukung 15 bahasa.

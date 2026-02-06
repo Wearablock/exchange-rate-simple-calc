@@ -1,0 +1,75 @@
+default_platform(:ios)
+
+# App Store Connect API Key
+def api_key
+  app_store_connect_api_key(
+    key_id: "H9Z8PM46JZ",
+    issuer_id: "61771d9b-ea3e-409d-9d3b-c4ee05e77ae8",
+    key_filepath: File.expand_path("~/.appstoreconnect/private_keys/AuthKey_H9Z8PM46JZ.p8")
+  )
+end
+
+platform :ios do
+
+  desc "Upload to TestFlight"
+  lane :beta do
+    api_key
+    sh("cd ../.. && flutter build ipa --release --export-options-plist=ios/ExportOptions.plist")
+    upload_to_testflight(
+      ipa: "../build/ios/ipa/Exchange Rate.ipa",
+      skip_waiting_for_build_processing: true
+    )
+  end
+
+  desc "Upload to App Store"
+  lane :release do
+    api_key
+    sh("cd ../.. && flutter build ipa --release --export-options-plist=ios/ExportOptions.plist")
+    deliver(
+      ipa: "../build/ios/ipa/Exchange Rate.ipa",
+      skip_metadata: true,
+      skip_screenshots: true,
+      submit_for_review: false,
+      precheck_include_in_app_purchases: false
+    )
+  end
+
+  desc "Upload metadata and screenshots"
+  lane :deploy_all do
+    api_key
+    deliver(
+      ipa: "../build/ios/ipa/Exchange Rate.ipa",
+      skip_metadata: false,
+      skip_screenshots: false,
+      overwrite_screenshots: true,
+      screenshots_path: "../../store-automation/output/appstore",
+      submit_for_review: false,
+      precheck_include_in_app_purchases: false
+    )
+  end
+
+  desc "Upload metadata only"
+  lane :metadata do
+    api_key
+    deliver(
+      skip_binary_upload: true,
+      skip_metadata: false,
+      skip_screenshots: true,
+      precheck_include_in_app_purchases: false
+    )
+  end
+
+  desc "Upload screenshots only"
+  lane :screenshots do
+    api_key
+    deliver(
+      skip_binary_upload: true,
+      skip_metadata: true,
+      skip_screenshots: false,
+      overwrite_screenshots: true,
+      screenshots_path: "../../store-automation/output/appstore",
+      precheck_include_in_app_purchases: false
+    )
+  end
+
+end

@@ -8,7 +8,7 @@ class AppConfig {
   // 앱 기본 정보
   // ============================================================
   static const String appName = 'Easy Exchange';
-  static const String appId = 'com.example.exchange_rate_simple_calc';
+  static const String appId = 'com.wearablock.exchange_rate_simple_calc';
 
   // ============================================================
   // 브랜드 색상

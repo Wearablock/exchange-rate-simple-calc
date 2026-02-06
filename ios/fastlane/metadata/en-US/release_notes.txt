@@ -1,0 +1,1 @@
+Initial release! Check real-time exchange rates, convert currencies instantly, save rates, and track trends with interactive charts. Supports 15 languages.

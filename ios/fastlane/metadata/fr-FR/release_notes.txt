@@ -1,0 +1,1 @@
+Première version ! Consultez les taux de change en temps réel, convertissez instantanément les devises, sauvegardez les taux et suivez les tendances avec des graphiques interactifs. 15 langues prises en charge.

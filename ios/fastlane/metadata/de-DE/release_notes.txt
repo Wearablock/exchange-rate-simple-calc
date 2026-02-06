@@ -1,0 +1,1 @@
+Erstveröffentlichung! Echtzeit-Wechselkurse prüfen, Währungen sofort umrechnen, Kurse speichern und Trends mit interaktiven Diagrammen verfolgen. Unterstützt 15 Sprachen.

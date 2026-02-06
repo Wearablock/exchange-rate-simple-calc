@@ -1,0 +1,39 @@
+Exchange Rate - Simple Calc makes it easy to check live exchange rates and convert currencies instantly.
+
+Whether you're traveling abroad, sending money overseas, or simply curious about today's rates, this app gives you the information you need in seconds.
+
+KEY FEATURES
+
+■ Instant Currency Converter
+Enter an amount and see conversions across multiple currencies in real time. Quick, accurate, and effortless.
+
+■ Track Multiple Currencies
+Add your favorite currency pairs and monitor all of them at a glance from the home screen.
+
+■ Save Exchange Rates
+Found a good rate? Save it with one tap. Keep a personal record of rates and never miss the right moment to exchange.
+
+■ Rate History
+Review your saved rates organized by date and currency pair. Easily look back at past rates to make better decisions.
+
+■ Trend Analysis
+Visualize exchange rate changes with interactive charts. Spot trends and patterns at a glance.
+
+■ Customizable Settings
+Choose your base currency, switch between light and dark mode, and set the app to your preferred language.
+
+■ 15 Languages Supported
+English, 한국어, 日本語, 简体中文, 繁體中文, Deutsch, Français, Español, Português, Italiano, Русский, العربية, ไทย, Tiếng Việt, Bahasa Indonesia
+
+■ Clean & Simple Design
+No clutter, no confusion. A minimal interface designed to get you the information you need fast.
+
+PERFECT FOR
+• Travelers checking local currency rates
+• Anyone sending or receiving money internationally
+• Currency enthusiasts tracking exchange rate movements
+• Business professionals managing multi-currency transactions
+
+All your data is stored locally on your device. We do not collect any personal information.
+
+Download now and start converting currencies with ease!
