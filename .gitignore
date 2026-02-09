@@ -46,3 +46,6 @@ app.*.map.json
 
 # Store automation
 store-automation/
+
+# Internal guides
+guides/

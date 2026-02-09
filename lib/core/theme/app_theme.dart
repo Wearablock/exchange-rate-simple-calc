@@ -6,25 +6,35 @@ class AppTheme {
   AppTheme._();
 
   // ============================================================
-  // 폰트 두께 강화된 텍스트 테마
+  // 폰트 두께 체계 (3단계)
+  //  - bold:     강조 (Display, Headline, AppBar 타이틀)
+  //  - semiBold: 준강조 (Title, Label, 버튼, 네비 선택)
+  //  - medium:   기본 (Body, Caption, 네비 미선택)
   // ============================================================
+  static const _bold = FontWeight.w700;
+  static const _semiBold = FontWeight.w600;
+  static const _medium = FontWeight.w500;
+
   static TextTheme _buildTextTheme(TextTheme base) {
     return base.copyWith(
-      displayLarge: base.displayLarge?.copyWith(fontWeight: FontWeight.w700),
-      displayMedium: base.displayMedium?.copyWith(fontWeight: FontWeight.w700),
-      displaySmall: base.displaySmall?.copyWith(fontWeight: FontWeight.w700),
-      headlineLarge: base.headlineLarge?.copyWith(fontWeight: FontWeight.w700),
-      headlineMedium: base.headlineMedium?.copyWith(fontWeight: FontWeight.w600),
-      headlineSmall: base.headlineSmall?.copyWith(fontWeight: FontWeight.w600),
-      titleLarge: base.titleLarge?.copyWith(fontWeight: FontWeight.w700),
-      titleMedium: base.titleMedium?.copyWith(fontWeight: FontWeight.w600),
-      titleSmall: base.titleSmall?.copyWith(fontWeight: FontWeight.w600),
-      bodyLarge: base.bodyLarge?.copyWith(fontWeight: FontWeight.w500),
-      bodyMedium: base.bodyMedium?.copyWith(fontWeight: FontWeight.w500),
-      bodySmall: base.bodySmall?.copyWith(fontWeight: FontWeight.w500),
-      labelLarge: base.labelLarge?.copyWith(fontWeight: FontWeight.w600),
-      labelMedium: base.labelMedium?.copyWith(fontWeight: FontWeight.w500),
-      labelSmall: base.labelSmall?.copyWith(fontWeight: FontWeight.w500),
+      // Bold — 대형 타이틀, 페이지 헤드라인
+      displayLarge: base.displayLarge?.copyWith(fontWeight: _bold),
+      displayMedium: base.displayMedium?.copyWith(fontWeight: _bold),
+      displaySmall: base.displaySmall?.copyWith(fontWeight: _bold),
+      headlineLarge: base.headlineLarge?.copyWith(fontWeight: _bold),
+      headlineMedium: base.headlineMedium?.copyWith(fontWeight: _bold),
+      headlineSmall: base.headlineSmall?.copyWith(fontWeight: _bold),
+      // Semi-bold — 섹션 타이틀, 라벨, 액션
+      titleLarge: base.titleLarge?.copyWith(fontWeight: _semiBold),
+      titleMedium: base.titleMedium?.copyWith(fontWeight: _semiBold),
+      titleSmall: base.titleSmall?.copyWith(fontWeight: _semiBold),
+      labelLarge: base.labelLarge?.copyWith(fontWeight: _semiBold),
+      labelMedium: base.labelMedium?.copyWith(fontWeight: _semiBold),
+      labelSmall: base.labelSmall?.copyWith(fontWeight: _semiBold),
+      // Medium — 본문 텍스트
+      bodyLarge: base.bodyLarge?.copyWith(fontWeight: _medium),
+      bodyMedium: base.bodyMedium?.copyWith(fontWeight: _medium),
+      bodySmall: base.bodySmall?.copyWith(fontWeight: _medium),
     );
   }
 
@@ -53,7 +63,7 @@ class AppTheme {
         iconTheme: IconThemeData(color: AppConfig.primaryColor),
         titleTextStyle: GoogleFonts.outfit(
           fontSize: 20,
-          fontWeight: FontWeight.w700,
+          fontWeight: _bold,
           color: AppConfig.primaryColor,
         ),
       ),
@@ -73,7 +83,7 @@ class AppTheme {
             borderRadius: BorderRadius.circular(12),
           ),
           textStyle: GoogleFonts.outfit(
-            fontWeight: FontWeight.w600,
+            fontWeight: _semiBold,
           ),
         ),
       ),
@@ -118,13 +128,13 @@ class AppTheme {
           if (states.contains(WidgetState.selected)) {
             return GoogleFonts.outfit(
               color: AppConfig.primaryColor,
-              fontWeight: FontWeight.w700,
+              fontWeight: _semiBold,
               fontSize: 12,
             );
           }
           return GoogleFonts.outfit(
             color: Colors.grey,
-            fontWeight: FontWeight.w500,
+            fontWeight: _medium,
             fontSize: 12,
           );
         }),
@@ -172,7 +182,7 @@ class AppTheme {
         iconTheme: IconThemeData(color: AppConfig.primaryLightColor),
         titleTextStyle: GoogleFonts.outfit(
           fontSize: 20,
-          fontWeight: FontWeight.w700,
+          fontWeight: _bold,
           color: AppConfig.primaryLightColor,
         ),
       ),
@@ -192,7 +202,7 @@ class AppTheme {
             borderRadius: BorderRadius.circular(12),
           ),
           textStyle: GoogleFonts.outfit(
-            fontWeight: FontWeight.w600,
+            fontWeight: _semiBold,
           ),
         ),
       ),
@@ -237,13 +247,13 @@ class AppTheme {
           if (states.contains(WidgetState.selected)) {
             return GoogleFonts.outfit(
               color: AppConfig.primaryLightColor,
-              fontWeight: FontWeight.w700,
+              fontWeight: _semiBold,
               fontSize: 12,
             );
           }
           return GoogleFonts.outfit(
             color: Colors.grey,
-            fontWeight: FontWeight.w500,
+            fontWeight: _medium,
             fontSize: 12,
           );
         }),
